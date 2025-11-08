@@ -210,9 +210,10 @@ This work is licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/
   author = {Guan, Boyuan (Keven)},
   title = {Agentic-AI Engineering Framework},
   year = {2025},
-  publisher = {GitHub},
-  url = {https://github.com/Keven1894/Agentic-AI-Research-Roadmap},
-  note = {First released: November 8, 2025}
+  publisher = {Zenodo},
+  version = {1.0.1},
+  doi = {10.5281/zenodo.17561541},
+  url = {https://doi.org/10.5281/zenodo.17561541}
 }
 ```
 

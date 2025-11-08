@@ -9,8 +9,9 @@ title: "Agentic-AI Lab: Engineering the Next Generation of Intelligent Systems"
 abstract: >
   A research framework for building production-grade AI agents through the Agentic-AI Engineering methodology —
   connecting Context → Documentation → Indexing → RAG → Fine-Tuning for sustainable, reproducible AI systems.
-version: "1.0.0"
+version: "1.0.1"
 date-released: 2025-11-08
+doi: 10.5281/zenodo.17561541
 license: "CC-BY-NC-4.0"
 repository-code: "https://github.com/Keven1894/Agentic-AI-Research-Roadmap"
 keywords:

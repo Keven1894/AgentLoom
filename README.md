@@ -1,5 +1,6 @@
 # Agentic-AI Lab — Engineering the Next Generation of Intelligent Systems
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17561541.svg)](https://doi.org/10.5281/zenodo.17561541)
 ![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)
 ![Status: Active](https://img.shields.io/badge/Status-Active-brightgreen)
 ![Made with: GPT-5 · Claude 4.5 · Cursor](https://img.shields.io/badge/Made%20with-GPT--5%20·%20Claude%204.5%20·%20Cursor-blue)
@@ -7,7 +8,8 @@
 **Author:** Dr. Boyuan (Keven) Guan  
 **Affiliation:** FIU Library & GIS Center  
 **First Public Release:** November 8, 2025  
-**Version:** 1.0
+**Version:** 1.0.1  
+**DOI:** [10.5281/zenodo.17561541](https://doi.org/10.5281/zenodo.17561541)
 
 ---
 
@@ -133,14 +135,14 @@ See [Research Timeline](docs/Research-Timeline-2025-2027.md) for detailed milest
 If you reference this framework or methodology, please cite:
 
 ```bibtex
-@misc{guan2025agenticai,
+@software{guan2025agenticai,
   author = {Guan, Boyuan (Keven)},
   title = {Agentic-AI Lab: Engineering the Next Generation of Intelligent Systems},
   year = {2025},
-  publisher = {GitHub},
-  journal = {GitHub repository},
-  howpublished = {\url{https://github.com/Keven1894/Agentic-AI-Research-Roadmap}},
-  note = {First released: November 8, 2025}
+  publisher = {Zenodo},
+  version = {1.0.1},
+  doi = {10.5281/zenodo.17561541},
+  url = {https://doi.org/10.5281/zenodo.17561541}
 }
 ```
 
