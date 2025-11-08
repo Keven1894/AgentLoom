@@ -139,7 +139,7 @@ If you reference this framework or methodology, please cite:
   year = {2025},
   publisher = {GitHub},
   journal = {GitHub repository},
-  howpublished = {\url{https://github.com/[your-username]/agentic-ai-lab}},
+  howpublished = {\url{https://github.com/Keven1894/Agentic-AI-Research-Roadmap}},
   note = {First released: November 8, 2025}
 }
 ```
