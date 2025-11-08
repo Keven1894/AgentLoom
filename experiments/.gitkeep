@@ -1,0 +1,25 @@
+# Experiments Directory
+
+This directory will contain experimental code and analysis scripts.
+
+## Structure (Planned)
+
+```
+experiments/
+├── envisor/          # Environmental data management case study
+├── virtual-guard/    # Multi-agent coordination case study
+├── dataverse/        # Digital library metadata case study
+├── education/        # Educational AI assistant case study
+├── common/           # Shared utilities and tools
+│   ├── indexing/     # Hybrid indexing implementations
+│   ├── rag/          # RAG pipeline components
+│   └── evaluation/   # Metrics and evaluation scripts
+└── notebooks/        # Jupyter notebooks for analysis
+```
+
+## Note
+
+Detailed experimental code will be released progressively as papers are published. This follows open science best practices while protecting ongoing research.
+
+For now, this directory serves as a placeholder. Check back after our first workshop paper is published (expected Q4 2025).
+

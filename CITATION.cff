@@ -1,0 +1,38 @@
+# Citation File Format (CFF)
+# https://citation-file-format.github.io/
+
+cff-version: 1.2.0
+message: "If you use this framework or reference this work, please cite it as below."
+type: software
+title: "Agentic-AI Engineering Framework"
+abstract: >
+  A systematic methodology for building production-grade AI agents through a 
+  closed learning loop: Context → Documentation → Indexing → RAG → Fine-Tuning.
+  This framework transforms one-off AI experiments into continuous, evidence-based 
+  AI systems that learn from doing, improve from feedback, and document their own reasoning.
+authors:
+  - family-names: "Guan"
+    given-names: "Boyuan"
+    alias: "Keven"
+    email: "bguan@fiu.edu"
+    affiliation: "Florida International University, Library & GIS Center"
+    orcid: "https://orcid.org/0000-0000-0000-0000"  # Update with actual ORCID when available
+repository-code: "https://github.com/[your-username]/agentic-ai-lab"
+url: "https://dataversedev.fiu.edu/ai/"
+keywords:
+  - agentic-ai
+  - ai-engineering
+  - llmops
+  - retrieval-augmented-generation
+  - rag
+  - ai-agents
+  - machine-learning-operations
+  - knowledge-management
+  - production-ai
+  - agentic-systems
+  - knowledge-loop
+license: "CC-BY-NC-4.0"
+date-released: "2025-11-08"
+version: "1.0"
+doi: ""  # To be filled after Zenodo integration
+

@@ -1,0 +1,18 @@
+# Figures Directory
+
+This directory contains diagrams and visualizations for the Agentic-AI Lab project.
+
+## Planned Figures
+
+1. **agentic-loop-diagram.png** - The five-stage closed loop (Context → Documentation → Indexing → RAG → Fine-Tuning)
+2. **system-architecture.png** - Hybrid indexing + RAG pipeline architecture
+3. **workflow-diagram.png** - Agentic-Dev Workflow cycle
+4. **case-study-results.png** - Comparative metrics across case studies
+
+## Format Guidelines
+
+- Use vector formats (SVG) when possible for scalability
+- PNG with at least 300 DPI for publication quality
+- Keep source files (e.g., .drawio, .pptx) in a separate `source/` subdirectory
+- Name files descriptively and consistently
+
