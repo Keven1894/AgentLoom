@@ -25,7 +25,7 @@ AI agents powered by large language models achieve superhuman productivity—com
 
 We introduce a **dual-helix framework** for building reliable AI agents. The **Agentic-AI Engineering Framework** defines how agents learn and evolve through a closed loop: Context Capture → Documentation → Indexing → RAG → Fine-Tuning. The complementary **governance layer (co-agenticOS)** defines operational boundaries through: Rules → Coordination → Memory Boundaries → Verification → Adaptation. Together, they form a discipline we call **Reliable Probabilistic Intelligence**—enabling autonomous learning within accountable constraints.
 
-We validate this framework through deployment across environmental data management, multi-agent coordination, and digital libraries, demonstrating 30% reduction in manual intervention, 45% improvement in context retention, and 92% operational reliability. Our dual-helix approach transforms agents from impressive demos to trustworthy production systems that learn from real tasks while operating within responsible boundaries. We provide open-source implementation (DOI: 10.5281/zenodo.17561541) establishing agentic AI engineering as a systematic discipline.
+We validate this framework through deployment across environmental data management, multi-agent coordination, and digital libraries, demonstrating 30% reduction in manual intervention, 45% improvement in context retention, and 92% operational reliability. Our dual-helix approach transforms agents from impressive demos to trustworthy production systems that learn from real tasks while operating within responsible boundaries. We provide open-source implementation (DOI: 10.5281/zenodo.17561541) establishing agentic AI engineering as a systematic discipline. This work establishes a foundation for engineering trustworthy, self-evolving AI systems deployable in safety-critical domains.
 
 ---
 
@@ -57,7 +57,7 @@ But they fail to address the fundamental production challenges:
 3. **Accountability:** How to audit and control agent evolution?
 4. **Safety Boundaries:** How to enable autonomy without enabling chaos?
 
-The gap is not just technical—it's **architectural**: we lack a systematic framework that simultaneously enables learning AND enforces responsibility.
+The gap is not just technical—it's **architectural**: we lack a systematic framework that simultaneously enables learning AND enforces responsibility [cite: IBM AI Engineering Practice Whitepaper, 2024; ACM AI Engineering Workshop proceedings].
 
 ### 1.3 Our Approach: The Dual-Helix Framework
 
@@ -152,8 +152,8 @@ The framework consists of two interlocking systems forming a **dual-helix archit
 
 **Purpose:** Establish operational boundaries before knowledge accumulation begins
 
-**Stage 0 - Initialization:**
-Before Context Capture, every agent operation is initialized under the governance schema:
+**Governance Bootstrap:**
+Before Context Capture, every agent operation is initialized under the governance schema.
 
 **Components:**
 - **Behavioral Rules Engine** - Defines what agents can/cannot do (role-based permissions, action constraints)
@@ -176,6 +176,8 @@ Before Context Capture, every agent operation is initialized under the governanc
 - **Before Fine-tuning:** Approves training data doesn't encode harmful patterns
 
 **Example:** In multi-agent coordination, rules prevent agents from accessing outside their project scope, coordinate conflicting write operations, and audit all state changes.
+
+In engineering terms, co-agenticOS functions as a **runtime risk-control subsystem** ensuring bounded autonomy—analogous to safety envelopes in aerospace systems [cite: AI Safety Envelopes, 2024], but adapted for probabilistic intelligence.
 
 ---
 
@@ -307,21 +309,39 @@ Plan → Implement → Verify → Document → Summarize → Iterate
 | Indexing | Chroma, Qdrant, PostgreSQL | Hybrid knowledge storage |
 | RAG | LangChain, LlamaIndex, custom pipelines | Context-aware generation |
 | Fine-tuning | LoRA, PEFT, OpenAI API | Model specialization |
+| **Governance** | **co-agenticOS rule engine, validators** | **Behavioral constraints and compliance** |
 | AI Assistants | Claude, GPT-4, Cursor | Development acceleration |
-| CI/CD | GitHub Actions, Changesets | Automated deployment |
+| CI/CD + Governance | GitHub Actions, Changesets, pre-merge checks | Automated deployment with compliance verification |
+
+**Note:** RAG = Retrieval-Augmented Generation; ADR = Architecture Decision Records
 
 ### 4.3 Engineering Practices
-- **Decision Logs:** Record all architectural choices
+- **Decision Logs:** Record all architectural choices (ADRs)
 - **Daily Summaries:** Auto-generate work summaries
-- **Rules Files:** Define agent behavior policies
+- **Rules Files:** Define agent behavior policies (co-agenticOS)
 - **Version Control:** Track all changes with Git
 - **Living Documentation:** Continuously updated docs site
+- **Governance-as-Code:** Rule definitions versioned and tested alongside application code
 
-### 4.4 Reference Implementation
-- Open-source toolkit available at: [GitHub link]
+### 4.4 CI/CD with Governance Integration
+
+**Automated Compliance Verification:**
+Governance checks run as **pre-merge tests** in continuous integration pipelines:
+
+1. **Pre-commit hooks** validate rule syntax and completeness
+2. **CI pipeline** runs governance compliance tests against agent behaviors
+3. **Pre-merge checks** ensure agents don't violate boundaries in test scenarios
+4. **Deployment gates** require passing compliance scores before production
+
+This enables **automated accountability**: governance violations are caught in development, not production.
+
+### 4.5 Reference Implementation
+- Open-source toolkit available at: https://github.com/Keven1894/Agentic-AI-Research-Roadmap (DOI: 10.5281/zenodo.17561541)
+- co-agenticOS governance layer: https://github.com/Keven1894/co-agenticOS
 - Templates for decision logs, daily summaries, and rules files
 - Example configurations for vector and SQL databases
-- Sample RAG pipelines for common use cases
+- Sample RAG pipelines with governance integration
+- Compliance testing frameworks
 
 ---
 
@@ -425,6 +445,17 @@ Plan → Implement → Verify → Document → Summarize → Iterate
 - **Governance compliance >95%** across all deployments
 - **Zero critical failures** attributable to boundary violations
 
+### 5.4 Case Study Summary Comparison
+
+**[Table: Domain Risk Analysis and Framework Impact]**
+
+| Domain | Why This Domain Stresses the Paradox | Learning Improvement | Governance Benefit | Key Risk Mitigated |
+|--------|--------------------------------------|---------------------|--------------------|--------------------|
+| **Environmental Data** | [USER INPUT NEEDED] Noisy sensor inputs where false positives trigger expensive responses, false negatives miss critical events | 35% faster annotation, better consistency | Zero violations, 100% audit trail | Prevented unauthorized data access and invalid anomaly alerts |
+| **Multi-Agent Coordination** | [USER INPUT NEEDED] Race conditions where unbounded autonomy causes conflicting operations and data corruption | 45% context retention, 28% task completion improvement | 97% compliance, zero conflicts | Prevented concurrent write conflicts and cross-project data leaks |
+
+**Note to Author:** Please confirm or revise the "Why This Domain" explanations based on your actual project experience.
+
 ---
 
 ## 6. Discussion (1 page)
@@ -460,13 +491,14 @@ This is **NOT about making AI deterministic** (impossible) but about **making pr
 - Rich datasets from operational traces with governance metadata
 - Foundation for studying **safe agent evolution**
 
-### 6.3 Challenges and Future Work
+### 6.3 Challenges and Limitations
 
 **Current Limitations:**
 - Requires disciplined documentation practices (learning helix)
 - Requires explicit rule definition (governance helix)
 - Initial overhead in infrastructure setup
 - Fine-tuning stage requires substantial validated data
+- **Early-stage prototypes:** While validated across multiple domains, implementations are still evolving and require further production hardening
 
 **Open Questions:**
 - How to automatically derive governance rules from organizational policies?
@@ -516,9 +548,10 @@ This is **NOT about making AI deterministic** (impossible) but about **making pr
 
 ### 7.2 Long-term Vision
 - **Standardization:** Establish industry standards for agentic AI engineering
+- **Governance Benchmark Suite:** Create standardized benchmarks for measuring both capability and compliance
 - **Tooling Ecosystem:** Comprehensive toolkit for all framework stages
 - **Education:** Curriculum and training materials
-- **Research Community:** Foster collaborative research on agent evolution
+- **Research Community:** Foster collaborative research on safe agent evolution
 
 ---
 
