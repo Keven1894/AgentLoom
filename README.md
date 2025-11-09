@@ -111,6 +111,35 @@ We welcome collaborations with:
 - FIU Division of IT
 - Pelican, OSG, and other research infrastructure partners
 
+## Agentic-AI Ecosystem
+
+This framework is implemented and validated through a connected ecosystem of projects:
+
+### Core Components
+
+| Repository | Role | Description |
+|------------|------|-------------|
+| **[Agentic-AI-Research-Roadmap](https://github.com/Keven1894/Agentic-AI-Research-Roadmap)** | 🎓 Theory & Methodology | Framework definition, research roadmap, and academic foundation |
+| **[co-agenticOS](https://github.com/Keven1894/co-agenticOS)** | 🧠 Execution & Governance | Runtime system for agent behavior rules, coordination protocols, and operational standards |
+
+### Implementation Layer (Planned)
+
+- **EnviStor Agentic Case** - Environmental data management validation
+- **Dataverse Agentic Case** - Digital library metadata curation
+- **Multi-Agent Coordination** - System orchestration examples
+
+### Relationship
+
+```
+[Agentic-AI Framework]  → defines what agents should do and how they learn
+         ↓
+[co-agenticOS]         → implements how agents behave and cooperate at runtime
+         ↓
+[Domain Applications]  → validates framework in real-world scenarios
+```
+
+**For implementation details and operational guidelines, see [co-agenticOS](https://github.com/Keven1894/co-agenticOS).**
+
 ## Publications & Roadmap
 
 **Stage 1 (2025 Q4):** Framework workshop paper  
