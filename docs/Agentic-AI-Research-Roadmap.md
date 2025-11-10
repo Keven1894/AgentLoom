@@ -270,6 +270,8 @@ Each domain provides:
 | **Software & IT Operations** | Log summarization, anomaly triage, auto-fix suggestions | Evaluate feedback loop for system self-healing |
 | **Industry Applications** | Multi-agent coordination and system orchestration | Measure operational reliability of agentic orchestration |
 
+**Featured Case Study:** The Dataverse Intelligent Virtual Assistant (DIVA) demonstrates end-to-end framework validation for the digital libraries domain, including schema-based context engineering (+23 pp accuracy), rules-as-memory institutional knowledge (100% consistency), and production metrics across 3+ months of operation. See `docs/case-studies/dataverse-diva.md` for full analysis.
+
 ---
 
 ## 5. Engineering Framework

@@ -46,6 +46,12 @@ directories:
       - figures/dual-helix-diagram-spec.md
     notes: >
       Final renderings should be exported alongside figure specs when available.
+  case_studies:
+    purpose: Production-validated applications illustrating the framework.
+    key_files:
+      - docs/case-studies/dataverse-diva.md
+    notes: >
+      Each case study should reference its archived source data and align with publication roadmap.
   archives:
     purpose: Historical transcripts, review summaries, and superseded artifacts.
     key_files:

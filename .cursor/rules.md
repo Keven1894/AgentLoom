@@ -32,6 +32,7 @@ Do not rename or relocate these files. They anchor Zenodo DOI integration, legal
 - `drafts/` — Pre-publication material. Flag as "draft" when quoting externally.
 - `meta/` — Update manifests whenever structure or key documents change.
 - `archives/` — Historical artifacts (`archives/context.log`, `archives/EDITORIAL_REVIEW_SUMMARY.md`). Treat as read-only except when adding archive metadata.
+- `docs/case-studies/` — Production case studies summarizing domain evidence; ensure each references its archived source.
 - `governance/` — Reserved for future co-agenticOS governance assets.
 - `experiments/` — Only commit validated experiments with accompanying documentation.
 - `figures/` — Store figure specifications and final exports.

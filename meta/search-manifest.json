@@ -51,6 +51,13 @@
       ]
     },
     {
+      "name": "case-studies",
+      "description": "Production case studies validating framework stages.",
+      "paths": [
+        "docs/case-studies/dataverse-diva.md"
+      ]
+    },
+    {
       "name": "governance",
       "description": "Future governance templates and compliance assets.",
       "paths": [
