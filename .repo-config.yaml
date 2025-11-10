@@ -1,0 +1,38 @@
+# Repository Configuration
+# This file is PRIVATE and not pushed to GitHub
+# It contains the dual-repository strategy configuration
+
+repositories:
+  private:
+    name: gitlab
+    url: https://gitlab.com/keven1894/agentic-ai-research-roadmap-private.git
+    description: Full research repository with all private content
+    default: true
+  
+  public:
+    name: origin
+    url: https://github.com/Keven1894/Agentic-AI-Research-Roadmap.git
+    description: Public framework and methodology (no private content)
+    default: false
+
+workflow:
+  primary_work: private
+  sync_to_public: manual
+  
+gitignore_files:
+  private: .gitignore
+  public: .gitignore.github.backup
+
+sync_strategy: |
+  1. Always work on the private repository (GitLab)
+  2. When ready to sync to public:
+     - Swap to public .gitignore
+     - Push to GitHub (origin)
+     - Swap back to private .gitignore
+  3. Continue working on private
+
+notes: |
+  - This config file is ignored in both repositories
+  - Always verify .gitignore before pushing to public
+  - Private content includes: experiments/private/, figures/private/, drafts/private/
+

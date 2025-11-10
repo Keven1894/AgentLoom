@@ -1,19 +1,19 @@
-# Agentic-AI Lab .gitignore (GitLab Version - Full Content)
+# Agentic-AI Lab .gitignore
 
 # ============================================
 # Private Research Materials
 # ============================================
 
 # Experimental data (not ready for release)
-# experiments/private/     # GitLab: TRACK THIS (comment out for GitHub)
-# figures/private/         # GitLab: TRACK THIS (comment out for GitHub)
+experiments/private/
+figures/private/
 data/raw/
 data/sensitive/
 
 # Paper drafts and submissions
 drafts/submitted/
 drafts/under-review/
-# drafts/private/          # GitLab: TRACK THIS (uncomment for GitHub)
+drafts/private/          # ⚠️ Private drafts with sensitive data (not pushed to GitHub)
 *.docx
 *.doc
 *.pages
@@ -21,11 +21,11 @@ drafts/under-review/
 # Personal notes and internal documents
 notes/personal/
 internal/
-# private/                 # GitLab: TRACK THIS (uncomment for GitHub)
+private/
 
 # Internal strategy documents
-# DUAL_REPO_STRATEGY.md    # GitLab: TRACK THIS (uncomment for GitHub)
-# SETUP_COMPLETE.md        # GitLab: TRACK THIS (uncomment for GitHub)
+DUAL_REPO_STRATEGY.md
+SETUP_COMPLETE.md
 
 # API keys and credentials
 .env
