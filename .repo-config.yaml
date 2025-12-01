@@ -5,13 +5,13 @@
 repositories:
   private:
     name: gitlab
-    url: https://gitlab.com/keven1894/agentic-ai-research-roadmap-private.git
+    url: https://gitlab.com/keven1894/AgentLoom.git
     description: Full research repository with all private content
     default: true
   
   public:
     name: origin
-    url: https://github.com/Keven1894/Agentic-AI-Research-Roadmap.git
+    url: https://github.com/Keven1894/AgentLoom.git
     description: Public framework and methodology (no private content)
     default: false
 

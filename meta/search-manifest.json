@@ -1,5 +1,6 @@
 {
-  "version": "2025-11-11",
+  "version": "2025-12-01",
+  "description": "Search manifest for AgentLoom repository - defines document collections for RAG and search indexing",
   "collections": [
     {
       "name": "core",
@@ -26,6 +27,37 @@
       ]
     },
     {
+      "name": "agentloom-framework",
+      "description": "AgentLoom framework v3 - production-ready framework for building AI agents.",
+      "paths": [
+        "agentloom-framework/agentLoom-v3/README.md",
+        "agentloom-framework/agentLoom-v3/AGENTLOOM_DESIGN.md",
+        "agentloom-framework/agentLoom-v3/USER_MANUAL_NEW_PROJECT.md",
+        "agentloom-framework/agentLoom-v3/USER_MANUAL_EXISTING_PROJECT.md",
+        "agentloom-framework/agentLoom-v3/REBRANDING_SUMMARY.md"
+      ]
+    },
+    {
+      "name": "framework-versions",
+      "description": "Historical framework versions (v1, v2, v3) for reference and evolution tracking.",
+      "paths": [
+        "agentloom-framework/dual-helix-3tracks-startup-v1/",
+        "agentloom-framework/dual-helix-3tracks-startup-v2/",
+        "agentloom-framework/dual-helix-3tracks-startup-v3/"
+      ]
+    },
+    {
+      "name": "research",
+      "description": "Research materials including drafts, experiments, and figures.",
+      "paths": [
+        "research/drafts/README.md",
+        "research/drafts/PRIVACY_VERIFICATION.md",
+        "research/drafts/QUICK_REFERENCE.md",
+        "research/figures/dual-helix-diagram-spec.md",
+        "research/figures/memory-hierarchy-analogy-diagram.md"
+      ]
+    },
+    {
       "name": "collaboration",
       "description": "Contribution guides, templates, and case study documentation.",
       "paths": [
@@ -39,15 +71,6 @@
       ]
     },
     {
-      "name": "drafts",
-      "description": "Working papers, outlines, and feedback trackers.",
-      "paths": [
-        "drafts/workshop-paper-outline.md",
-        "drafts/REVIEW_FEEDBACK_ACTION_PLAN.md",
-        "drafts/USER_INPUT_NEEDED.md"
-      ]
-    },
-    {
       "name": "archives",
       "description": "Historical transcripts and editorial summaries for provenance.",
       "paths": [
@@ -56,14 +79,6 @@
         "archives/inputRAW/dataverse-diva/00-PROJECT-OVERVIEW.md",
         "archives/inputRAW/dataverse-diva/02-AGENT-DESIGN-PATTERNS.md",
         "archives/inputRAW/dataverse-diva/07-LESSONS-LEARNED.md"
-      ]
-    },
-    {
-      "name": "figures",
-      "description": "Visual specifications and diagram instructions.",
-      "paths": [
-        "figures/dual-helix-diagram-spec.md",
-        "figures/memory-hierarchy-analogy-diagram.md"
       ]
     },
     {
@@ -82,14 +97,11 @@
       "paths": [
         "docs/case-studies/dataverse-diva.md"
       ]
-    },
-    {
-      "name": "governance",
-      "description": "Future governance templates and compliance assets.",
-      "paths": [
-        "governance/"
-      ]
     }
-  ]
+  ],
+  "notes": {
+    "structure": "Repository reorganized Dec 2025 - AgentLoom framework in agentloom-framework/, research materials in research/",
+    "framework": "AgentLoom v3 is the current production version",
+    "search_priority": "Core docs and agentloom-framework/agentLoom-v3/ should be prioritized for RAG indexing"
+  }
 }
-

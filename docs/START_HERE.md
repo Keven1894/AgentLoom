@@ -1,94 +1,86 @@
 # 🚀 START HERE — Quick Onboarding
 
-**Welcome to the Agentic-AI Research Roadmap!**
+**Welcome to AgentLoom!**
 
-This guide gets you oriented in 10 minutes and contributing within hours.
+This guide gets you oriented in 10 minutes and productive within hours.
 
 ---
 
 ## ⚡ Quick Start (Choose Your Path)
 
-### 🎓 I want to understand the framework
+### � I want to use AgentLoom to build AI agents
 
-**Read these in order (~90 minutes):**
+**Fast track to building agents (~2-4 hours):**
 
-1. **[README.md](../README.md)** (5 min) — Project overview
-2. **[Framework Foundations](framework-foundations.md)** (30 min) — Core concepts
-   - Skip to "Motivation" section first!
-   - Read F6 (Computer Architecture) — the key analogy
-3. **[Dual-Helix Clarification](dual-helix-clarification.md)** (15 min) — Two repos, one framework
-4. **[DIVA Case Study](case-studies/dataverse-diva.md)** (15 min) — Real example
-5. **[Research Problems & Positioning](research-problems-and-positioning.md)** (25 min) — Academic context
+1. **[Main README](../README.md)** (5 min) — Project overview
+2. **Navigate to AgentLoom Framework:**
+   - Go to `agentloom-framework/agentLoom-v3/`
+   - Read **[AgentLoom README](../agentloom-framework/agentLoom-v3/README.md)** (10 min)
+   - Read **[USER_MANUAL_NEW_PROJECT](../agentloom-framework/agentLoom-v3/USER_MANUAL_NEW_PROJECT.md)** (20 min)
+3. **Follow the 9-phase protocol** (2-4 hours)
+   - Copy the magic activation prompt
+   - Build your custom AI agent
+   - 95-98% success rate!
 
-**You'll understand:** What the framework is, why it exists, how it works
+**You'll get:** A production-ready dual-role AI agent with fully-connected knowledge graphs
+
+---
+
+### 🎓 I want to understand the research
+
+**Research-focused reading (~2 hours):**
+
+1. **[Main README](../README.md)** (10 min) — Dual-helix architecture overview
+2. **[Framework Foundations](framework-foundations.md)** (45 min) — Theoretical underpinnings
+3. **[Dual-Helix Clarification](dual-helix-clarification.md)** (20 min) — Learning + Governance
+4. **[Research Problems & Positioning](research-problems-and-positioning.md)** (30 min) — Academic context
+5. **[DIVA Case Study](case-studies/dataverse-diva.md)** (15 min) — Production validation
+
+**You'll understand:** The dual-helix architecture, why it creates reliable AI, and how it's validated
 
 ---
 
 ### 🤝 I want to contribute a case study
 
-**Fast track (~2 hours to get started):**
+**Contribution path (~2-4 weeks):**
 
-1. **[README.md](../README.md)** (5 min) — Overview
-2. **[Agentic Collaboration Guide](agentic-collaboration-guide.md)** (45 min) — **ESSENTIAL!**
+1. **[Main README](../README.md)** (5 min)
+2. **[CONTRIBUTING.md](../CONTRIBUTING.md)** (15 min) — Path A (Case Study Contribution)
+3. **[Agentic Collaboration Guide](agentic-collaboration-guide.md)** (45 min) — **ESSENTIAL!**
    - Focus on Parts 1-5
-   - Skim Part 3 (DIVA patterns)
-3. **[Case Studies README](case-studies/README.md)** (30 min) — Template and process
-4. **[CONTRIBUTING.md](../CONTRIBUTING.md)** (15 min) — Path A (Case Study Contribution)
+   - Learn the high-velocity methodology
+4. **[Case Studies README](case-studies/README.md)** (30 min) — Template and process
 5. **[DIVA Case Study](case-studies/dataverse-diva.md)** (15 min) — Reference standard
 
-**For Cursor users:** **[Cursor Quick-Start Guide](cursor-quickstart-for-contributors.md)** — Copy-paste prompts for setup!
+**For Cursor users:** **[Cursor Quick-Start Guide](cursor-quickstart-for-contributors.md)** — Copy-paste prompts!
 
-**Then:** Apply framework to your project (2-4 weeks), document, submit!
-
----
-
-### 🔬 I'm an academic researcher
-
-**Research-focused reading (~2 hours):**
-
-1. **[README.md](../README.md)** (5 min)
-2. **[Framework Foundations](framework-foundations.md)** (45 min)
-   - All sections relevant for research
-3. **[Research Problems & Positioning](research-problems-and-positioning.md)** (40 min)
-   - Maps to 8 major research problems
-   - Shows where framework fits
-4. **[DIVA Case Study](case-studies/dataverse-diva.md)** (15 min)
-   - Production validation evidence
-5. **[Research Timeline](Research-Timeline-2025-2027.md)** (15 min)
-   - Publication roadmap
-
-**Next:** Email <bguan@fiu.edu> to discuss collaboration
+**Then:** Apply framework to your project, document, submit PR!
 
 ---
 
-### 🛠️ I'm an engineer building agentic systems
+### �️ I'm an engineer building agentic systems
 
 **Practice-focused reading (~90 minutes):**
 
-1. **[Framework Foundations](framework-foundations.md)** (20 min)
+1. **[Main README](../README.md)** (10 min) — Understand dual-helix concept
+2. **[AgentLoom Design](../agentloom-framework/agentLoom-v3/AGENTLOOM_DESIGN.md)** (30 min) — Framework philosophy
+3. **[Framework Foundations](framework-foundations.md)** (20 min)
    - Read "Motivation" and "F6: Computer Architecture" sections
-   - Understand the memory hierarchy analogy
-2. **[Agentic Collaboration Guide](agentic-collaboration-guide.md)** (60 min) — **YOUR BIBLE!**
+4. **[Agentic Collaboration Guide](agentic-collaboration-guide.md)** (30 min) — **YOUR BIBLE!**
    - Part 1: Understand 5 stages
    - Part 2: Implementation details
-   - Part 3: DIVA patterns
-   - Part 4: High-velocity workflow
-3. **[DIVA Case Study](case-studies/dataverse-diva.md)** (10 min)
-   - Real implementation example
 
-**For Cursor users:** **[Cursor Quick-Start Guide](cursor-quickstart-for-contributors.md)** — 17 ready-to-use prompts!
-
-**Then:** Start applying to your project today!
+**Then:** Use AgentLoom to build your agent or apply patterns to your existing system!
 
 ---
 
 ## 🎯 The 3-Sentence Summary
 
-**What:** A framework for building AI agents that learn from experience and evolve reliably, using adaptive stages (like computer memory hierarchy) based on information volume.
+**What:** AgentLoom is a production-ready framework for building trustworthy AI agents through dual-helix architecture—combining Learning (Context → Documentation → Indexing → RAG → Fine-Tuning) with Governance (Rules → Coordination → Memory Boundaries → Verification → Adaptation).
 
-**Why:** Most research focuses on making agents smarter; we focus on making them maintainable, reliable, and production-ready—addressing the engineering lifecycle gap.
+**Why:** Most research focuses on making agents smarter; we focus on making them reliable, trustworthy, and production-ready—addressing both engineering excellence and operational safety.
 
-**How:** Progress through 5 stages (System Prompt → Docs → Indexing → RAG → Fine-Tuning) as your domain knowledge grows, using proven patterns from DIVA (100% reliability, 87% efficiency, 3+ months production).
+**How:** Use the 9-phase AgentLoom protocol to build dual-role agents in 2-4 hours, or apply the dual-helix principles to your existing systems. Validated in production (DIVA: 100% reliability, 87% efficiency, 3+ months).
 
 ---
 
@@ -99,116 +91,163 @@ This guide gets you oriented in 10 minutes and contributing within hours.
 │
 ├── 📄 README.md ← START HERE
 ├── 📄 CONTRIBUTING.md ← How to contribute
-├── 📄 CONTRIBUTORS.md ← Who's involved
+├── 📄 CITATION.cff ← How to cite (v1.1.0)
 │
-├── 📁 docs/
-│   ├── 📘 Framework Foundations ← Theory
-│   ├── 📘 Research Problems & Positioning ← Academic context
-│   ├── 📘 Dual-Helix Clarification ← Eng + Gov
-│   ├── 📗 Agentic Collaboration Guide ← HOW TO WORK ⭐
-│   ├── 📁 case-studies/
-│   │   ├── 📄 README.md ← Template
-│   │   └── 📄 dataverse-diva.md ← Example
-│   └── [Other documentation]
+├── 📁 agentloom-framework/ ← 🎁 THE FRAMEWORK
+│   └── � agentLoom-v3/ ← Current version (production-ready)
+│       ├── 📘 README.md ← Framework overview
+│       ├── 📘 AGENTLOOM_DESIGN.md ← Design philosophy
+│       ├── 📗 USER_MANUAL_NEW_PROJECT.md ← Build new agents ⭐
+│       ├── 📗 USER_MANUAL_EXISTING_PROJECT.md ← Validate existing
+│       ├── � builder-assets/ ← Pre-built components
+│       ├── � specs/ ← Generation requirements
+│       ├── 📁 examples/ ← Reference patterns
+│       └── 📁 phases/ ← 9-phase instructions
 │
-├── 📁 figures/
-│   ├── 📊 memory-hierarchy-analogy-diagram.md
-│   └── 📊 dual-helix-diagram-spec.md
+├── 📁 research/ ← 🔬 RESEARCH MATERIALS
+│   ├── � drafts/ ← Working papers
+│   ├── � experiments/ ← Experimental code
+│   └── 📁 figures/ ← Diagram specifications
 │
-└── 📁 .github/
-    └── 📄 PULL_REQUEST_TEMPLATE.md ← PR checklist
+├── 📁 docs/ ← 📚 CORE DOCUMENTATION
+│   ├── � START_HERE.md ← This file
+│   ├── 📘 framework-foundations.md ← Theory
+│   ├── � dual-helix-clarification.md ← Learning + Governance
+│   ├── 📘 research-problems-and-positioning.md ← Academic context
+│   ├── 📗 agentic-collaboration-guide.md ← Methodology ⭐
+│   └── 📁 case-studies/
+│       ├── 📄 README.md ← Template
+│       └── 📄 dataverse-diva.md ← Example
+│
+└── 📁 meta/ ← Metadata and indexing
 ```
 
 ---
 
-## 💡 The Key Insight (In One Diagram)
+## 💡 The Dual-Helix Architecture (Core Concept)
 
 ```
-Computer Memory          →    Agentic AI Framework
-════════════════              ═══════════════════════
+HELIX 1: LEARNING & EVOLUTION          HELIX 2: GOVERNANCE & SAFETY
+(Engineering - AgentLoom)               (Culture - co-agenticOS)
 
-CPU Registers            →    Stage 0: System Prompt
-L1 Cache                 →    Stage 1: Documentation
-RAM                      →    Stage 2: Indexing + Metadata
-Hard Disk                →    Stage 3: RAG System
-CPU Upgrade              →    Stage 4: Fine-Tuning
+Context Capture      ←→                 Rules Engine
+       ↓                                       ↓
+Documentation        ←→                 Coordination
+       ↓                                       ↓
+Indexing             ←→                 Memory Boundaries
+       ↓                                       ↓
+RAG                  ←→                 Verification
+       ↓                                       ↓
+Fine-Tuning          ←→                 Adaptation
 
-Fundamental Problem: Limited fast-access capacity
-Solution: Hierarchical organization, adaptive evolution
+Knowledge Growth                        Bounded Autonomy
+       ↓                                       ↓
+       └───────────────────────────────────────┘
+                         ↓
+              Reliable Probabilistic Intelligence
 ```
 
-**If you understand computer memory, you understand this framework!**
+**The Interlock:** Verification points (←→) ensure learning occurs within accountable constraints.
 
 ---
 
 ## 🎯 Most Important Documents
 
-### For Understanding (Theory)
+### For Building Agents (Framework Users)
 
-1. **[Framework Foundations](framework-foundations.md)** — Must read
-   - Start with "Motivation" section
-   - Read F6 (Computer Architecture analogy)
-   - Understand adaptive progression
+1. **[AgentLoom User Manual](../agentloom-framework/agentLoom-v3/USER_MANUAL_NEW_PROJECT.md)** — Step-by-step guide
+2. **[AgentLoom Design](../agentloom-framework/agentLoom-v3/AGENTLOOM_DESIGN.md)** — Philosophy and principles
+3. **[AgentLoom README](../agentloom-framework/agentLoom-v3/README.md)** — Quick overview
 
-### For Contributing (Practice)
+### For Understanding (Researchers)
 
-1. **[Agentic Collaboration Guide](agentic-collaboration-guide.md)** — Your bible
-   - 11,000 words of complete methodology
-   - DIVA patterns with evidence
-   - 10k LoC/day workflow explained
+1. **[Framework Foundations](framework-foundations.md)** — Theoretical underpinnings
+2. **[Dual-Helix Clarification](dual-helix-clarification.md)** — Engineering + Governance
+3. **[Research Problems & Positioning](research-problems-and-positioning.md)** — Academic landscape
 
-### For Reference (Templates)
+### For Contributing (Practitioners)
 
-1. **[Case Studies README](case-studies/README.md)** — When submitting
-2. **[CONTRIBUTING.md](../CONTRIBUTING.md)** — Contribution paths
-3. **[DIVA Case Study](case-studies/dataverse-diva.md)** — Quality standard
+1. **[Agentic Collaboration Guide](agentic-collaboration-guide.md)** — Complete methodology (11K words)
+2. **[Case Studies README](case-studies/README.md)** — Submission template
+3. **[CONTRIBUTING.md](../CONTRIBUTING.md)** — Contribution paths
 
 ---
 
 ## ❓ Quick FAQ
 
-### Q: What is this project about?
+### Q: What is AgentLoom?
 
-**A:** Engineering reliable AI agents that work in production, learn from experience, and evolve over time—addressing the "engineering lifecycle" gap in agentic AI research.
+**A:** A production-ready framework for building trustworthy AI agents in 2-4 hours using a 9-phase protocol. Includes pre-built components, specification-based generation, and 95-98% success rate.
 
 ### Q: What's the "dual helix"?
 
-**A:** Two complementary repos: This one (Engineering—how agents learn) + co-agenticOS (Governance—how agents behave safely). Both needed for reliable agentic intelligence.
+**A:** Two interlocking systems: Learning Helix (how agents evolve knowledge) + Governance Helix (how agents stay safe). Together they create Reliable Probabilistic Intelligence. AgentLoom provides the learning strand, co-agenticOS provides the governance strand.
 
-### Q: What's novel about this framework?
+### Q: How is this different from other AI frameworks?
 
-**A:** Adaptive 5-stage progression based on information volume (like computer memory hierarchy), validated in production (DIVA: 3 months, 100% reliability), focuses on lifecycle not just capabilities.
+**A:** Most frameworks focus on capabilities (what agents can do). We focus on reliability (how agents work safely in production). The dual-helix ensures learning happens within accountable boundaries.
+
+### Q: Can I use AgentLoom for my project?
+
+**A:** Yes! It's designed for anyone building AI agents. Follow the user manual in `agentloom-framework/agentLoom-v3/`. Takes 2-4 hours to build a complete agent system.
 
 ### Q: How can I contribute?
 
-**A:** Apply framework to your project, document it as a case study, submit via PR. See [CONTRIBUTING.md](../CONTRIBUTING.md) Path A.
+**A:** Three ways:
+
+1. **Use AgentLoom** and share feedback
+2. **Submit case studies** of your implementations
+3. **Contribute research** validating the dual-helix approach
 
 ### Q: Do I need special tools?
 
-**A:** Yes—AI-enabled IDE (Cursor recommended) and LLM access. This project operates at AI-augmented velocity.
+**A:** For building agents: Python 3.9+ and an AI assistant (Claude Sonnet 4/4.5 recommended). For contributing: AI-enabled IDE (Cursor recommended).
 
 ### Q: What's the time commitment?
 
-**A:** Reading: 2-3 hours. Application: 2-4 weeks. Case study write-up: 12-16 hours. Total: ~1 month.
+**A:**
+
+- **Building an agent:** 2-4 hours (using AgentLoom)
+- **Understanding research:** 2-3 hours reading
+- **Contributing case study:** 2-4 weeks application + 12-16 hours write-up
 
 ### Q: What do I get?
 
-**A:** Co-authorship on papers, recognition in project, collaboration opportunities, advancing the field.
+**A:**
 
-### Q: Can I just read and learn?
-
-**A:** Absolutely! All documentation is open. No contribution required to benefit.
+- **Framework users:** Production-ready AI agent system
+- **Contributors:** Co-authorship on papers, recognition, collaboration opportunities
+- **Researchers:** Access to validated framework and case study data
 
 ---
 
 ## 🚀 Ready to Dive In?
 
-### Recommended Learning Path
+### Recommended Learning Paths
+
+**Path 1: Framework User (Want to Build Agents)**
+
+**Day 1:**
+
+- [ ] Read main README.md (10 min)
+- [ ] Read AgentLoom README (10 min)
+- [ ] Read USER_MANUAL_NEW_PROJECT (20 min)
+- **Outcome:** Ready to build
+
+**Day 2:**
+
+- [ ] Follow 9-phase protocol (2-4 hours)
+- [ ] Build your first agent
+- **Outcome:** Working agent system!
+
+---
+
+**Path 2: Researcher (Want to Understand)**
 
 **Day 1:**
 
 - [ ] Read this document (10 min)
-- [ ] Read README.md (5 min)
+- [ ] Read main README.md (10 min)
 - [ ] Skim Framework Foundations (20 min)
 - **Outcome:** Basic understanding
 
@@ -220,15 +259,20 @@ Solution: Hierarchical organization, adaptive evolution
 
 **Day 3:**
 
-- [ ] Read Agentic Collaboration Guide Parts 1-2 (30 min)
+- [ ] Read Research Problems & Positioning (30 min)
 - [ ] Read DIVA Case Study (15 min)
-- **Outcome:** Ready to apply
+- **Outcome:** Academic context
 
-**Day 4-5:**
+---
 
-- [ ] Read Agentic Collaboration Guide Parts 3-5 (45 min)
+**Path 3: Contributor (Want to Participate)**
+
+**Week 1:**
+
+- [ ] Read main README.md (10 min)
+- [ ] Read Agentic Collaboration Guide Parts 1-2 (30 min)
 - [ ] Read Case Studies README (30 min)
-- **Outcome:** Ready to contribute
+- **Outcome:** Understand methodology
 
 **Week 2-4:**
 
@@ -256,32 +300,27 @@ Solution: Hierarchical organization, adaptive evolution
 
 - **Email:** <bguan@fiu.edu>
 - **Subject lines:**
+  - "AgentLoom Framework Question" — For framework usage
   - "Case Study Collaboration" — For contributions
   - "Research Partnership" — For academic collaboration
-  - "Framework Application" — For implementation questions
   - "General Inquiry" — For anything else
 
 **Response time:** Usually within 1 week
 
 ---
 
-## ✨ Final Encouragement
+## ✨ Success Stories
 
-**You can do this!**
-
-DIVA started where you are now: one person, one problem, one AI-enabled IDE.
-
-**3 months later:**
+**DIVA (Digital Libraries):**
 
 - 157+ documents
 - 11,500+ lines of code
 - 100% deployment success
 - 9.2/10 team satisfaction
+- 3+ months production
 - Multiple publication-ready findings
 
-**Your journey will be different, but the patterns work.**
-
-**Welcome to the community!** 🎉
+**Your project could be next!**
 
 ---
 
@@ -289,11 +328,22 @@ DIVA started where you are now: one person, one problem, one AI-enabled IDE.
 
 - **Main Repo:** <https://github.com/Keven1894/AgentLoom>
 - **Governance Repo:** <https://github.com/Keven1894/co-agenticOS>
-- **DIVA Website:** <https://dataversedev.fiu.edu/ai/>
+- **Author Website:** <https://giscloud.fiu.edu/gis/about/faculty-and-staff/boyuan-guan/>
 - **DOI:** 10.5281/zenodo.17561541
 
 ---
 
-**Last Updated:** November 11, 2025  
-**Status:** Ready for community onboarding  
-**Your next step:** Pick a reading path above and begin! 🚀
+## 🎁 What's New in v1.1.0
+
+- **Repository renamed** to AgentLoom (from Agentic-AI-Research-Roadmap)
+- **Structure reorganized** - Framework in `agentloom-framework/`, research in `research/`
+- **AgentLoom v3** - Production-ready with 95-98% success rate
+- **Dual-helix emphasis** - Learning + Governance architecture highlighted
+- **Updated documentation** - All references updated to new structure
+
+---
+
+**Last Updated:** December 1, 2025  
+**Version:** 1.1.0  
+**Status:** Production Ready  
+**Your next step:** Pick a path above and begin! 🚀
