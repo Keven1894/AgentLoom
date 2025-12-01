@@ -1,0 +1,50 @@
+{
+  "graphType": "behaviors",
+  "role": "agent-builder",
+  "generatedAt": "2025-11-28",
+  "description": "Agent Builder's system protocols",
+  "behaviors": [
+    {
+      "id": "behavior:agent-builder:root",
+      "type": "root",
+      "name": "Agent Builder Behaviors",
+      "description": "Core protocols for the Agent Builder role"
+    },
+    {
+      "id": "behavior:core:safety",
+      "type": "core",
+      "name": "System Safety Protocol",
+      "description": "Never modify critical files without confirmation",
+      "path": ".cursor/behaviors/core/system-safety.md",
+      "priority": "high",
+      "parent": "behavior:agent-builder:root"
+    },
+    {
+      "id": "behavior:agent-builder:kg-consistency",
+      "type": "role-specific",
+      "name": "KG Consistency Protocol",
+      "description": "Knowledge Graph must reflect file system reality",
+      "path": ".cursor/behaviors/agent-builder/kg-consistency.md",
+      "priority": "high",
+      "parent": "behavior:agent-builder:root",
+      "links": {
+        "enforces": ["skill-maintain-kg"],
+        "governs": ["sys:agents"]
+      }
+    },
+    {
+      "id": "behavior:agent-builder:system-integrity",
+      "type": "role-specific",
+      "name": "System Integrity Protocol",
+      "description": "Never modify .cursor/ without explicit instruction",
+      "path": ".cursor/behaviors/agent-builder/system-integrity.md",
+      "priority": "high",
+      "parent": "behavior:agent-builder:root",
+      "links": {
+        "enforces": ["skill-validate-structure"],
+        "governs": ["sys:config"]
+      }
+    }
+  ]
+}
+

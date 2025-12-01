@@ -9,9 +9,10 @@ This project exists thanks to all the people who contribute to advancing product
 ### Framework Creator & Lead Developer
 
 **Dr. Boyuan (Keven) Guan**
+
 - **Affiliation:** Florida International University, Library & GIS Center
 - **Role:** Framework creator, lead developer, research director
-- **Email:** bguan@fiu.edu
+- **Email:** <bguan@fiu.edu>
 - **Contributions:**
   - Agentic-AI Engineering Framework design
   - Dual-helix architecture (Engineering + Governance)
@@ -20,7 +21,7 @@ This project exists thanks to all the people who contribute to advancing product
   - Framework foundations and theoretical grounding
   - Memory hierarchy analogy and adaptive framework concept
 - **Publications:**
-  - Guan, B. (2025). Agentic-AI-Research-Roadmap: Agentic-AI Engineering Framework to Build Reliable AI Agents. DOI: 10.5281/zenodo.17561541
+  - Guan, B. (2025). AgentLoom: Building Trustworthy AI Agents Through Dual-Helix Architecture. DOI: 10.5281/zenodo.17561541
 
 ---
 
@@ -36,6 +37,7 @@ This project exists thanks to all the people who contribute to advancing product
 **Framework Stage:** Stage 2 (RAM: Indexing + Metadata + Docs)  
 **Status:** Production (3+ months)  
 **Novel Contributions:**
+
 - Rules-as-memory institutional memory system (100% consistency, 87% token efficiency)
 - Schema-based context engineering (+23% accuracy for Llama 3.2 3B)
 - Multi-role single agent architecture (SysAdmin + Developer)
@@ -43,6 +45,7 @@ This project exists thanks to all the people who contribute to advancing product
 - First AI agent specifically for digital library systems
 
 **Metrics:**
+
 - LLM accuracy: 52.6% (Llama 3.2 3B on complex document comprehension)
 - Deployment success: 100% (50+ deployments)
 - Team satisfaction: 9.2/10
@@ -56,6 +59,7 @@ This project exists thanks to all the people who contribute to advancing product
 **Awaiting contributions!**
 
 We're seeking case studies in:
+
 - GIS / Environmental Data
 - Education / Research Support
 - IT Operations / DevOps
@@ -76,6 +80,7 @@ We're seeking case studies in:
 **Current:** Core framework by Dr. Guan
 
 **Future:** Community contributions to:
+
 - Context capture utilities
 - Documentation generation tools
 - Indexing frameworks
@@ -92,6 +97,7 @@ We're seeking case studies in:
 **Primary Author:** Dr. Boyuan (Keven) Guan
 
 **Core Documents:**
+
 - README.md — Project overview
 - docs/Agentic-AI-Research-Roadmap.md — Complete methodology
 - docs/framework-foundations.md — Theoretical underpinnings
@@ -104,6 +110,7 @@ We're seeking case studies in:
 [Awaiting community contributions]
 
 **Opportunities:**
+
 - Translations to other languages
 - Domain-specific guides
 - Tutorial development
@@ -118,15 +125,17 @@ We're seeking case studies in:
 **Specifications by:** Dr. Boyuan (Keven) Guan
 
 **Current Specifications:**
+
 - figures/dual-helix-diagram-spec.md
 - figures/memory-hierarchy-analogy-diagram.md
 
 **Seeking:**
+
 - Graphic designers to render diagram specifications
 - Data visualization experts for metrics charts
 - UX designers for documentation site
 
-**Contact:** bguan@fiu.edu with "Design Contribution" in subject
+**Contact:** <bguan@fiu.edu> with "Design Contribution" in subject
 
 ---
 
@@ -135,22 +144,25 @@ We're seeking case studies in:
 ### Academic Partners
 
 **Current:**
+
 - Florida International University — Library & GIS Center (lead)
 - FIU Computer Science Department
 - FIU Division of IT
 
 **Seeking:**
+
 - Academic institutions for domain validation
 - Research labs for theoretical extensions
 - Industry partners for production pilots
 
 **Collaboration Types:**
+
 - Multi-domain validation studies
 - Formal verification research
 - Benchmark development
 - Standards creation
 
-**Contact:** bguan@fiu.edu with "Research Partnership" in subject
+**Contact:** <bguan@fiu.edu> with "Research Partnership" in subject
 
 ---
 
@@ -159,6 +171,7 @@ We're seeking case studies in:
 ### Major Contributions
 
 **Significant contributions will be recognized through:**
+
 - Co-authorship on academic papers
 - Invited talks at conferences
 - Featured in project communications
@@ -167,6 +180,7 @@ We're seeking case studies in:
 ### Community Champions
 
 **Recognition for:**
+
 - Sustained engagement and support
 - Helping others in discussions
 - Spreading awareness of the project
@@ -181,6 +195,7 @@ We're seeking case studies in:
 ### Institutions
 
 **Florida International University:**
+
 - Library & GIS Center (lead institution)
 - Knight Foundation School of Computing and Information Sciences
 - Division of IT
@@ -195,6 +210,7 @@ We're seeking case studies in:
 ### Inspiration & Foundations
 
 This work builds upon:
+
 - Computer architecture principles (Hennessy & Patterson)
 - Knowledge management theory (Nonaka & Takeuchi)
 - Software engineering best practices
@@ -235,7 +251,7 @@ This work builds upon:
 ### As Core Team Member
 
 - By invitation for sustained framework development
-- Contact: bguan@fiu.edu
+- Contact: <bguan@fiu.edu>
 
 ### As Code Contributor
 
@@ -289,14 +305,14 @@ This work builds upon:
 
 **Project Lead:**  
 Dr. Boyuan (Keven) Guan  
-bguan@fiu.edu  
+<bguan@fiu.edu>  
 FIU Library & GIS Center
 
 **Project Website:**  
-https://dataversedev.fiu.edu/ai/
+<https://dataversedev.fiu.edu/ai/>
 
 **Repository:**  
-https://github.com/Keven1894/Agentic-AI-Research-Roadmap
+<https://github.com/Keven1894/AgentLoom>
 
 ---
 
@@ -315,5 +331,3 @@ Your work helps establish the engineering discipline for the next generation of 
 **Maintained by:** Core team
 
 **Note:** This file will be automatically updated as contributions are merged. Git commit history provides the authoritative record of all contributors.
-
-

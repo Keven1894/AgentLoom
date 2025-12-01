@@ -1,0 +1,67 @@
+{
+  "graphType": "master",
+  "project": "GIS Data Catalog Manager",
+  "version": "2.0",
+  "generatedAt": "2025-11-28",
+  "description": "Entry point to the entire Knowledge Graph system",
+  "graphs": [
+    {
+      "id": "agent-builder-knowledge",
+      "path": "agents/knowledge-graphs/agent-builder-knowledge-graph.json",
+      "description": "Agent Builder's understanding of system architecture"
+    },
+    {
+      "id": "agent-builder-skills",
+      "path": "agents/knowledge-graphs/agent-builder-skills-graph.json",
+      "description": "Agent Builder's system maintenance capabilities"
+    },
+    {
+      "id": "agent-builder-behaviors",
+      "path": "agents/knowledge-graphs/agent-builder-behaviors-graph.json",
+      "description": "Agent Builder's system protocols"
+    },
+    {
+      "id": "catalog-curator-knowledge",
+      "path": "agents/knowledge-graphs/catalog-curator-knowledge-graph.json",
+      "description": "Catalog Curator's domain understanding"
+    },
+    {
+      "id": "catalog-curator-skills",
+      "path": "agents/knowledge-graphs/catalog-curator-skills-graph.json",
+      "description": "Catalog Curator's capabilities"
+    },
+    {
+      "id": "catalog-curator-behaviors",
+      "path": "agents/knowledge-graphs/catalog-curator-behaviors-graph.json",
+      "description": "Catalog Curator's protocols"
+    },
+    {
+      "id": "gis-catalog-content",
+      "path": "agents/knowledge-graphs/gis-catalog-content-graph.json",
+      "description": "GIS catalog content structure"
+    }
+  ],
+  "roles": [
+    {
+      "id": "agent-builder",
+      "name": "Agent Builder",
+      "alwaysActive": true,
+      "graphs": [
+        "agent-builder-knowledge",
+        "agent-builder-skills",
+        "agent-builder-behaviors"
+      ]
+    },
+    {
+      "id": "catalog-curator",
+      "name": "Catalog Curator",
+      "alwaysActive": false,
+      "graphs": [
+        "catalog-curator-knowledge",
+        "catalog-curator-skills",
+        "catalog-curator-behaviors",
+        "gis-catalog-content"
+      ]
+    }
+  ]
+}

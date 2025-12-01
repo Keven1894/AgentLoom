@@ -7,6 +7,7 @@ These rules coordinate AI assistants and human contributors working inside this 
 Review the following before making substantive changes:
 
 **Core Framework Documents:**
+
 - `README.md` — primary project overview and mission.
 - `docs/Agentic-AI-Research-Roadmap.md` — authoritative framework description.
 - `docs/framework-foundations.md` — theoretical underpinnings and key questions.
@@ -15,6 +16,7 @@ Review the following before making substantive changes:
 - `docs/agentic-collaboration-guide.md` — complete methodology for AI-augmented collaboration.
 
 **Collaboration & Contribution:**
+
 - `CONTRIBUTING.md` — contribution pathways (v2.0: agentic collaboration edition).
 - `CONTRIBUTORS.md` — attribution and recognition of all contributors.
 - `docs/agentic-collaboration-guide.md` — complete methodology for AI-augmented collaboration.
@@ -23,9 +25,11 @@ Review the following before making substantive changes:
 - `.github/PULL_REQUEST_TEMPLATE.md` — PR checklist for case studies.
 
 **Project Planning:**
+
 - `docs/Research-Timeline-2025-2027.md` — milestone and deliverable plan.
 
 **Metadata & Navigation:**
+
 - `meta/directory-index.yaml` — current directory layout and responsibilities.
 - `meta/search-manifest.json` — file collections for retrieval-augmented systems.
 
@@ -85,22 +89,24 @@ Before adding new directories or large assets, record them in `meta/directory-in
 **CRITICAL:** This project uses **separate physical folders** for public (GitHub) and private (GitLab) work:
 
 - **`agentic-ai-research-roadmap-github/`** (this folder) — Public repository
-  - Remote: `origin` → https://github.com/Keven1894/Agentic-AI-Research-Roadmap.git
+  - Remote: `origin` → <https://github.com/Keven1894/AgentLoom.git>
   - Content: Public documentation, framework, case studies
   - History: Private files removed (cleaned)
   - Push here: Public-ready content only
 
 - **`agentic-ai-research-roadmap-gitlab/`** (separate folder) — Private repository
-  - Remote: `gitlab` → https://gitlab.com/keven1894/agentic-ai-research-roadmap-private.git
+  - Remote: `gitlab` → <https://gitlab.com/keven1894/agentic-ai-research-roadmap-private.git>
   - Content: Full content including private experiments, drafts, figures
   - History: Complete with all private files
   - Push here: All work including private content
 
 **Synchronization:**
+
 - Manager agent handles syncing public content between folders
 - Manual copying not recommended (use manager agent)
 
 **This folder (GitHub) should NEVER contain:**
+
 - `experiments/private/`
 - `figures/private/`
 - `drafts/private/`
@@ -119,4 +125,3 @@ Before adding new directories or large assets, record them in `meta/directory-in
 ---
 
 _Last updated: 2025-11-11_
-

@@ -1,4 +1,4 @@
-# Contributing to Agentic-AI-Research-Roadmap
+# Contributing to AgentLoom
 
 **Welcome!** Thank you for your interest in advancing the field of production-grade agentic AI engineering.
 
@@ -10,7 +10,7 @@ This project is unique: we're not just building software—we're establishing a 
 
 Before contributing, understand that this project consists of two complementary repositories:
 
-- **[Agentic-AI-Research-Roadmap](https://github.com/Keven1894/Agentic-AI-Research-Roadmap)** (this repo) — Engineering strand: how agents learn and evolve
+- **[AgentLoom](https://github.com/Keven1894/AgentLoom)** (this repo) — Engineering strand: how agents learn and evolve
 - **[co-agenticOS](https://github.com/Keven1894/co-agenticOS)** — Governance strand: rules, boundaries, human-AI interaction
 
 **Both are necessary for reliable agentic intelligence.** See [Dual-Helix Clarification](docs/dual-helix-clarification.md) for details.
@@ -31,8 +31,8 @@ We offer two distinct contribution paths based on your goals and collaboration l
 
 ```bash
 # 1. Fork this repository
-git clone https://github.com/[your-username]/Agentic-AI-Research-Roadmap
-cd Agentic-AI-Research-Roadmap
+git clone https://github.com/[your-username]/AgentLoom
+cd AgentLoom
 
 # 2. Create your case study
 # Add to: docs/case-studies/[your-domain]-case-study.md
@@ -47,6 +47,7 @@ git push origin case-study-[your-domain]
 ```
 
 **Requirements:**
+
 - ✅ Must apply the framework to a real project (not theoretical)
 - ✅ Must document all 5 stages or explain current stage
 - ✅ Must provide metrics and evidence
@@ -54,6 +55,7 @@ git push origin case-study-[your-domain]
 - ✅ Must follow case study template
 
 **Benefits:**
+
 - 🎓 Co-authorship opportunity on research papers
 - 📢 Visibility in framework documentation
 - 🤝 Collaboration with framework creators
@@ -74,8 +76,8 @@ git push origin case-study-[your-domain]
 ```bash
 # 1. Request collaborator access (email bguan@fiu.edu)
 # 2. Clone with write access
-git clone https://github.com/Keven1894/Agentic-AI-Research-Roadmap
-cd Agentic-AI-Research-Roadmap
+git clone https://github.com/Keven1894/AgentLoom
+cd AgentLoom
 
 # 3. Create feature branch
 git checkout -b feature/[feature-name]
@@ -87,12 +89,13 @@ git push origin feature/[feature-name]
 ```
 
 **Requirements:**
+
 - ✅ Sustained collaboration commitment
 - ✅ Deep engagement with framework principles
 - ✅ Regular communication with core team
 - ✅ Adherence to `.cursor/rules.md` standards
 
-**Access:** By invitation only (contact bguan@fiu.edu)
+**Access:** By invitation only (contact <bguan@fiu.edu>)
 
 ---
 
@@ -101,17 +104,20 @@ git push origin feature/[feature-name]
 **Critical Understanding:** This project operates at **AI-augmented velocity**—10,000+ lines of code and 30+ documents per day using AI agents.
 
 **This means:**
+
 - ❌ **Traditional contribution methods won't keep pace** (manual coding, conventional workflows)
 - ✅ **You must use AI-agent-enabled workflows** (Cursor, Claude, or similar tools)
 
 ### Prerequisites for Meaningful Contribution
 
 **Required:**
+
 1. **AI-Enabled IDE** — Cursor, GitHub Copilot, or equivalent AI-augmented development environment
 2. **LLM Access** — Claude, GPT-4/5, or capable local models (Llama 3.1 8B+)
 3. **Agentic Mindset** — Direct agents, don't code manually at traditional pace
 
 **Recommended Reading:**
+
 - [Agentic Collaboration Guide](docs/agentic-collaboration-guide.md) — **Essential reading!**
 - [Framework Foundations](docs/framework-foundations.md) — Understand the theoretical basis
 - [Dual-Helix Clarification](docs/dual-helix-clarification.md) — Engineering vs. Governance
@@ -119,25 +125,30 @@ git push origin feature/[feature-name]
 ### The Workflow Pattern (From DIVA Case Study)
 
 **1. Institutional Memory Setup**
+
 - Structure: Tiered `.cursor/rules/` configuration
 - Result: 100% consistency, 87% token efficiency
 
 **2. Plan-First Discipline**
+
 - Create plan document before implementation
 - No coding without approved plan
 - Capture lessons in summaries
 
 **3. Multi-Model Orchestration**
+
 - Use right model for each task
 - Balance: complexity, privacy, speed, cost
 
 **4. Documentation as Workflow**
+
 - Before: Plan
 - During: Comment
 - After: Summary
 - Always: Update indexes
 
 **5. Bounded Autonomy**
+
 - Clear boundaries on what agent can/cannot do
 - Approval gates for significant changes
 - Build trust gradually
@@ -177,6 +188,7 @@ Significant documentation (new guides, major sections, comprehensive updates):
 **Most Valuable Contribution:** Apply the framework to your domain and share results!
 
 **Process:**
+
 1. **Apply framework** to your project (GIS, education, healthcare, IT ops, etc.)
 2. **Document systematically** following our methodology
 3. **Measure outcomes** (metrics, evidence, validation)
@@ -195,6 +207,7 @@ Significant documentation (new guides, major sections, comprehensive updates):
 | **Other** | Your innovative application! | Any stage |
 
 **Requirements:**
+
 - ✅ Real production or pilot deployment (not just theoretical)
 - ✅ Quantitative metrics and evidence
 - ✅ Framework stages clearly documented
@@ -209,6 +222,7 @@ Significant documentation (new guides, major sections, comprehensive updates):
 ### Framework Implementation Tools
 
 We welcome contributions of:
+
 - Context capture utilities
 - Documentation generation tools
 - Indexing and metadata frameworks
@@ -217,6 +231,7 @@ We welcome contributions of:
 - Evaluation benchmarks
 
 **Standards:**
+
 - Follow language conventions (PEP 8 for Python, etc.)
 - Include tests and documentation
 - Provide usage examples
@@ -225,6 +240,7 @@ We welcome contributions of:
 ### Quality Requirements
 
 **All code contributions must:**
+
 - ✅ Include docstrings/comments
 - ✅ Pass existing tests
 - ✅ Add new tests for new features
@@ -250,6 +266,7 @@ Use conventional commit format:
 ```
 
 **Types:**
+
 - `feat:` — New feature
 - `docs:` — Documentation changes
 - `fix:` — Bug fix
@@ -259,6 +276,7 @@ Use conventional commit format:
 - `research:` — Research findings, case studies
 
 **Examples:**
+
 ```bash
 feat(rag): add PostgreSQL + pgvector integration
 docs(case-study): add healthcare AI agent case study
@@ -272,17 +290,20 @@ research(validation): DIVA case study extraction and analysis
 ### How You'll Be Credited
 
 **All Contributors:**
+
 - ✅ Listed in [CONTRIBUTORS.md](CONTRIBUTORS.md)
 - ✅ Git commit history (permanent attribution)
 - ✅ Mentioned in release notes
 
 **Case Study Contributors:**
+
 - ✅ Byline on case study document
 - ✅ Author credit in academic papers featuring your work
 - ✅ Co-authorship on integrative papers (substantial contributions)
 - ✅ Recognition on project website
 
 **Core Team Members:**
+
 - ✅ Listed as core contributor
 - ✅ Co-authorship on framework papers
 - ✅ Speaking opportunities at conferences
@@ -290,15 +311,18 @@ research(validation): DIVA case study extraction and analysis
 ### Co-Authorship Policy
 
 **Case Study Papers:**
+
 - Primary author: Case study contributor
 - Co-author: Framework creator (Dr. Guan)
 - Additional authors: Other collaborators (by contribution level)
 
 **Integrative Papers:**
+
 - Primary author: Framework creator
 - Co-authors: Case study contributors (by significance)
 
 **Framework Papers:**
+
 - By invitation for sustained framework development
 
 **Full policy:** See [Case Studies README](docs/case-studies/README.md)
@@ -310,6 +334,7 @@ research(validation): DIVA case study extraction and analysis
 ### For Case Studies
 
 **Minimum Requirements:**
+
 - [ ] Applied framework to real project
 - [ ] Documented current framework stage (0-4)
 - [ ] Provided quantitative metrics
@@ -318,6 +343,7 @@ research(validation): DIVA case study extraction and analysis
 - [ ] Followed case study template
 
 **Quality Indicators:**
+
 - Clear domain context and motivation
 - Systematic framework application
 - Measurable outcomes with evidence
@@ -327,6 +353,7 @@ research(validation): DIVA case study extraction and analysis
 ### For Documentation
 
 **Standards:**
+
 - Professional tone matching existing docs
 - Proper markdown formatting
 - Working cross-references and links
@@ -336,6 +363,7 @@ research(validation): DIVA case study extraction and analysis
 ### For Code
 
 **Standards:**
+
 - Language-specific conventions
 - Comprehensive documentation
 - Test coverage
@@ -349,6 +377,7 @@ research(validation): DIVA case study extraction and analysis
 ### Case Study Review (Agent-Assisted)
 
 **Process:**
+
 1. Submit PR using [template](.github/PULL_REQUEST_TEMPLATE.md)
 2. Automated checks run (linting, link validation)
 3. **AI-agent-assisted review** by core team
@@ -366,6 +395,7 @@ At high contribution velocity, human-only review would create bottlenecks. Agent
 ### Documentation Review
 
 Similar process with focus on:
+
 - Accuracy and clarity
 - Consistency with existing docs
 - Proper integration (metadata, cross-refs)
@@ -373,6 +403,7 @@ Similar process with focus on:
 ### Code Review
 
 Standard practices with AI assistance for:
+
 - Style and convention checks
 - Common bug patterns
 - Security considerations
@@ -383,18 +414,21 @@ Standard practices with AI assistance for:
 ## 💬 Communication Channels
 
 ### GitHub Discussions
+
 - Questions about the framework
 - Ideas and proposals
 - Community discussions
 
 ### GitHub Issues
+
 - Bug reports
 - Feature requests
 - Documentation improvements
 - Specific tasks
 
 ### Direct Contact
-- **Email:** bguan@fiu.edu
+
+- **Email:** <bguan@fiu.edu>
 - **Use for:** Collaboration proposals, sensitive topics, partnership inquiries
 
 ---
@@ -425,7 +459,7 @@ We're actively seeking academic partnerships for:
    - Tutorials and workshops
    - Teaching case studies
 
-**Contact:** bguan@fiu.edu with "Research Collaboration" in subject
+**Contact:** <bguan@fiu.edu> with "Research Collaboration" in subject
 
 ---
 
@@ -441,12 +475,13 @@ We're actively seeking academic partnerships for:
 - Co-develop production tools
 
 **Benefits:**
+
 - Early access to validated patterns
 - Co-authorship on joint publications
 - Framework optimization for your needs
 - Open-source tooling development
 
-**Contact:** bguan@fiu.edu with "Industry Partnership" in subject
+**Contact:** <bguan@fiu.edu> with "Industry Partnership" in subject
 
 ---
 
@@ -483,6 +518,7 @@ We're actively seeking academic partnerships for:
 This project operates at **AI-augmented velocity** (10,000+ lines of code and 30+ documents per day using AI agents like DIVA).
 
 **This means:**
+
 - Traditional contribution methods (manual coding, conventional workflows) **cannot keep pace**
 - Contributors must use AI-agent-enabled workflows (Cursor, Claude, GPT-powered IDEs)
 - Reviews are agent-assisted for efficiency
@@ -536,6 +572,7 @@ Traditional contribution methods are perfectly fine! Fork, fix, PR.
 ### Our Pledge
 
 We are committed to providing a welcoming, inclusive environment for all contributors, regardless of:
+
 - Experience level
 - Background
 - Identity
@@ -561,7 +598,7 @@ We are committed to providing a welcoming, inclusive environment for all contrib
 
 ### Enforcement
 
-Instances of unacceptable behavior may be reported to bguan@fiu.edu. All complaints will be reviewed and investigated promptly and fairly.
+Instances of unacceptable behavior may be reported to <bguan@fiu.edu>. All complaints will be reviewed and investigated promptly and fairly.
 
 ---
 
@@ -570,6 +607,7 @@ Instances of unacceptable behavior may be reported to bguan@fiu.edu. All complai
 By contributing, you agree that your contributions will be licensed under the **Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0)**.
 
 **What this means:**
+
 - ✅ Your work will be credited
 - ✅ Others can build on it (with attribution)
 - ✅ Non-commercial use only (protects research integrity)
@@ -583,10 +621,10 @@ By contributing, you agree that your contributions will be licensed under the **
 
 ### Questions About Contributing?
 
-- **General questions:** [GitHub Discussions](https://github.com/Keven1894/Agentic-AI-Research-Roadmap/discussions)
-- **Specific issues:** [GitHub Issues](https://github.com/Keven1894/Agentic-AI-Research-Roadmap/issues)
+- **General questions:** [GitHub Discussions](https://github.com/Keven1894/AgentLoom/discussions)
+- **Specific issues:** [GitHub Issues](https://github.com/Keven1894/AgentLoom/issues)
 - **Case study guidance:** See [Case Studies README](docs/case-studies/README.md)
-- **Collaboration proposals:** Email bguan@fiu.edu
+- **Collaboration proposals:** Email <bguan@fiu.edu>
 
 ### Technical Support
 
@@ -620,7 +658,7 @@ Fork → Improve/Add Docs → Submit PR → Get Credited
 Contact Dr. Guan → Discuss Partnership → Co-Develop → Co-Author Papers
 ```
 
-**Contact:** bguan@fiu.edu
+**Contact:** <bguan@fiu.edu>
 
 ### For Quick Fixes
 
@@ -637,6 +675,7 @@ Fork → Fix → PR → Merge
 The field of agentic AI engineering is just beginning. Your contributions—whether case studies, research insights, or practical implementations—help establish the foundation for the next generation of intelligent systems.
 
 **Together, we're building:**
+
 - 🎓 The theoretical foundations for reliable agentic AI
 - 🛠️ Practical tools and methodologies
 - 📊 Evidence-based validation across domains
@@ -647,7 +686,7 @@ The field of agentic AI engineering is just beginning. Your contributions—whet
 
 ---
 
-**Questions?** Open a [GitHub Discussion](https://github.com/Keven1894/Agentic-AI-Research-Roadmap/discussions) or email bguan@fiu.edu
+**Questions?** Open a [GitHub Discussion](https://github.com/Keven1894/AgentLoom/discussions) or email <bguan@fiu.edu>
 
 **Ready to contribute?** Start with the [Agentic Collaboration Guide](docs/agentic-collaboration-guide.md)!
 
@@ -655,4 +694,3 @@ The field of agentic AI engineering is just beginning. Your contributions—whet
 
 **Last Updated:** November 11, 2025  
 **Version:** 2.0 (Agentic Collaboration Edition)
-

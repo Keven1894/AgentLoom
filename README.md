@@ -1,5 +1,6 @@
-# Agentic-AI-Research-Roadmap
-**Agentic-AI Engineering Framework to Build Reliable AI Agents**
+# Agentic-AI Research Roadmap
+
+**Building Reliable AI Agents Through Engineering + Governance**
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17561541.svg)](https://doi.org/10.5281/zenodo.17561541)
 ![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)
@@ -9,263 +10,326 @@
 **Author:** Dr. Boyuan (Keven) Guan  
 **Affiliation:** FIU Library & GIS Center  
 **First Public Release:** November 8, 2025  
-**Version:** 1.0.2  
+**Version:** 1.1.0  
 **DOI:** [10.5281/zenodo.17561541](https://doi.org/10.5281/zenodo.17561541)
 
 ---
 
-## Mission
+## 🎯 Mission
 
-**This repository explores how large-language-model agents can evolve through documented, reproducible, and production-grade workflows.** The goal is to make intelligent systems learn from real-world experience as human engineers do.
+**This repository serves as both a research workspace and a framework distribution hub for building reliable, trustworthy AI agents.** We explore how AI agents can evolve through documented, reproducible, and production-grade workflows while maintaining operational safety and accountability.
 
-**New here?** Start with **[START HERE](docs/START_HERE.md)** for quick onboarding! 🚀
+**New here?**
 
-## Overview
+- 🚀 **Using AgentLoom Framework?** → See [agentloom-framework/](agentloom-framework/)
+- 📚 **Understanding the Research?** → Start with [docs/START_HERE.md](docs/START_HERE.md)
 
-This repository documents and open-sources the foundation of the **Agentic-AI Engineering Framework**, a systematic methodology that transforms AI from theoretical reasoning to practical, production-ready systems.
+---
 
-While Large Language Models (LLMs) are powerful theorists, **Agents are practitioners** — operating in real environments, performing concrete tasks, and learning through trial and feedback.
+## 🌟 What's Inside
 
-## The Core Framework
+This repository contains:
 
-Our framework implements a closed learning loop:
+### 1. **AgentLoom Framework** (Community Release)
 
-> **Context → Documentation → Indexing → RAG → Fine-Tuning**
+A production-ready framework for building dual-role AI agents with fully-connected knowledge graphs. Build custom agentic AI systems in 2-4 hours.
 
-Where each stage strengthens the next:
-- **Context** captures the working environment and raw artifacts
-- **Documentation** turns experience into reusable knowledge
-- **Indexing** organizes knowledge for retrieval and reasoning
-- **RAG** (Retrieval-Augmented Generation) connects AI reasoning to verified data
-- **Fine-Tuning** distills accumulated experience into domain-specialized models
+📦 **[agentloom-framework/](agentloom-framework/)** - Complete framework package with:
 
-This transforms one-off AI experiments into **continuous, evidence-based AI systems**.
+- 9-phase protocol for agent development
+- Pre-built builder components
+- Specification-based generation system
+- 95-98% success rate, 2-4 hour build time
 
-## Key Insight
+### 2. **Research on Reliable Agentic AI**
 
-**"LLM is the theorist, Agent is the practitioner."**
+Exploring the dual-helix architecture that combines engineering excellence with governance safety.
 
-To bring AI from conversation to production, we must systematize how agents:
-- Accumulate knowledge from real tasks
-- Document their decision-making processes
-- Evolve through structured feedback loops
-- Persist context across interactions
+📚 **[research/](research/)** - Research materials including:
 
-## Framework Foundations
+- Dual-helix architecture (Learning + Governance)
+- Framework foundations and theoretical underpinnings
+- Case studies and experimental validations
+- Publications and academic positioning
 
-The Agentic-AI Engineering Framework addresses a critical research gap: **the engineering lifecycle of production-grade agentic systems**. While most research focuses on agent capabilities (reasoning, planning, learning), our framework tackles the complementary problem of building agents that are maintainable, evolvable, accountable, and scalable.
+---
 
-**Core Documents:**
-- **[Framework Foundations](docs/framework-foundations.md)** — Theoretical underpinnings and key questions
-- **[Research Problems & Positioning](docs/research-problems-and-positioning.md)** — Academic landscape and how our framework addresses known gaps
-- **[Dual-Helix Clarification](docs/dual-helix-clarification.md)** — Engineering strand (this repo) vs. Governance strand (co-agenticOS)
-- **[Agentic Collaboration Guide](docs/agentic-collaboration-guide.md)** — Complete methodology for working at AI-augmented velocity
+## 🧬 The Dual-Helix Architecture
 
-## Research Vision
+Our research is built on the **dual-helix concept** - two interlocking systems that create reliable, trustworthy AI agents:
 
-Establish a **repeatable, scalable, and evaluable Agentic-AI engineering framework** that integrates LLM reasoning with traditional software engineering discipline, enabling sustainable AI engineering where AI systems:
-- Not only respond but **operate**
-- Not only answer but **record**
-- Not only reason but **evolve**
+### **Helix 1: Learning & Evolution** (Engineering)
 
-## Repository Structure
+The Agentic-AI Engineering Framework enables knowledge accumulation:
+
+```
+Context Capture → Documentation → Indexing → RAG → Fine-Tuning
+```
+
+**Result:** Knowledge Growth & Continuous Learning
+
+### **Helix 2: Governance & Safety** (Culture)
+
+The co-agenticOS governance layer enforces operational boundaries:
+
+```
+Rules Engine → Coordination → Memory Boundaries → Verification → Adaptation
+```
+
+**Result:** Bounded Autonomy & Accountability
+
+### **The Interlock**
+
+Verification points between helixes ensure learning occurs within accountable constraints, forming the foundation of **Reliable Probabilistic Intelligence**.
+
+---
+
+## 🚀 Quick Start
+
+### For Framework Users (Building AI Agents)
+
+1. **Navigate to AgentLoom**:
+
+   ```bash
+   cd agentloom-framework/agentLoom-v3/
+   ```
+
+2. **Read the user manual**:
+   - New projects: [USER_MANUAL_NEW_PROJECT.md](agentloom-framework/agentLoom-v3/USER_MANUAL_NEW_PROJECT.md)
+   - Existing projects: [USER_MANUAL_EXISTING_PROJECT.md](agentloom-framework/agentLoom-v3/USER_MANUAL_EXISTING_PROJECT.md)
+
+3. **Follow the 9-phase protocol** to build your agent (2-4 hours)
+
+### For Researchers (Understanding the Framework)
+
+1. **Start with foundations**:
+   - [docs/START_HERE.md](docs/START_HERE.md) - Quick onboarding
+   - [docs/framework-foundations.md](docs/framework-foundations.md) - Theoretical underpinnings
+
+2. **Explore the dual-helix**:
+   - [docs/dual-helix-clarification.md](docs/dual-helix-clarification.md) - Engineering vs. Governance
+   - [research/figures/dual-helix-diagram-spec.md](research/figures/dual-helix-diagram-spec.md) - Visual specifications
+
+3. **Review case studies**:
+   - [docs/case-studies/](docs/case-studies/) - Production validations
+
+---
+
+## 📁 Repository Structure
 
 ```
 Agentic-AI-Research-Roadmap/
 ├── README.md                              # This file — Start here!
-├── CONTRIBUTING.md                        # How to contribute (v2.0 - Agentic Collaboration)
-├── CONTRIBUTORS.md                        # Recognition and attribution
 ├── LICENSE                                # CC BY-NC 4.0
 ├── CITATION.cff                           # Zenodo citation metadata
-├── DUAL_REPO_STRATEGY.md                  # GitHub (public) + GitLab (full) strategy
+│
+├── agentloom-framework/                   # 🎁 Framework Distribution
+│   ├── agentLoom-v3/                      # Latest stable release (v3.0)
+│   │   ├── README.md                      # Framework overview
+│   │   ├── AGENTLOOM_DESIGN.md            # Design philosophy
+│   │   ├── USER_MANUAL_NEW_PROJECT.md     # Build new agents
+│   │   ├── USER_MANUAL_EXISTING_PROJECT.md # Validate existing agents
+│   │   ├── builder-assets/                # Pre-built components
+│   │   ├── specs/                         # Generation requirements
+│   │   ├── examples/                      # Reference patterns
+│   │   └── phases/                        # 9-phase instructions
+│   │
+│   └── [previous versions]/               # Version history
+│
+├── research/                              # 🔬 Research Materials
+│   ├── figures/                           # Diagram specifications
+│   │   ├── dual-helix-diagram-spec.md     # Core architecture visual
+│   │   └── memory-hierarchy-analogy-diagram.md
+│   │
+│   └── [additional research materials]
 │
 ├── docs/                                  # 📚 Core Documentation
-│   ├── START_HERE.md                      # ⭐ Quick onboarding (read this first!)
-│   ├── Agentic-AI-Research-Roadmap.md     # Complete research roadmap
-│   ├── Research-Timeline-2025-2027.md     # Milestones and deliverables
-│   │
-│   ├── Framework Core (WHAT + WHY + HOW)
-│   ├── framework-foundations.md           # Theoretical underpinnings (F1-F7)
-│   ├── research-problems-and-positioning.md # Academic landscape and positioning
-│   ├── dual-helix-clarification.md        # Engineering vs. Governance strands
-│   ├── agentic-collaboration-guide.md     # Complete methodology (11K words!)
+│   ├── START_HERE.md                      # ⭐ Quick onboarding
+│   ├── framework-foundations.md           # Theoretical underpinnings
+│   ├── research-problems-and-positioning.md # Academic landscape
+│   ├── dual-helix-clarification.md        # Engineering + Governance
+│   ├── agentic-collaboration-guide.md     # Methodology (11K words)
 │   │
 │   ├── case-studies/                      # 🔬 Production Validations
-│   │   ├── README.md                      # Case study template and guide
-│   │   └── dataverse-diva.md              # Digital libraries (Stage 2, 1+ month)
+│   │   ├── README.md                      # Case study guide
+│   │   └── dataverse-diva.md              # Digital libraries validation
 │   │
-│   ├── releases/                          # 📦 Release Notes
-│   │   ├── README.md                      # Version history
-│   │   └── v1.0.2.md                      # Latest release notes
-│   │
-│   └── Supporting Documentation
-│       ├── getting-started.md
-│       ├── co-agenticOS-integration-guide.md
-│       ├── DISCUSSION_TEMPLATE.md
-│       └── ZENODO_INTEGRATION.md
+│   └── releases/                          # 📦 Release Notes
+│       └── v1.0.2.md                      # Latest release
 │
-├── figures/                               # 📊 Diagram Specifications
-│   ├── dual-helix-diagram-spec.md         # Engineering + Governance strands
-│   ├── memory-hierarchy-analogy-diagram.md # Computer architecture analogy
-│   └── private/                           # 🔒 NOT in Git (DIVA figures)
-│
-├── .github/                               # GitHub Configuration
-│   └── PULL_REQUEST_TEMPLATE.md           # Case study submission checklist
-│
-├── meta/                                  # 🗂️ Project Metadata
-│   ├── directory-index.yaml               # Directory structure and purpose
-│   ├── search-manifest.json               # Document collections for RAG/search
-│   └── README.md                          # Metadata documentation
+├── CONTRIBUTING.md                        # How to contribute
+├── CONTRIBUTORS.md                        # Recognition and attribution
+├── DUAL_REPO_STRATEGY.md                  # GitHub (public) + GitLab (full)
 │
 ├── .cursor/                               # 🤖 AI Collaboration Rules
-│   └── rules.md                           # Canonical references and editing policy
+│   └── rules.md                           # Canonical references
+│
+├── meta/                                  # 🗂️ Project Metadata
+│   ├── directory-index.yaml               # Directory structure
+│   └── search-manifest.json               # Document collections
 │
 ├── archives/                              # 📦 Historical Materials
-│   ├── EDITORIAL_REVIEW_SUMMARY.md
-│   └── inputRAW/dataverse-diva/           # DIVA extraction (9 detailed docs)
-│
 ├── drafts/                                # 📝 Pre-Publication Materials
-│   ├── public/                            # ✅ Shareable outlines and roadmaps
-│   └── private/                           # 🔒 NOT in Git (full drafts, sensitive)
-│
-├── experiments/                           # 🧪 Experimental Code & Studies
-│   └── private/                           # 🔒 NOT in Git (DIVA experiments)
-│
-└── temp/                                  # 🗃️ Working Documents & Summaries
-    └── [Session summaries and documentation]
+├── experiments/                           # 🧪 Experimental Code
+└── temp/                                  # 🗃️ Working Documents
 ```
-
-## Experimental Domains
-
-We are validating this framework across multiple domains:
-
-| Domain | Use Case | Expected Outcome |
-|--------|----------|------------------|
-| **GIS / Environmental Data** | Automatic buoy data annotation, anomaly detection (EnviStor) | Validate RAG for spatiotemporal reasoning |
-| **Digital Libraries** | Metadata repair, catalog enrichment (Dataverse) | Improve retrieval precision |
-| **Education** | AI teaching assistants, research support | Demonstrate adaptive learning |
-| **IT Operations** | Log analysis, system self-healing | Evaluate feedback loops |
-| **Industry Applications** | Multi-agent coordination systems | Measure operational reliability |
-
-## Engineering Framework
-
-Based on the **Agentic-Dev Workflow**:
-
-```
-Plan → Implement → Verify → Document → Summarize → Iterate
-```
-
-**Core Elements:**
-- `.cursor/rules.md` — Context-aware AI editing policy
-- `decision_log/` — Persistent design rationale
-- `daily/` — Auto-summaries of activity and changes
-- **CI/CD + Changesets** — Continuous integration with changelog tracking
-- **Documentation Site** — Public transparency and collaboration
-
-## How to Contribute
-
-**Want to contribute?** We welcome case studies, research collaborations, and community engagement!
-
-**Quick Links:**
-- 📖 **[CONTRIBUTING.md](CONTRIBUTING.md)** — Contribution pathways and process
-- 🤝 **[Case Studies Guide](docs/case-studies/README.md)** — Submit your framework validation
-- 🎯 **[Agentic Collaboration Guide](docs/agentic-collaboration-guide.md)** — Learn the high-velocity methodology
-- 🌟 **[CONTRIBUTORS.md](CONTRIBUTORS.md)** — See who's involved and how you'll be credited
-
-**New to the framework?** Start with **[START HERE](docs/START_HERE.md)** for a guided onboarding!
 
 ---
 
-## Collaboration
+## 🎯 Key Insight
 
-We welcome collaborations with:
-- **Academic Institutions** — Research validation and datasets
-- **Industry Partners** — Real-world deployment and feedback
-- **Open Source Community** — Tools, benchmarks, and standards
+**"LLM is the theorist, Agent is the practitioner."**
 
-**Current Partners:**
-- FIU Library & GIS Center (lead)
-- FIU Computer Science Department
-- FIU Division of IT
-- Pelican, OSG, and other research infrastructure partners
+To bring AI from conversation to production, we must systematize how agents:
 
-## Agentic-AI Ecosystem
+- Accumulate knowledge from real tasks
+- Document their decision-making processes
+- Evolve through structured feedback loops
+- Operate within accountable boundaries
+- Persist context across interactions
 
-This framework is implemented and validated through a connected ecosystem of projects:
+This is achieved through the **dual-helix architecture** where engineering excellence (learning) and governance safety (boundaries) interlock at every stage.
+
+---
+
+## 🔬 Research Vision
+
+Establish a **repeatable, scalable, and evaluable Agentic-AI engineering framework** that integrates LLM reasoning with traditional software engineering discipline and operational governance, enabling sustainable AI engineering where AI systems:
+
+- Not only respond but **operate**
+- Not only answer but **record**
+- Not only reason but **evolve**
+- Not only learn but **stay accountable**
+
+---
+
+## 🧪 Experimental Domains
+
+We are validating this framework across multiple domains:
+
+| Domain | Use Case | Framework Validation |
+|--------|----------|---------------------|
+| **Digital Libraries** | Metadata repair, catalog enrichment (Dataverse) | RAG precision, knowledge graph evolution |
+| **GIS / Environmental Data** | Buoy data annotation, anomaly detection (EnviStor) | Spatiotemporal reasoning, domain adaptation |
+| **Education** | AI teaching assistants, research support | Adaptive learning, multi-role coordination |
+| **IT Operations** | Log analysis, system self-healing | Feedback loops, autonomous decision-making |
+| **Industry Applications** | Multi-agent coordination systems | Operational reliability, governance compliance |
+
+---
+
+## 🤝 How to Contribute
+
+We welcome contributions in multiple forms:
+
+### 1. **Use AgentLoom Framework**
+
+- Build agents for your domain
+- Share feedback and improvements
+- Submit case studies
+
+### 2. **Research Collaboration**
+
+- Validate framework in new domains
+- Contribute theoretical insights
+- Co-author publications
+
+### 3. **Community Engagement**
+
+- Report issues and suggest features
+- Improve documentation
+- Share best practices
+
+**Quick Links:**
+
+- 📖 [CONTRIBUTING.md](CONTRIBUTING.md) - Contribution pathways
+- 🤝 [Case Studies Guide](docs/case-studies/README.md) - Submit validations
+- 🎯 [Agentic Collaboration Guide](docs/agentic-collaboration-guide.md) - Methodology
+- 🌟 [CONTRIBUTORS.md](CONTRIBUTORS.md) - Recognition
+
+---
+
+## 🌐 Agentic-AI Ecosystem
+
+This framework is part of a connected ecosystem:
 
 ### Core Components
 
 | Repository | Role | Description |
 |------------|------|-------------|
-| **[Agentic-AI-Research-Roadmap](https://github.com/Keven1894/Agentic-AI-Research-Roadmap)** | 🎓 Theory & Methodology | Framework definition, research roadmap, and academic foundation |
-| **[co-agenticOS](https://github.com/Keven1894/co-agenticOS)** | 🧠 Execution & Governance | Runtime system for agent behavior rules, coordination protocols, and operational standards |
-
-### Implementation Layer (Planned)
-
-- **EnviStor Agentic Case** - Environmental data management validation
-- **Dataverse Agentic Case** - Digital library metadata curation
-- **Multi-Agent Coordination** - System orchestration examples
+| **[Agentic-AI-Research-Roadmap](https://github.com/Keven1894/Agentic-AI-Research-Roadmap)** | 🎓 Research & Framework | This repository - research + AgentLoom framework |
+| **[co-agenticOS](https://github.com/Keven1894/co-agenticOS)** | 🧠 Governance & Runtime | Operational standards, coordination protocols, safety boundaries |
 
 ### Relationship
 
 ```
-[Agentic-AI Framework]  → defines what agents should do and how they learn
+[AgentLoom Framework]     → Engineering helix: How agents learn and evolve
          ↓
-[co-agenticOS]         → implements how agents behave and cooperate at runtime
+[co-agenticOS]            → Governance helix: How agents behave safely
          ↓
-[Domain Applications]  → validates framework in real-world scenarios
+[Domain Applications]     → Validates dual-helix in production
 ```
 
-**For implementation details and operational guidelines, see [co-agenticOS](https://github.com/Keven1894/co-agenticOS).**
+**The dual-helix in action:**
 
-## Publications & Roadmap
+- **AgentLoom** (this repo) provides the learning/engineering strand
+- **co-agenticOS** provides the governance/safety strand
+- Together they create **Reliable Probabilistic Intelligence**
+
+---
+
+## 📅 Publications & Roadmap
 
 **Stage 1 (2025 Q4):** Framework workshop paper  
 **Stage 2 (2026 Q1-Q3):** Domain-specific case studies  
 **Stage 3 (2026 Q4):** Integrative system paper  
 **Stage 4 (2027):** Monograph and curriculum development
 
-See [Research Timeline](docs/Research-Timeline-2025-2027.md) for detailed milestones.
+See [docs/Research-Timeline-2025-2027.md](docs/Research-Timeline-2025-2027.md) for detailed milestones.
 
-### 🔒 Privacy & IP Protection
+---
+
+## 🔒 Privacy & IP Protection
 
 ⚠️ **Note**: This project uses a **dual-repository strategy** to balance open science with IP protection.
 
 **This Repository (GitHub - Public)**
+
+- AgentLoom framework (complete, ready to use)
 - Framework methodology and conceptual materials
 - High-level documentation and guides
 - All `private/` folders are excluded via `.gitignore`
 
 **Full Repository (GitLab - Private)**
+
 - Complete research materials including experimental data
-- Detailed DIVA case study with metrics and analysis
+- Detailed case studies with metrics and analysis
 - All `private/` folders with sensitive content
 
-**Protected Content** (GitLab only):
-- `drafts/private/` - Full paper drafts with experimental data
-- `experiments/private/dataverse-diva/` - Complete DIVA experiments
-- `figures/private/dataverse-diva/` - All DIVA figures and charts
+For details, see [DUAL_REPO_STRATEGY.md](DUAL_REPO_STRATEGY.md).
 
-For details, see [`DUAL_REPO_STRATEGY.md`](DUAL_REPO_STRATEGY.md).
+---
 
-## Expected Outcomes
+## 🎓 Expected Outcomes
 
 | Type | Description |
 |------|-------------|
-| **Software** | Open-source Agentic-Dev Workflow template and toolkit |
+| **Framework** | AgentLoom - Production-ready agent development framework |
+| **Software** | Open-source tools and templates for agentic AI engineering |
 | **Publications** | Peer-reviewed papers at PEARC, JCDL, ICSE, AI-Engineering venues |
 | **Education** | Agentic-AI course modules and tutorials |
 | **Datasets** | Curated agent-interaction logs for research use |
 | **Industry Pilots** | Operational agents in production systems |
 
-## Citation
+---
 
-If you reference this framework or methodology, please cite:
+## 📖 Citation
+
+If you use AgentLoom or reference this research, please cite:
 
 ```bibtex
 @software{guan2025agenticai,
   author = {Guan, Boyuan (Keven)},
-  title = {Agentic-AI Lab: Engineering the Next Generation of Intelligent Systems},
+  title = {Agentic-AI Research Roadmap: Building Reliable AI Agents Through Engineering and Governance},
   year = {2025},
   publisher = {Zenodo},
   version = {1.1.0},
@@ -274,33 +338,68 @@ If you reference this framework or methodology, please cite:
 }
 ```
 
-## Contact
+For AgentLoom framework specifically:
+
+```bibtex
+@software{guan2025agentloom,
+  author = {Guan, Boyuan (Keven)},
+  title = {AgentLoom: A Framework for Building Dual-Role AI Agents},
+  year = {2025},
+  publisher = {GitHub},
+  version = {3.0},
+  url = {https://github.com/Keven1894/Agentic-AI-Research-Roadmap/tree/main/agentloom-framework}
+}
+```
+
+---
+
+## 📬 Contact
 
 **Dr. Boyuan (Keven) Guan**  
 Lead Developer & Research Engineer  
 FIU Library & GIS Center  
-📧 bguan@fiu.edu  
-🌐 https://dataversedev.fiu.edu/ai/
+📧 <bguan@fiu.edu>  
+🌐 <https://dataversedev.fiu.edu/ai/>
 
 ---
 
-## License
+## 📜 License
 
 © 2025 Dr. Boyuan (Keven) Guan, FIU Library & GIS Center
 
 This work is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License](http://creativecommons.org/licenses/by-nc/4.0/).
 
-You are free to:
+**You are free to:**
+
 - **Share** — copy and redistribute the material
 - **Adapt** — remix, transform, and build upon the material
 
-Under the following terms:
+**Under the following terms:**
+
 - **Attribution** — You must give appropriate credit
 - **NonCommercial** — You may not use the material for commercial purposes
 
 ---
 
-*This repository is a living research project. Contributions, collaborations, and feedback are welcome.*
+## 🤝 Collaboration
 
-**Last Updated:** November 11, 2025
+We welcome collaborations with:
 
+- **Academic Institutions** — Research validation and datasets
+- **Industry Partners** — Real-world deployment and feedback
+- **Open Source Community** — Tools, benchmarks, and standards
+
+**Current Partners:**
+
+- FIU Library & GIS Center (lead)
+- FIU Computer Science Department
+- FIU Division of IT
+- Pelican, OSG, and other research infrastructure partners
+
+---
+
+*This repository is a living research project. The AgentLoom framework is production-ready, while research components continue to evolve. Contributions, collaborations, and feedback are welcome.*
+
+**Last Updated:** December 1, 2025  
+**AgentLoom Version:** 3.0  
+**Research Status:** Active

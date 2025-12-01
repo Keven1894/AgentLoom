@@ -1,0 +1,130 @@
+#!/usr/bin/env python3
+"""
+Structure Validator Template
+Validates project directory structure and required files
+
+CUSTOMIZATION REQUIRED:
+1. Update REQUIRED_DIRS with your project structure
+2. Update REQUIRED_FILES with your core files
+3. Update get_domain_role_id() to read from your identity.md
+"""
+
+import sys
+from pathlib import Path
+
+
+# ============================================================================
+# CONFIGURATION - Customize these for your project
+# ============================================================================
+
+REQUIRED_DIRS = [
+    '.cursor',
+    '.cursor/behaviors',
+    '.cursor/behaviors/core',
+    '.cursor/templates',
+    'agents',
+    'agents/knowledge-graphs',
+    'agents/skills',
+    'agents/skills/agent-builder',
+    'agents/skills/[DOMAIN-ROLE]',  # Replace with your domain role folder
+    'docs',
+    'docs/general',
+    'docs/agent-builder',
+    'docs/[DOMAIN-ROLE]',  # Replace with your domain role folder
+    'scripts',
+    'temp'
+]
+
+REQUIRED_FILES = [
+    '.cursor/identity.md',
+    '.cursor/rules.md',
+    'agents/knowledge-graphs/master-graph.json',
+    'agents/knowledge-graphs/agent-builder-knowledge-graph.json',
+    'agents/knowledge-graphs/agent-builder-skills-graph.json',
+    'agents/knowledge-graphs/agent-builder-behaviors-graph.json',
+    # Add your domain role graphs here
+]
+
+# ============================================================================
+# Helper Functions
+# ============================================================================
+
+
+def get_domain_role_id():
+    """
+    Extract domain role ID from identity.md
+    
+    CUSTOMIZE THIS: Read your actual identity.md format
+    """
+    # Placeholder - implement based on your identity.md structure
+    # Example:
+    # with open('.cursor/identity.md', 'r') as f:
+    #     content = f.read()
+    #     # Parse content to find domain role ID
+    #     return 'your-domain-role-id'
+    return 'DOMAIN-ROLE'  # Replace this
+
+
+# ============================================================================
+# Validation Logic - No changes needed below
+# ============================================================================
+
+
+def validate_structure():
+    """Validate directory structure"""
+    missing_dirs = []
+    
+    # Replace placeholder with actual domain role
+    domain_role = get_domain_role_id()
+    dirs_to_check = [d.replace('[DOMAIN-ROLE]', domain_role) for d in REQUIRED_DIRS]
+    
+    for dir_path in dirs_to_check:
+        if not Path(dir_path).exists():
+            missing_dirs.append(dir_path)
+    
+    return missing_dirs
+
+
+def validate_files():
+    """Validate required files exist"""
+    missing_files = []
+    
+    # Replace placeholder with actual domain role
+    domain_role = get_domain_role_id()
+    files_to_check = [f.replace('[DOMAIN-ROLE]', domain_role) for f in REQUIRED_FILES]
+    
+    for file_path in files_to_check:
+        if not Path(file_path).exists():
+            missing_files.append(file_path)
+    
+    return missing_files
+
+
+def main():
+    """Main validation"""
+    print("Validating project structure...")
+    print("=" * 60)
+    
+    missing_dirs = validate_structure()
+    missing_files = validate_files()
+    
+    if missing_dirs:
+        print(f"\n❌ Missing directories ({len(missing_dirs)}):")
+        for dir_path in missing_dirs:
+            print(f"  - {dir_path}")
+    
+    if missing_files:
+        print(f"\n❌ Missing files ({len(missing_files)}):")
+        for file_path in missing_files:
+            print(f"  - {file_path}")
+    
+    if not missing_dirs and not missing_files:
+        print("\n✅ Project structure is complete and valid!")
+        return 0
+    else:
+        print(f"\n❌ Validation failed: {len(missing_dirs)} missing dirs, {len(missing_files)} missing files")
+        return 1
+
+
+if __name__ == '__main__':
+    sys.exit(main())

@@ -1,11 +1,3 @@
-project:
-  name: Agentic-AI-Research-Roadmap
-  version: 1.0.2
-  last_updated: 2025-11-11
-  description: >
-    Research program hub for the Agentic-AI Engineering Framework and related
-    documentation, timelines, and paper drafts. Addresses research gaps in
-    production-grade agentic AI engineering and lifecycle management.
 directories:
   root:
     purpose: Primary entry point for collaborators and citation metadata.

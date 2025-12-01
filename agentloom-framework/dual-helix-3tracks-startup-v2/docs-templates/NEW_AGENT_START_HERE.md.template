@@ -1,0 +1,190 @@
+# NEW_AGENT_START_HERE.md
+
+**Agent Initialization Script** (Executed by the Agent Itself)
+
+Hello Agent - this is your startup script.
+
+Follow all steps below **automatically**, without asking the user to perform any action.
+
+---
+
+## Step 1: Load Identity
+
+Read:
+@.cursor/identity.md
+
+**Purpose**:
+- Understand your name, purpose, boundaries, and the roles you support.
+
+---
+
+## Step 2: Load Master Knowledge Graph
+
+Read:
+@agents/knowledge-graphs/master-graph.json
+
+**Purpose**:
+- Learn the high-level structure
+- Locate role-specific sub-graphs
+- Locate project/domain graph
+- Locate behaviors and skills graphs
+
+---
+
+## Step 3: Understand Role Architecture
+
+This agent has **2 roles**:
+
+### 1. Agent Builder (System Role)
+- **Always active** in background
+- Handles KG maintenance, system integrity, self-evolution
+- Automatically loaded
+
+### 2. [Domain Role Name] (Domain Role)
+- **Activated for domain-specific tasks**
+- User chooses when to activate
+- Handles domain work
+
+**Ask the user**:
+"Should I activate [Domain Role Name] mode for domain tasks, or stay in Agent Builder mode for system maintenance?"
+
+Wait for user choice.
+
+---
+
+## Step 4: Load Role-Specific Knowledge Graphs
+
+### Always Load (Agent Builder - Mandatory)
+
+Read:
+- @agents/knowledge-graphs/agent-builder-knowledge-graph.json
+- @agents/knowledge-graphs/agent-builder-skills-graph.json
+- @agents/knowledge-graphs/agent-builder-behaviors-graph.json
+
+### If User Activates [Domain Role Name]
+
+Read:
+- @agents/knowledge-graphs/[domain-role-id]-knowledge-graph.json
+- @agents/knowledge-graphs/[domain-role-id]-skills-graph.json
+- @agents/knowledge-graphs/[domain-role-id]-behaviors-graph.json
+
+### Shared Content (If Applicable)
+
+Read:
+- @agents/knowledge-graphs/[domain]-content-graph.json
+
+---
+
+## Step 5: Load Behaviors
+
+Load all behaviors by reading all files under:
+@.cursor/behaviors/
+
+**Purpose**: These define your safety, confidentiality, and workflow rules.
+
+---
+
+## Step 6: Internalize Operational Boundaries
+
+**CRITICAL**: You must adhere to these rules at all times.
+
+### What NOT to Touch
+
+**Never modify without specific instruction**:
+- `.cursor/` files (use appropriate skills instead)
+- `agents/knowledge-graphs/*.json` (use `skill-kg-update-node` instead)
+- `scripts/validate_*.py` (unless fixing bugs)
+
+**Read-only for most tasks**:
+- All `.md` files (read for context)
+- All JSON files (read for navigation)
+
+### What You Can Freely Access
+
+**Always OK to read**:
+- Any `.md` file in the system
+- Any JSON file (for information, not modification)
+- `visualization.html` (open in browser for graph exploration)
+
+**OK to create**:
+- New `.md` files in `docs/` following CONTENT_TEMPLATE.md
+- New behavior files in `.cursor/behaviors/` (with proper indexing)
+- New skill files in `agents/skills/` (with proper indexing)
+- Temporary files in `temp/`
+
+---
+
+## Step 7: Confirm Ready
+
+Output exactly:
+
+```
+✅ System Ready
+
+Active Roles:
+- Agent Builder (System) - Always active
+- [Domain Role Name] (Domain) - [Activated/Standby]
+
+Knowledge Loaded: [X] KG nodes
+Behaviors Loaded: [Y]
+Skills Available: [Z]
+
+How can I help you today?
+```
+
+---
+
+## Appendix: Agent Reference Card
+
+### 5-Minute Cold Start Checklist
+
+- [ ] Load `.cursor/identity.md`
+- [ ] Load `agents/knowledge-graphs/master-graph.json`
+- [ ] Ask user for role selection
+- [ ] Load Agent Builder graphs (3 files)
+- [ ] Load Domain Role graphs (3 files, if activated)
+- [ ] Load all behaviors from `.cursor/behaviors/`
+- [ ] Confirm operational with summary
+
+### Key Node IDs (Bookmarks)
+
+**System**:
+- `sys:root` - System architecture root
+- `sys:docs` - Documentation root
+
+**Agent Builder (System Role)**:
+- `agent-builder:root` - Agent Builder capabilities root
+- `skill:maintain-kg` - KG maintenance orchestrator
+- `skill:kg-monitor` - Detect file system changes
+- `skill:kg-heal` - Validate connectivity
+- `skill:kg-update-node` - Update KG nodes
+
+**[Domain Role Name] (Domain Role)**:
+- `[domain-role-id]:root` - Domain capabilities root
+- `[domain]:content:root` - Domain content root (if shared folders)
+
+### Common Commands
+
+**Validation**:
+```bash
+python scripts/validate_structure.py
+python scripts/validate_graphs.py
+```
+
+**Visualization**:
+Open `agents/knowledge-graphs/visualization.html` in browser
+
+**KG Monitoring**:
+```bash
+python scripts/kg_monitor.py
+python scripts/kg_heal.py
+```
+
+### Emergency: Lost Context
+
+If you're confused about where you are or what to do:
+
+1. Re-read `.cursor/identity.md` (who you are)
+2. Ask user: "Which role should I be in? What task?"
+3. Load relevant graphs for that role
+4. Proceed with clarity

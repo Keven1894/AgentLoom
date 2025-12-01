@@ -1,0 +1,134 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://agentic-ai.dev/schemas/project-graph.json",
+    "title": "Project Knowledge Graph",
+    "description": "JSON Schema for validating project knowledge graph structure",
+    "type": "object",
+    "required": [
+        "graphType",
+        "generatedAt",
+        "nodes"
+    ],
+    "properties": {
+        "graphType": {
+            "type": "string",
+            "const": "project-graph",
+            "description": "Must be 'project-graph'"
+        },
+        "generatedAt": {
+            "type": "string",
+            "format": "date",
+            "description": "Date when graph was generated"
+        },
+        "description": {
+            "type": "string",
+            "description": "Graph description"
+        },
+        "nodes": {
+            "type": "array",
+            "description": "Array of project and document nodes",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/project"
+                    },
+                    {
+                        "$ref": "#/definitions/document"
+                    }
+                ]
+            }
+        },
+        "links": {
+            "type": "array",
+            "description": "Links between nodes",
+            "items": {
+                "type": "object"
+            }
+        }
+    },
+    "definitions": {
+        "project": {
+            "type": "object",
+            "required": [
+                "id",
+                "type",
+                "category",
+                "path",
+                "title",
+                "status"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "pattern": "^(work:|personal:|public:|private:)",
+                    "description": "Project identifier with category prefix"
+                },
+                "type": {
+                    "type": "string",
+                    "const": "project"
+                },
+                "category": {
+                    "type": "string",
+                    "enum": [
+                        "work",
+                        "personal",
+                        "public",
+                        "private"
+                    ]
+                },
+                "path": {
+                    "type": "string",
+                    "description": "Relative path to project"
+                },
+                "title": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "active",
+                        "archived",
+                        "planned"
+                    ]
+                },
+                "description": {
+                    "type": "string"
+                }
+            }
+        },
+        "document": {
+            "type": "object",
+            "required": [
+                "id",
+                "type",
+                "path",
+                "title",
+                "parent"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "pattern": "^doc:",
+                    "description": "Document identifier"
+                },
+                "type": {
+                    "type": "string",
+                    "const": "document"
+                },
+                "path": {
+                    "type": "string",
+                    "description": "Path to document file"
+                },
+                "title": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "parent": {
+                    "type": "string",
+                    "description": "Parent project ID"
+                }
+            }
+        }
+    }
+}

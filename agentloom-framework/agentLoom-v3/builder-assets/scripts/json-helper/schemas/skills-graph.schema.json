@@ -1,0 +1,137 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://agentic-ai.dev/schemas/skills-graph.json",
+    "title": "Skills Knowledge Graph",
+    "description": "JSON Schema for validating skills knowledge graph structure",
+    "type": "object",
+    "required": [
+        "graphType",
+        "role",
+        "generatedAt",
+        "skills"
+    ],
+    "properties": {
+        "graphType": {
+            "type": "string",
+            "const": "skills",
+            "description": "Must be 'skills' for skills graphs"
+        },
+        "role": {
+            "type": "string",
+            "pattern": "^role-",
+            "description": "Role identifier (e.g., role-builder, role-manager)"
+        },
+        "generatedAt": {
+            "type": "string",
+            "format": "date",
+            "description": "Date when graph was generated (YYYY-MM-DD)"
+        },
+        "skills": {
+            "type": "array",
+            "description": "Array of skill nodes",
+            "items": {
+                "$ref": "#/definitions/skill"
+            }
+        }
+    },
+    "definitions": {
+        "skill": {
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "pattern": "^(skill:|skill-)",
+                    "description": "Unique skill identifier"
+                },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "root",
+                        "category",
+                        "skill"
+                    ],
+                    "description": "Skill node type"
+                },
+                "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Human-readable skill name"
+                },
+                "category": {
+                    "type": "string",
+                    "description": "Skill category"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Detailed skill description"
+                },
+                "path": {
+                    "type": "string",
+                    "pattern": "^agents/skills/",
+                    "description": "Path to skill markdown file"
+                },
+                "parent": {
+                    "type": "string",
+                    "description": "Parent skill ID"
+                },
+                "created": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Creation date"
+                },
+                "links": {
+                    "type": "object",
+                    "description": "Links to other nodes",
+                    "properties": {
+                        "governed_by": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "uses": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "modifies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "references": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "operates_on": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "superseded_by": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "additionalProperties": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "additionalProperties": true
+        }
+    }
+}

@@ -1,0 +1,77 @@
+{
+  "graphType": "skills",
+  "role": "agent-builder",
+  "generatedAt": "2025-11-28",
+  "description": "Agent Builder's system maintenance capabilities",
+  "skills": [
+    {
+      "id": "skill:agent-builder:root",
+      "type": "root",
+      "name": "Agent Builder Capabilities",
+      "description": "Root of the Agent Builder skill tree"
+    },
+    {
+      "id": "skill-maintain-kg",
+      "name": "Maintain Knowledge Graph",
+      "category": "system",
+      "description": "Orchestrator for KG monitoring, updating, and healing",
+      "path": "agents/skills/system/maintain-kg.md",
+      "parent": "skill:agent-builder:root",
+      "implementation": "hybrid",
+      "links": {
+        "implements": ["behavior:agent-builder:kg-consistency"],
+        "sub_skills": ["skill-kg-monitor", "skill-kg-update", "skill-kg-heal"]
+      }
+    },
+    {
+      "id": "skill-kg-monitor",
+      "name": "Monitor Knowledge Graph Changes",
+      "category": "system",
+      "description": "Detect file system changes and generate change report",
+      "path": "agents/skills/system/kg-monitor.md",
+      "parent": "skill-maintain-kg",
+      "implementation": "rule-based",
+      "links": {
+        "prerequisite_for": ["skill-kg-update"]
+      }
+    },
+    {
+      "id": "skill-kg-update",
+      "name": "Update Knowledge Graph Nodes",
+      "category": "system",
+      "description": "Interpret changes and update KG JSON files",
+      "path": "agents/skills/system/kg-update.md",
+      "parent": "skill-maintain-kg",
+      "implementation": "hybrid",
+      "links": {
+        "follows": ["skill-kg-monitor"],
+        "prerequisite_for": ["skill-kg-heal"]
+      }
+    },
+    {
+      "id": "skill-kg-heal",
+      "name": "Heal Knowledge Graph Connectivity",
+      "category": "system",
+      "description": "Validate and fix broken parent links and connectivity",
+      "path": "agents/skills/system/kg-heal.md",
+      "parent": "skill-maintain-kg",
+      "implementation": "rule-based",
+      "links": {
+        "follows": ["skill-kg-update"]
+      }
+    },
+    {
+      "id": "skill-validate-structure",
+      "name": "Validate System Structure",
+      "category": "system",
+      "description": "Verify folder structure and file integrity",
+      "path": "agents/skills/system/validate-structure.md",
+      "parent": "skill:agent-builder:root",
+      "implementation": "rule-based",
+      "links": {
+        "implements": ["behavior:agent-builder:system-integrity"]
+      }
+    }
+  ]
+}
+

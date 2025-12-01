@@ -1,0 +1,56 @@
+{
+  "graphType": "master",
+  "project": "Agentic AI Project Manager",
+  "version": "2.0",
+  "generatedAt": "2025-11-10",
+  "graphs": [
+    {
+      "id": "project-graph",
+      "path": "agents/knowledge-graphs/project-graph.json",
+      "description": "Mirror of the Project Registry (All Managed Projects)"
+    },
+    {
+      "id": "builder-knowledge",
+      "path": "agents/knowledge-graphs/builder-knowledge-graph.json",
+      "description": "System architecture and validation rules"
+    },
+    {
+      "id": "builder-skills",
+      "path": "agents/knowledge-graphs/builder-skills-graph.json",
+      "description": "Capabilities for system modification"
+    },
+    {
+      "id": "builder-behaviors",
+      "path": "agents/knowledge-graphs/builder-behaviors-graph.json",
+      "description": "Safety rules and behavior protocols for the Builder"
+    },
+    {
+      "id": "manager-knowledge",
+      "path": "agents/knowledge-graphs/manager-knowledge-graph.json",
+      "description": "Orchestration state and insights"
+    },
+    {
+      "id": "manager-skills",
+      "path": "agents/knowledge-graphs/manager-skills-graph.json",
+      "description": "Capabilities for project management"
+    },
+    {
+      "id": "manager-behaviors",
+      "path": "agents/knowledge-graphs/manager-behaviors-graph.json",
+      "description": "Protocols for managing external projects"
+    }
+  ],
+  "roles": [
+    {
+      "id": "role-builder",
+      "name": "The Agent Builder",
+      "graphs": ["builder-knowledge", "builder-skills", "builder-behaviors", "project-graph"]
+    },
+    {
+      "id": "role-manager",
+      "name": "The Project Manager",
+      "graphs": ["manager-knowledge", "manager-skills", "manager-behaviors", "project-graph"]
+    }
+  ]
+}
+

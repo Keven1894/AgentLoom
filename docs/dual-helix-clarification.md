@@ -22,7 +22,7 @@ The **Dual-Helix Framework** for reliable agentic AI consists of two complementa
 
 ### 1.1 Engineering Strand: Agentic-AI Engineering Framework
 
-**Repository:** [Agentic-AI-Research-Roadmap](https://github.com/Keven1894/Agentic-AI-Research-Roadmap)
+**Repository:** [AgentLoom](https://github.com/Keven1894/AgentLoom)
 
 **Primary Focus:** *How do agents learn, grow, and become more capable?*
 
@@ -35,6 +35,7 @@ Context Capture → Documentation → Indexing → RAG → Fine-Tuning
 ```
 
 **What It Provides:**
+
 - Methods for capturing operational context from real tasks
 - Frameworks for transforming experience into reusable knowledge
 - Infrastructure for indexing and retrieving accumulated knowledge
@@ -42,6 +43,7 @@ Context Capture → Documentation → Indexing → RAG → Fine-Tuning
 - Approaches for distilling experience into specialized models
 
 **Outputs:**
+
 - Production-grade agentic systems that learn from doing
 - Knowledge bases built from operational traces
 - Domain-specialized AI models
@@ -67,6 +69,7 @@ Rules → Coordination → Memory Boundaries → Verification → Adaptation
 ```
 
 **What It Provides:**
+
 - Behavioral rules engine defining what agents can/cannot do
 - Coordination protocols for multi-agent interactions
 - Memory governance controlling context scope and access
@@ -74,6 +77,7 @@ Rules → Coordination → Memory Boundaries → Verification → Adaptation
 - Audit trails recording all decisions for accountability
 
 **Outputs:**
+
 - Rule templates for agent personas (researcher, developer, analyst)
 - Conflict resolution mechanisms for multi-agent scenarios
 - Context boundary enforcement (project-level, org-level, public)
@@ -92,12 +96,14 @@ Rules → Coordination → Memory Boundaries → Verification → Adaptation
 Modern LLM-based agents can achieve **superhuman productivity**—completing in days what previously took months. However, this efficiency emerges from **probabilistic reasoning**, not deterministic logic. One wrong decision can cascade into catastrophic failure.
 
 **Why Engineering Alone Is Insufficient:**
+
 - An agent that learns quickly without boundaries may learn harmful behaviors
 - Accumulated knowledge without governance may be applied inappropriately
 - Evolution without constraints may lead to alignment drift
 - Capability without accountability creates unacceptable risk
 
 **Why Governance Alone Is Insufficient:**
+
 - Rules without learning create brittle, static systems
 - Boundaries without evolution prevent adaptation to new contexts
 - Verification without experience provides no growth path
@@ -131,6 +137,7 @@ The dual-helix approach provides **bounded learning**—agents that grow more ca
 ```
 
 **Bi-directional Influence:**
+
 - **Framework → Governance:** Learning experiences inform what rules are needed
 - **Governance → Framework:** Rules constrain what can be learned and how
 
@@ -179,22 +186,27 @@ Repeat (continuous learning with continuous governance)
 ### 4.1 Why Separate Repositories?
 
 **Different Audiences:**
+
 - **Framework:** AI/ML engineers, data scientists, system architects building agent capabilities
 - **co-agenticOS:** Compliance officers, security teams, policy makers establishing governance
 
 **Different Release Cycles:**
+
 - **Framework:** Evolves with engineering practices, new ML techniques, domain discoveries
 - **co-agenticOS:** Updates driven by regulatory changes, security findings, organizational policies
 
 **Different Contribution Patterns:**
+
 - **Framework:** Technical implementations, case studies, experimental results
 - **co-agenticOS:** Rule templates, governance patterns, compliance frameworks
 
 **Different Documentation Needs:**
+
 - **Framework:** Technical specifications, API documentation, performance metrics
 - **co-agenticOS:** Policy documents, compliance checklists, human-AI interaction guidelines
 
 **Modular Adoption:**
+
 - Organizations may adopt framework engineering practices while implementing custom governance
 - Governance policies may be applied to agents built with different engineering approaches
 - Separation allows flexibility in adoption strategies
@@ -213,6 +225,7 @@ Repeat (continuous learning with continuous governance)
 | Documentation site | ✅ Engineering guide | ✅ Governance guide |
 
 **Legend:**
+
 - ✅ Primary/authoritative content
 - 📖 Cross-reference or integration guide
 
@@ -223,16 +236,19 @@ Repeat (continuous learning with continuous governance)
 ### 5.1 For Researchers
 
 **If your research focuses on agent capabilities, learning, or engineering:**
-- **Primary repository:** Agentic-AI-Research-Roadmap
+
+- **Primary repository:** AgentLoom
 - **Reference:** co-agenticOS for governance context
 - **Contribute:** Case studies, technical implementations, experimental results
 
 **If your research focuses on AI safety, ethics, or governance:**
+
 - **Primary repository:** co-agenticOS
-- **Reference:** Agentic-AI-Research-Roadmap for system context
+- **Reference:** AgentLoom for system context
 - **Contribute:** Rule templates, safety analyses, governance patterns
 
 **If your research spans both (system-level design):**
+
 - **Work with both repositories**
 - Propose cross-cutting features
 - Validate integration points
@@ -240,11 +256,13 @@ Repeat (continuous learning with continuous governance)
 ### 5.2 For Practitioners
 
 **If you're building agentic systems:**
+
 1. Start with **Framework** to establish engineering practices
 2. Add **co-agenticOS** governance layer before production deployment
 3. Iterate: improve capability → adjust governance → repeat
 
 **If you're establishing AI governance policies:**
+
 1. Start with **co-agenticOS** to define rules and boundaries
 2. Reference **Framework** to understand what agents need to function
 3. Pilot integration and refine policies based on operational reality
@@ -252,11 +270,13 @@ Repeat (continuous learning with continuous governance)
 ### 5.3 For Educators
 
 **Teaching AI Engineering:**
+
 - Use **Framework** as curriculum foundation
 - Include **co-agenticOS** as governance module
 - Emphasize: both are necessary for production systems
 
 **Teaching AI Ethics/Policy:**
+
 - Use **co-agenticOS** as governance foundation
 - Reference **Framework** to understand technical constraints
 - Emphasize: effective governance requires technical understanding
@@ -268,6 +288,7 @@ Repeat (continuous learning with continuous governance)
 ### ❌ Misconception 1: "Framework = Technical, Governance = Non-technical"
 
 **Reality:** Both strands require technical implementation:
+
 - **Framework:** Requires engineering expertise (pipelines, databases, ML)
 - **Governance:** Requires engineering expertise (rule engines, verification systems, audit infrastructure)
 
@@ -276,6 +297,7 @@ The distinction is **purpose** (capability vs. responsibility), not technical co
 ### ❌ Misconception 2: "Governance is optional for research prototypes"
 
 **Reality:** Governance should be designed early, even if enforcement is relaxed initially:
+
 - Research prototypes often transition to production
 - Early governance design prevents costly refactoring
 - Ethical considerations apply even in research settings
@@ -283,6 +305,7 @@ The distinction is **purpose** (capability vs. responsibility), not technical co
 ### ❌ Misconception 3: "You can implement one strand without the other"
 
 **Reality:** Both strands are **necessary for production deployment**:
+
 - Framework without governance → capable but dangerous
 - Governance without framework → safe but ineffective
 
@@ -291,6 +314,7 @@ For research or prototypes, you might focus on one strand, but production system
 ### ❌ Misconception 4: "The repositories should be merged"
 
 **Reality:** Separation provides:
+
 - Clarity of purpose (capability vs. responsibility)
 - Appropriate contribution pathways
 - Modular adoption strategies
@@ -325,6 +349,7 @@ The strands are **conceptually unified** but **operationally distinct**.
 ### 7.3 Integration Result
 
 **Reliable Agentic Intelligence:**
+
 - **Capable:** 60-100 hours/month productivity gain
 - **Reliable:** 100% success rate across 50+ deployments
 - **Accountable:** Complete audit trail, team satisfaction 9.2/10
@@ -358,6 +383,7 @@ The strands are **conceptually unified** but **operationally distinct**.
 **We propose the dual-helix approach as a unifying framework for reliable agentic AI research.**
 
 Instead of isolated work on either capabilities or safety, we encourage:
+
 - **Co-design:** Develop capabilities and governance together
 - **Integration Studies:** Research on framework-governance coupling
 - **Holistic Evaluation:** Measure both performance and responsibility
@@ -402,13 +428,13 @@ This is the foundation for **sustainable agentic AI engineering**—systems that
 
 ### Repository URLs
 
-- **Engineering Strand:** https://github.com/Keven1894/Agentic-AI-Research-Roadmap
-- **Governance Strand:** https://github.com/Keven1894/co-agenticOS
+- **Engineering Strand:** <https://github.com/Keven1894/AgentLoom>
+- **Governance Strand:** <https://github.com/Keven1894/co-agenticOS>
 
 ### Key Contacts
 
-- **Framework Research:** Dr. Boyuan (Keven) Guan (bguan@fiu.edu)
-- **Governance Research:** Dr. Boyuan (Keven) Guan (bguan@fiu.edu)
+- **Framework Research:** Dr. Boyuan (Keven) Guan (<bguan@fiu.edu>)
+- **Governance Research:** Dr. Boyuan (Keven) Guan (<bguan@fiu.edu>)
 
 ### Citation
 
@@ -429,5 +455,3 @@ This is the foundation for **sustainable agentic AI engineering**—systems that
 **Last Updated:** November 11, 2025  
 **Status:** Living document—will evolve as research progresses  
 **Part of:** Agentic-AI Research Roadmap (DOI: 10.5281/zenodo.17561541)
-
-

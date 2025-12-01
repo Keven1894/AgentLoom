@@ -1,0 +1,99 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://agentic-ai.dev/schemas/master-graph.json",
+    "title": "Master Knowledge Graph",
+    "description": "JSON Schema for validating master graph structure (registry of all KG files)",
+    "type": "object",
+    "required": [
+        "graphType",
+        "project",
+        "version",
+        "generatedAt",
+        "graphs",
+        "roles"
+    ],
+    "properties": {
+        "graphType": {
+            "type": "string",
+            "const": "master",
+            "description": "Must be 'master' for master graph"
+        },
+        "project": {
+            "type": "string",
+            "description": "Project name"
+        },
+        "version": {
+            "type": "string",
+            "description": "Master graph version"
+        },
+        "generatedAt": {
+            "type": "string",
+            "format": "date",
+            "description": "Date when graph was generated"
+        },
+        "graphs": {
+            "type": "array",
+            "description": "Registry of all KG files",
+            "items": {
+                "$ref": "#/definitions/graphEntry"
+            }
+        },
+        "roles": {
+            "type": "array",
+            "description": "Agent roles and their associated graphs",
+            "items": {
+                "$ref": "#/definitions/role"
+            }
+        }
+    },
+    "definitions": {
+        "graphEntry": {
+            "type": "object",
+            "required": [
+                "id",
+                "path"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Graph identifier"
+                },
+                "path": {
+                    "type": "string",
+                    "pattern": "^agents/knowledge-graphs/",
+                    "description": "Path to graph file"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Graph description"
+                }
+            }
+        },
+        "role": {
+            "type": "object",
+            "required": [
+                "id",
+                "name",
+                "graphs"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "pattern": "^role-",
+                    "description": "Role identifier"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Human-readable role name"
+                },
+                "graphs": {
+                    "type": "array",
+                    "description": "List of graph IDs used by this role",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -5,18 +5,28 @@ authors:
     given-names: Boyuan (Keven)
     affiliation: Florida International University, Library & GIS Center
     orcid: https://orcid.org/0000-0002-4244-5011
-title: "Agentic-AI Lab: Engineering the Next Generation of Intelligent Systems"
+title: "AgentLoom: Building Trustworthy AI Agents Through Dual-Helix Architecture"
 abstract: >
-  A research framework for building production-grade AI agents through the Agentic-AI Engineering methodology —
-  connecting Context → Documentation → Indexing → RAG → Fine-Tuning for sustainable, reproducible AI systems.
-version: "1.0.2"
-date-released: 2025-11-11
+  AgentLoom is a production-ready framework for building reliable, trustworthy AI agents through dual-helix architecture.
+  The Learning Helix (Context → Documentation → Indexing → RAG → Fine-Tuning) enables knowledge accumulation,
+  while the Governance Helix (Rules → Coordination → Memory Boundaries → Verification → Adaptation) enforces
+  operational safety. Together, they create Reliable Probabilistic Intelligence. The framework includes a 9-phase
+  protocol with 95-98% success rate, enabling custom agentic AI systems in 2-4 hours.
+version: "1.1.0"
+date-released: 2025-12-01
 doi: 10.5281/zenodo.17561541
 license: "CC-BY-NC-4.0"
-repository-code: "https://github.com/Keven1894/Agentic-AI-Research-Roadmap"
+repository-code: "https://github.com/Keven1894/AgentLoom"
 keywords:
+  - AgentLoom
   - Agentic AI
+  - Trustworthy AI
+  - AI Agents
+  - Dual-Helix Architecture
+  - Knowledge Graphs
+  - AI Governance
   - AI Engineering
   - RAG
   - LLMOps
-  - Knowledge Systems
+  - Reliable AI
+  - AI Framework

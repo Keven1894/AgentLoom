@@ -1,0 +1,88 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://agentic-ai.dev/schemas/behaviors-graph.json",
+    "title": "Behaviors Knowledge Graph",
+    "description": "JSON Schema for validating behaviors knowledge graph structure",
+    "type": "object",
+    "required": [
+        "graphType",
+        "role",
+        "generatedAt",
+        "behaviors"
+    ],
+    "properties": {
+        "graphType": {
+            "type": "string",
+            "const": "behaviors"
+        },
+        "role": {
+            "type": "string",
+            "pattern": "^role-"
+        },
+        "generatedAt": {
+            "type": "string",
+            "format": "date"
+        },
+        "behaviors": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/behavior"
+            }
+        }
+    },
+    "definitions": {
+        "behavior": {
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "pattern": "^behavior:"
+                },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "root",
+                        "core",
+                        "workflow",
+                        "protocol",
+                        "role-specific",
+                        "rule"
+                    ]
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "path": {
+                    "type": "string"
+                },
+                "priority": {
+                    "type": "string",
+                    "enum": [
+                        "high",
+                        "medium",
+                        "low"
+                    ]
+                },
+                "parent": {
+                    "type": "string"
+                },
+                "links": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "additionalProperties": true
+        }
+    }
+}

@@ -1,0 +1,55 @@
+---
+type: [concept | resource | workflow | skill | behavior | document]
+category: [Category Name]
+id: [unique-id-slug]
+topics:
+  - [topic 1]
+  - [topic 2]
+related:
+  - [related-doc-id]
+source: "[Original source if applicable]"
+---
+
+# [Title]
+
+## Overview
+[Brief 2-3 sentence description]
+
+## Key Concepts
+- **[Concept 1]**: [Definition]
+- **[Concept 2]**: [Definition]
+
+## Detailed Content
+
+### [Section 1]
+[Content...]
+
+### [Section 2]
+[Content...]
+
+## Diagrams
+> **[Diagram Name]**: [Text-based description or ASCII art]
+
+## Examples
+
+### Example 1: [Name]
+```
+[Code or example content]
+```
+
+**Explanation**: [What this example demonstrates]
+
+## Related Resources
+- [Link to related content in KG]
+- [External references if applicable]
+
+## Troubleshooting
+
+### Issue: [Problem]
+**Solution**: [Fix]
+
+---
+
+**Last Updated**: [Date]
+**Indexed in KG**: [yes/no] ([node-id])
+

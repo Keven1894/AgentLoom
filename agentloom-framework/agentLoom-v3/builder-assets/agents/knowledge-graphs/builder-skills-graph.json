@@ -1,0 +1,197 @@
+{
+  "graphType": "skills",
+  "role": "role-builder",
+  "generatedAt": "2025-11-28",
+  "skills": [
+    {
+      "id": "skill:builder:root",
+      "type": "root",
+      "name": "Builder Capabilities",
+      "description": "Root of the Builder's skill tree.",
+      "links": {
+        "governed_by": [
+          "behavior:core:safety"
+        ]
+      }
+    },
+    {
+      "id": "skill-validate-structure",
+      "name": "Validate System Structure",
+      "category": "system",
+      "description": "Checks if all required folders and files exist.",
+      "path": "agents/skills/system/validate-structure.md",
+      "parent": "skill:builder:root",
+      "links": {
+        "enforces": [
+          "behavior:builder:schema"
+        ],
+        "governed_by": [
+          "behavior:core:structure"
+        ]
+      }
+    },
+    {
+      "id": "skill-validate-graphs",
+      "name": "Validate Knowledge Graphs",
+      "category": "system",
+      "description": "Checks if JSON graphs are valid and linked correctly.",
+      "path": "agents/skills/system/validate-graphs.md",
+      "parent": "skill:builder:root",
+      "links": {
+        "enforces": [
+          "behavior:builder:schema"
+        ],
+        "governed_by": [
+          "behavior:builder:consistency"
+        ]
+      }
+    },
+    {
+      "id": "skill-maintain-kg",
+      "name": "Maintain Knowledge Graph",
+      "category": "system",
+      "description": "Orchestration capability to keep the KG in sync with reality.",
+      "path": "agents/skills/system/maintain-kg.md",
+      "parent": "skill:builder:root",
+      "links": {
+        "implements": [
+          "behavior:builder:consistency"
+        ],
+        "governed_by": [
+          "behavior:builder:consistency"
+        ],
+        "sub_skills": [
+          "skill-kg-monitor",
+          "skill-kg-update-node",
+          "skill-kg-heal"
+        ]
+      }
+    },
+    {
+      "id": "skill-kg-monitor",
+      "name": "Monitor File System",
+      "category": "system",
+      "description": "Detects changes in tracked directories.",
+      "path": "agents/skills/system/kg-monitor.md",
+      "parent": "skill-maintain-kg",
+      "links": {
+        "prerequisite_for": [
+          "skill-kg-update-node"
+        ],
+        "governed_by": [
+          "behavior:builder:consistency"
+        ]
+      }
+    },
+    {
+      "id": "skill-kg-update-node",
+      "name": "Update Graph Node",
+      "category": "system",
+      "description": "Add, remove, or modify nodes in the JSON graphs.",
+      "path": "agents/skills/system/kg-update-node.md",
+      "parent": "skill-maintain-kg",
+      "links": {
+        "modifies": [
+          "sys:kg:state"
+        ],
+        "governed_by": [
+          "behavior:builder:consistency"
+        ]
+      }
+    },
+    {
+      "id": "skill-kg-heal",
+      "name": "Heal Graph Links",
+      "category": "system",
+      "description": "Identify and fix orphaned nodes or broken edges.",
+      "path": "agents/skills/system/kg-heal.md",
+      "parent": "skill-maintain-kg",
+      "links": {
+        "validates": [
+          "sys:kg:architecture"
+        ],
+        "governed_by": [
+          "behavior:builder:consistency"
+        ]
+      }
+    },
+    {
+      "id": "skill-validate-chunking",
+      "name": "Validate Document Chunking",
+      "category": "system",
+      "description": "Checks if documents adhere to size and structure limits.",
+      "path": "agents/skills/system/chunking/skill-validate-chunking.md",
+      "parent": "skill:builder:root",
+      "links": {
+        "enforces": [
+          "behavior:builder:document-chunking"
+        ],
+        "governed_by": [
+          "behavior:builder:document-chunking"
+        ],
+        "uses": [
+          "scripts/validate_chunking.py"
+        ]
+      }
+    },
+    {
+      "id": "skill-chunk-document",
+      "name": "Auto-Chunk Document",
+      "category": "system",
+      "description": "Splits oversized files into concept/execution pairs.",
+      "path": "agents/skills/system/chunking/skill-chunk-document.md",
+      "parent": "skill:builder:root",
+      "links": {
+        "implements": [
+          "behavior:builder:document-chunking"
+        ],
+        "governed_by": [
+          "behavior:builder:document-chunking"
+        ],
+        "uses": [
+          "scripts/chunk_document.py"
+        ]
+      }
+    },
+    {
+      "id": "skill-validate-kg-links",
+      "name": "Validate Knowledge Graph Links",
+      "category": "system",
+      "description": "Validates cross-references and connectivity across all KGs. LLM-assisted fixing for complex issues.",
+      "path": "agents/skills/builder/skill-validate-kg-links.md",
+      "parent": "skill:builder:root",
+      "created": "2025-11-30",
+      "links": {
+        "governed_by": [
+          "behavior:builder:consistency"
+        ],
+        "uses": [
+          "scripts/validate_kg_links.py"
+        ],
+        "validates": [
+          "builder-skills-graph.json",
+          "builder-behaviors-graph.json",
+          "builder-knowledge-graph.json",
+          "manager-skills-graph.json",
+          "manager-behaviors-graph.json",
+          "manager-knowledge-graph.json",
+          "master-graph.json"
+        ]
+      }
+    },
+    {
+      "id": "skill-navigate-kg",
+      "name": "Navigate Knowledge Graph",
+      "category": "system",
+      "description": "CRITICAL: Traverses KG relationships programmatically to prevent information loss and 'lost in middle' problems. Provides structured access to KG data without manual JSON parsing.",
+      "path": "agents/skills/system/skill-navigate-kg.md",
+      "parent": "skill:builder:root",
+      "created": "2025-11-30",
+      "links": {
+        "governed_by": [
+          "behavior:kg-first-retrieval"
+        ]
+      }
+    }
+  ]
+}

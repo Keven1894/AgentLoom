@@ -1,0 +1,83 @@
+{
+  "graphType": "skills",
+  "role": "role-builder",
+  "generatedAt": "2025-11-20",
+  "skills": [
+    {
+      "id": "skill:builder:root",
+      "type": "root",
+      "name": "Builder Capabilities",
+      "description": "Root of the Builder's skill tree.",
+      "links": {
+        "governed_by": ["behavior:core:safety"]
+      }
+    },
+    {
+      "id": "skill-validate-structure",
+      "name": "Validate System Structure",
+      "category": "system",
+      "description": "Checks if all required folders and files exist.",
+      "path": "agents/skills/system/validate-structure.md",
+      "parent": "skill:builder:root",
+      "links": {
+        "enforces": ["behavior:builder:schema"]
+      }
+    },
+    {
+      "id": "skill-validate-graphs",
+      "name": "Validate Knowledge Graphs",
+      "category": "system",
+      "description": "Checks if JSON graphs are valid and linked correctly.",
+      "path": "agents/skills/system/validate-graphs.md",
+      "parent": "skill:builder:root",
+      "links": {
+        "enforces": ["behavior:builder:schema"]
+      }
+    },
+    {
+      "id": "skill-maintain-kg",
+      "name": "Maintain Knowledge Graph",
+      "category": "system",
+      "description": "Orchestration capability to keep the KG in sync with reality.",
+      "path": "agents/skills/system/maintain-kg.md",
+      "parent": "skill:builder:root",
+      "links": {
+        "implements": ["behavior:builder:consistency"],
+        "sub_skills": ["skill-kg-monitor", "skill-kg-update-node", "skill-kg-heal"]
+      }
+    },
+    {
+      "id": "skill-kg-monitor",
+      "name": "Monitor File System",
+      "category": "system",
+      "description": "Detects changes in tracked directories.",
+      "path": "agents/skills/system/kg-monitor.md",
+      "parent": "skill-maintain-kg",
+      "links": {
+        "prerequisite_for": ["skill-kg-update-node"]
+      }
+    },
+    {
+      "id": "skill-kg-update-node",
+      "name": "Update Graph Node",
+      "category": "system",
+      "description": "Add, remove, or modify nodes in the JSON graphs.",
+      "path": "agents/skills/system/kg-update-node.md",
+      "parent": "skill-maintain-kg",
+      "links": {
+        "modifies": ["sys:kg:state"]
+      }
+    },
+    {
+      "id": "skill-kg-heal",
+      "name": "Heal Graph Links",
+      "category": "system",
+      "description": "Identify and fix orphaned nodes or broken edges.",
+      "path": "agents/skills/system/kg-heal.md",
+      "parent": "skill-maintain-kg",
+      "links": {
+        "validates": ["sys:kg:architecture"]
+      }
+    }
+  ]
+}

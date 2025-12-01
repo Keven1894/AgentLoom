@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[Project Name] Knowledge Graph Visualization</title>
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <style>
+        body { 
+            margin: 0; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0f172a; 
+            color: #f1f5f9; 
+        }
+        #network { width: 100vw; height: 100vh; }
+        .sidebar { 
+            position: fixed; 
+            left: 20px; 
+            top: 20px; 
+            background: rgba(15, 23, 42, 0.95); 
+            padding: 20px; 
+            border-radius: 12px; 
+            max-width: 280px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        h2 { margin-top: 0; font-size: 18px; }
+        button { 
+            display: block; 
+            width: 100%; 
+            margin: 5px 0; 
+            padding: 10px; 
+            border: none; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            background: #334155; 
+            color: #f1f5f9;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+        button:hover { background: #475569; }
+        button.active { background: #3b82f6; font-weight: bold; }
+        .stats-overlay { 
+            position: absolute; 
+            top: 20px; 
+            right: 20px; 
+            background: rgba(15, 23, 42, 0.95);
+            padding: 15px; 
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        .legend { 
+            position: fixed; 
+            bottom: 20px; 
+            right: 20px; 
+            background: rgba(15, 23, 42, 0.95);
+            padding: 15px; 
+            border-radius: 8px;
+            font-size: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        .legend div { margin: 3px 0; }
+        .btn-group-label { 
+            font-weight: bold; 
+            margin-top: 15px; 
+            margin-bottom: 5px; 
+            font-size: 11px; 
+            text-transform: uppercase; 
+            opacity: 0.7; 
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>🧠 [Project Name]</h2>
+        
+        <div class="btn-group-label">System Views</div>
+        <button onclick="loadUnifiedGraph()" id="btn-unified">🌌 Unified Brain (ALL)</button>
+        <button onclick="loadGraph('master')" class="active" id="btn-master">🌐 Master Graph</button>
+        
+        <div class="btn-group-label">Agent Builder (System)</div>
+        <button onclick="loadGraph('agent-builder-knowledge')" id="btn-agent-builder-knowledge">🏗️ Knowledge</button>
+        <button onclick="loadGraph('agent-builder-skills')" id="btn-agent-builder-skills">🛠️ Skills</button>
+        <button onclick="loadGraph('agent-builder-behaviors')" id="btn-agent-builder-behaviors">🛡️ Behaviors</button>
+        
+        <div class="btn-group-label">[Domain Role Name]</div>
+        <button onclick="loadGraph('[domain-role-id]-knowledge')" id="btn-[domain-role-id]-knowledge">📚 Knowledge</button>
+        <button onclick="loadGraph('[domain-role-id]-skills')" id="btn-[domain-role-id]-skills">⚡ Skills</button>
+        <button onclick="loadGraph('[domain-role-id]-behaviors')" id="btn-[domain-role-id]-behaviors">🤝 Behaviors</button>
+    </div>
+
+    <div style="position: relative;">
+        <div class="stats-overlay">
+            <div><strong>Graph:</strong> <span id="stat-name">-</span></div>
+            <div><strong>Nodes:</strong> <span id="stat-nodes">0</span></div>
+            <div><strong>Links:</strong> <span id="stat-links">0</span></div>
+        </div>
+        <div id="network"></div>
+    </div>
+
+    <div class="legend">
+        <div><strong>Node Types:</strong></div>
+        <div>🟣 Root / Master</div>
+        <div>🔵 Agent Builder</div>
+        <div>🟢 [Domain Role]</div>
+        <div>🟡 Behavior (hexagon)</div>
+        <div>🟣 Skill (triangle)</div>
+        <div>🟠 Concept (star)</div>
+        <div>⚫ Document (ellipse)</div>
+        <div style="margin-top: 8px;"><strong>Links:</strong></div>
+        <div>━━ Parent-child</div>
+        <div>╌╌ Cross-graph</div>
+    </div>
+
+    <script>
+        let network = null;
+        const container = document.getElementById('network');
+
+        // Define all graph files
+        const allGraphFiles = {
+            'master': 'master-graph.json',
+            '[domain-id]': '[domain-id]-graph.json',  // Replace with your domain graph
+            'agent-builder-knowledge': 'agent-builder-knowledge-graph.json',
+            'agent-builder-skills': 'agent-builder-skills-graph.json',
+            'agent-builder-behaviors': 'agent-builder-behaviors-graph.json',
+            '[domain-role-id]-knowledge': '[domain-role-id]-knowledge-graph.json',
+            '[domain-role-id]-skills': '[domain-role-id]-skills-graph.json',
+            '[domain-role-id]-behaviors': '[domain-role-id]-behaviors-graph.json'
+        };
+
+        // V2 CRITICAL: Composite Views (show related graphs together)
+        const viewDependencies = {
+            'master': ['master-graph.json', '[domain-id]-graph.json'],
+            'agent-builder-skills': ['agent-builder-skills-graph.json', 'agent-builder-behaviors-graph.json'],
+            'agent-builder-behaviors': ['agent-builder-behaviors-graph.json', 'agent-builder-skills-graph.json'],
+            '[domain-role-id]-skills': ['[domain-role-id]-skills-graph.json', '[domain-role-id]-behaviors-graph.json'],
+            '[domain-role-id]-behaviors': ['[domain-role-id]-behaviors-graph.json', '[domain-role-id]-skills-graph.json']
+        };
+
+        function getNodeColor(node) {
+            const type = node.type || '';
+            const id = node.id || '';
+
+            // Root and master nodes
+            if (type === 'root' || type === 'master') return '#8b5cf6'; // Violet
+            if (type === 'project' || type === 'database') return '#f43f5e'; // Rose
+            
+            // Type-based coloring (V2: Check type BEFORE ID)
+            if (type.includes('behavior') || type === 'core' || type === 'role-specific') return '#eab308'; // Yellow
+            if (type.includes('skill')) return '#ec4899'; // Pink
+            if (type === 'concept') return '#f97316'; // Orange
+            if (type === 'document' || type === 'component') return '#64748b'; // Slate
+            
+            // Role-based coloring
+            if (id.includes('agent-builder') || id.includes('sys:')) return '#3b82f6'; // Blue
+            if (id.includes('[domain-role-id]')) return '#10b981'; // Green
+            
+            return '#94a3b8'; // Default gray
+        }
+
+        function getNodeShape(node) {
+            const type = node.type || '';
+            if (type === 'root' || type === 'master') return 'diamond';
+            if (type === 'project') return 'box';
+            if (type === 'document') return 'ellipse';
+            if (type === 'concept') return 'star';
+            if (type.includes('behavior')) return 'hexagon';
+            if (type.includes('skill')) return 'triangle';
+            return 'dot';
+        }
+
+        function parseGraph(data, filterDeepNodes = false) {
+            const nodes = [];
+            const edges = [];
+
+            const rawNodes = data.nodes || data.skills || data.behaviors || data.graphs || [];
+            
+            rawNodes.forEach(node => {
+                // Filter deep document nodes in master view for clarity
+                if (filterDeepNodes && node.type === 'document') return;
+
+                nodes.push({
+                    id: node.id,
+                    label: node.name || node.title || node.id,
+                    title: `<b>${node.id}</b><br>${node.description || node.path || node.type}`,
+                    color: getNodeColor(node),
+                    shape: getNodeShape(node),
+                    size: node.type === 'root' ? 30 : 20,
+                    font: { color: '#f1f5f9' }
+                });
+
+                // V2: Parent links (solid edges)
+                if (node.parent) {
+                    edges.push({ 
+                        from: node.parent, 
+                        to: node.id,
+                        color: { color: '#64748b' }
+                    });
+                }
+
+                // V2: Cross-graph links (dashed amber edges)
+                if (node.links) {
+                    Object.keys(node.links).forEach(linkType => {
+                        const targets = node.links[linkType];
+                        if (Array.isArray(targets)) {
+                            targets.forEach(target => {
+                                edges.push({
+                                    from: node.id,
+                                    to: target,
+                                    label: linkType,
+                                    color: { color: '#fbbf24', opacity: 0.6 },
+                                    dashes: true,
+                                    width: 2
+                                });
+                            });
+                        }
+                    });
+                }
+            });
+
+            return { nodes, edges };
+        }
+
+        function loadFiles(files, isMasterView = false) {
+            const promises = files.map(file => 
+                fetch(file)
+                    .then(r => r.json())
+                    .catch(err => {
+                        console.warn(`Could not load ${file}:`, err);
+                        return { nodes: [] };
+                    })
+            );
+            
+            return Promise.all(promises).then(results => {
+                let allNodes = new Map();
+                let allEdges = [];
+
+                results.forEach(data => {
+                    const { nodes, edges } = parseGraph(data, isMasterView);
+                    nodes.forEach(n => allNodes.set(n.id, n));
+                    allEdges.push(...edges);
+                });
+
+                return { 
+                    nodes: Array.from(allNodes.values()), 
+                    edges: allEdges 
+                };
+            });
+        }
+
+        function loadUnifiedGraph() {
+            updateUI('unified');
+            loadFiles(Object.values(allGraphFiles)).then(({ nodes, edges }) => {
+                renderNetwork(nodes, edges);
+            }).catch(console.error);
+        }
+
+        function loadGraph(key) {
+            updateUI(key);
+            let filesToLoad = viewDependencies[key] || [allGraphFiles[key]];
+            let isMaster = (key === 'master');
+            loadFiles(filesToLoad, isMaster).then(({ nodes, edges }) => {
+                renderNetwork(nodes, edges);
+            }).catch(console.error);
+        }
+
+        function updateUI(key) {
+            document.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+            const btn = document.getElementById(`btn-${key}`);
+            if (btn) btn.classList.add('active');
+            document.getElementById('stat-name').textContent = key;
+        }
+
+        function renderNetwork(nodes, edges) {
+            document.getElementById('stat-nodes').textContent = nodes.length;
+            document.getElementById('stat-links').textContent = edges.length;
+
+            const data = { 
+                nodes: new vis.DataSet(nodes), 
+                edges: new vis.DataSet(edges) 
+            };
+            
+            const options = {
+                physics: { 
+                    barnesHut: { 
+                        gravitationalConstant: -8000, 
+                        springLength: 200,
+                        avoidOverlap: 0.5
+                    },
+                    stabilization: { iterations: 150 }
+                },
+                nodes: { 
+                    font: { size: 14 },
+                    borderWidth: 2,
+                    shadow: true
+                },
+                edges: { 
+                    arrows: 'to', 
+                    smooth: { type: 'cubicBezier' },
+                    shadow: true
+                },
+                interaction: {
+                    hover: true,
+                    tooltipDelay: 100
+                }
+            };
+
+            if (network) network.destroy();
+            network = new vis.Network(container, data, options);
+            
+            // Add click handler for node details
+            network.on('click', function(params) {
+                if (params.nodes.length > 0) {
+                    const nodeId = params.nodes[0];
+                    console.log('Clicked node:', nodeId);
+                }
+            });
+        }
+
+        // Load master graph on start
+        loadGraph('master');
+    </script>
+</body>
+</html>

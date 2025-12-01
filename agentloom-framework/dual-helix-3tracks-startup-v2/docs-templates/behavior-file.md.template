@@ -1,0 +1,67 @@
+---
+type: behavior
+category: [core | agent-builder | domain-role-id]
+id: [behavior-id]
+priority: [high|medium|low|critical]
+applies-to:
+  - [all-roles | agent-builder | domain-role-id]
+indexed-in-kg: [behavior:category:[behavior-id]]
+---
+
+# [Behavior Name]
+
+## Description
+[What this behavior ensures - from Phase 2]
+
+## Context
+**When**: [When this behavior applies]
+**Why**: [Why this rule exists]
+
+## Rules
+
+### Rule 1: [Rule Name]
+[Detailed rule description]
+
+**Example**:
+```
+[Example scenario]
+```
+
+### Rule 2: [Rule Name]
+[Detailed rule description]
+
+## Examples
+
+### ✅ Good Practice
+**Scenario**: [Context]
+**Action**: [What agent does]
+**Reason**: [Why this is correct]
+
+### ❌ Bad Practice
+**Scenario**: [Context]
+**Action**: [What NOT to do]
+**Reason**: [Why this violates the behavior]
+
+## Related
+
+### Enforced By
+- Skills: [List skill-ids that implement this behavior]
+
+### Governs
+- Components: [List system components this behavior governs]
+
+### Related Behaviors
+- [Other behavior-ids that interact with this]
+
+## Validation
+
+How to verify this behavior is being followed:
+1. [Check 1]
+2. [Check 2]
+
+---
+
+**Priority**: [high|medium|low|critical]
+**Version**: 1.0
+**Last Updated**: [Date]
+

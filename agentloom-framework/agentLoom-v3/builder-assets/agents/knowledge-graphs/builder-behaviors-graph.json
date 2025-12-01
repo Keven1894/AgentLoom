@@ -1,0 +1,159 @@
+{
+  "graphType": "behaviors",
+  "role": "role-builder",
+  "generatedAt": "2025-11-29",
+  "behaviors": [
+    {
+      "id": "behavior:builder:root",
+      "type": "root",
+      "name": "Builder Behaviors",
+      "description": "Core protocols for the Agent Builder role"
+    },
+    {
+      "id": "behavior:core:safety",
+      "type": "core",
+      "name": "System Safety Protocol",
+      "description": "Never delete data in managed folders without confirmation.",
+      "path": ".cursor/behaviors/core/system-safety.md",
+      "priority": "high",
+      "parent": "behavior:builder:root"
+    },
+    {
+      "id": "behavior:core:planning",
+      "type": "core",
+      "name": "Planning Discipline",
+      "description": "CRITICAL: Plan First, Implement Later. Never start work without a plan.",
+      "path": ".cursor/behaviors/core/planning-workflow.md",
+      "priority": "high",
+      "parent": "behavior:builder:root"
+    },
+    {
+      "id": "behavior:core:regenerative-editing",
+      "type": "core",
+      "name": "Regenerative Editing Protocol",
+      "description": "Always regenerate entire files instead of inline edits.",
+      "path": ".cursor/behaviors/core/regenerative-editing.md",
+      "priority": "high",
+      "parent": "behavior:builder:root",
+      "links": {
+        "synergizes_with": [
+          "behavior:builder:document-chunking"
+        ]
+      }
+    },
+    {
+      "id": "behavior:core:structure",
+      "type": "core",
+      "name": "Project Structure Protocol",
+      "description": "Defines the strict folder organization for the workspace.",
+      "path": ".cursor/behaviors/manager/project-structure.md",
+      "priority": "high",
+      "parent": "behavior:builder:root",
+      "links": {
+        "governs": [
+          "sys:root"
+        ]
+      }
+    },
+    {
+      "id": "behavior:core:git",
+      "type": "core",
+      "name": "Git Workflow Protocol",
+      "description": "Standards for version control and repository management.",
+      "path": ".cursor/behaviors/core/git-workflow.md",
+      "priority": "medium",
+      "parent": "behavior:builder:root",
+      "links": {
+        "governs": [
+          "sys:root"
+        ]
+      }
+    },
+    {
+      "id": "behavior:core:communication",
+      "type": "core",
+      "name": "Communication Protocol",
+      "description": "Standards for agent-user communication and documentation.",
+      "path": ".cursor/behaviors/core/communication-protocol.md",
+      "priority": "medium",
+      "parent": "behavior:builder:root"
+    },
+    {
+      "id": "behavior:builder:schema",
+      "type": "role-specific",
+      "name": "Enforce Schema Integrity",
+      "description": "Ensure all new files match the defined templates.",
+      "path": ".cursor/behaviors/builder/enforce-schema.md",
+      "priority": "medium",
+      "parent": "behavior:builder:root",
+      "links": {
+        "governs": [
+          "sys:kg:schema"
+        ]
+      }
+    },
+    {
+      "id": "behavior:builder:agentloom-development-lifecycle",
+      "type": "role-specific",
+      "name": "AgentLoom Development Lifecycle",
+      "description": "Standard 8-Phase Lifecycle for developing and maintaining AI agents",
+      "path": ".cursor/behaviors/core/development-lifecycle/INDEX.md",
+      "priority": "high",
+      "parent": "behavior:builder:root",
+      "links": {
+        "governs": [
+          "sys:kg:state"
+        ],
+        "enforces": [
+          "skill-maintain-kg"
+        ]
+      }
+    },
+    {
+      "id": "behavior:builder:document-chunking",
+      "type": "role-specific",
+      "name": "Document Chunking Governance",
+      "description": "Enforces the 500-line limit and concept/execution separation.",
+      "path": ".cursor/behaviors/builder/document-chunking.md",
+      "priority": "high",
+      "parent": "behavior:builder:root",
+      "links": {
+        "governs": [
+          "sys:docs",
+          "sys:knowledge"
+        ],
+        "enforces": [
+          "skill-validate-chunking",
+          "skill-chunk-document"
+        ]
+      }
+    },
+    {
+      "id": "behavior:core:validation",
+      "type": "workflow",
+      "name": "Testing & Validation Workflow",
+      "description": "Comprehensive 4-level testing framework for agent quality and reliability",
+      "path": ".cursor/behaviors/core/behavior-validation.md",
+      "priority": "high",
+      "parent": "behavior:builder:root"
+    },
+    {
+      "id": "behavior:kg-first-retrieval",
+      "type": "rule",
+      "name": "KG-First Information Retrieval",
+      "description": "CRITICAL: Enforces KG-based retrieval to prevent information loss and lost-in-middle problems",
+      "path": ".cursor/behaviors/core/behavior-kg-first-retrieval.md",
+      "priority": "high",
+      "parent": "behavior:builder:root"
+    },
+    {
+      "id": "behavior:builder:consistency",
+      "type": "role-specific",
+      "name": "Consistency Protocol",
+      "description": "Ensures consistency across all agent behaviors and outputs.",
+      "path": ".cursor/behaviors/builder/behavior-consistency.md",
+      "priority": "high",
+      "parent": "behavior:builder:root"
+    }
+  ]
+}

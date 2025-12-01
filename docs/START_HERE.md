@@ -57,7 +57,7 @@ This guide gets you oriented in 10 minutes and contributing within hours.
 5. **[Research Timeline](Research-Timeline-2025-2027.md)** (15 min)
    - Publication roadmap
 
-**Next:** Email bguan@fiu.edu to discuss collaboration
+**Next:** Email <bguan@fiu.edu> to discuss collaboration
 
 ---
 
@@ -95,7 +95,7 @@ This guide gets you oriented in 10 minutes and contributing within hours.
 ## 🗺️ Project Structure (Quick Map)
 
 ```
-📁 Agentic-AI-Research-Roadmap/
+📁 AgentLoom/
 │
 ├── 📄 README.md ← START HERE
 ├── 📄 CONTRIBUTING.md ← How to contribute
@@ -206,32 +206,38 @@ Solution: Hierarchical organization, adaptive evolution
 ### Recommended Learning Path
 
 **Day 1:**
+
 - [ ] Read this document (10 min)
 - [ ] Read README.md (5 min)
 - [ ] Skim Framework Foundations (20 min)
 - **Outcome:** Basic understanding
 
 **Day 2:**
+
 - [ ] Read Framework Foundations completely (45 min)
 - [ ] Read Dual-Helix Clarification (20 min)
 - **Outcome:** Deep understanding
 
 **Day 3:**
+
 - [ ] Read Agentic Collaboration Guide Parts 1-2 (30 min)
 - [ ] Read DIVA Case Study (15 min)
 - **Outcome:** Ready to apply
 
 **Day 4-5:**
+
 - [ ] Read Agentic Collaboration Guide Parts 3-5 (45 min)
 - [ ] Read Case Studies README (30 min)
 - **Outcome:** Ready to contribute
 
 **Week 2-4:**
+
 - [ ] Apply framework to your project
 - [ ] Document as you go
 - [ ] Collect metrics
 
 **Week 5:**
+
 - [ ] Write case study
 - [ ] Submit PR
 - **Outcome:** Contribution complete!
@@ -242,13 +248,13 @@ Solution: Hierarchical organization, adaptive evolution
 
 ### Self-Service
 
-- **Questions:** [GitHub Discussions](https://github.com/Keven1894/Agentic-AI-Research-Roadmap/discussions)
-- **Issues:** [GitHub Issues](https://github.com/Keven1894/Agentic-AI-Research-Roadmap/issues)
+- **Questions:** [GitHub Discussions](https://github.com/Keven1894/AgentLoom/discussions)
+- **Issues:** [GitHub Issues](https://github.com/Keven1894/AgentLoom/issues)
 - **Examples:** Read DIVA case study
 
 ### Direct Contact
 
-- **Email:** bguan@fiu.edu
+- **Email:** <bguan@fiu.edu>
 - **Subject lines:**
   - "Case Study Collaboration" — For contributions
   - "Research Partnership" — For academic collaboration
@@ -266,6 +272,7 @@ Solution: Hierarchical organization, adaptive evolution
 DIVA started where you are now: one person, one problem, one AI-enabled IDE.
 
 **3 months later:**
+
 - 157+ documents
 - 11,500+ lines of code
 - 100% deployment success
@@ -280,9 +287,9 @@ DIVA started where you are now: one person, one problem, one AI-enabled IDE.
 
 ## 🔗 Essential Links
 
-- **Main Repo:** https://github.com/Keven1894/Agentic-AI-Research-Roadmap
-- **Governance Repo:** https://github.com/Keven1894/co-agenticOS
-- **DIVA Website:** https://dataversedev.fiu.edu/ai/
+- **Main Repo:** <https://github.com/Keven1894/AgentLoom>
+- **Governance Repo:** <https://github.com/Keven1894/co-agenticOS>
+- **DIVA Website:** <https://dataversedev.fiu.edu/ai/>
 - **DOI:** 10.5281/zenodo.17561541
 
 ---
@@ -290,5 +297,3 @@ DIVA started where you are now: one person, one problem, one AI-enabled IDE.
 **Last Updated:** November 11, 2025  
 **Status:** Ready for community onboarding  
 **Your next step:** Pick a reading path above and begin! 🚀
-
-

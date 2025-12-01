@@ -1,0 +1,134 @@
+# User Manual Cold-Start Test Protocol
+
+## Objective
+
+Verify that a fresh AI agent (new conversation, no prior context) can become operational in < 5 minutes using only the USER_MANUAL.md.
+
+## Test Scenario
+
+**Agent State**:
+- New conversation tab
+- No conversation history
+- No memory of project setup
+- Has access to file system only
+
+**Goal**:
+- Agent reads USER_MANUAL.md
+- Follows quick start instructions
+- Becomes operational for chosen role
+- Confirms readiness
+
+## Test Procedure
+
+### Setup (Human)
+
+1. Open new conversation tab (fresh agent instance)
+2. Provide only: `@agents/USER_MANUAL.md`
+3. Say: "Follow the quick start guide"
+4. Do NOT provide additional context
+
+### Expected Agent Actions (< 5 minutes)
+
+1. Read USER_MANUAL.md
+2. Find and read NEW_AGENT_START_HERE.md
+3. Load identity file
+4. Load master graph
+5. Ask which role to activate
+6. Load Agent Builder graphs (always)
+7. Load Domain Role graphs (if activated)
+8. Load behaviors
+9. Confirm operational with summary
+
+### Success Criteria
+
+- [ ] Agent completes all steps without asking for clarification
+- [ ] Agent correctly identifies available roles (Agent Builder + Domain)
+- [ ] Agent loads appropriate graphs for chosen role
+- [ ] Agent confirms understanding of key behaviors
+- [ ] Agent confirms understanding of available skills
+- [ ] Total time < 5 minutes
+- [ ] Agent is ready for productive work
+- [ ] No errors or confusion
+
+### Failure Scenarios
+
+**Red Flags**:
+- Agent asks "What project is this?"
+- Agent cannot find files referenced in manual
+- Agent confused about which graphs to load
+- Agent doesn't understand role boundaries
+- Agent loads wrong graphs
+- Takes > 5 minutes
+- Agent asks for manual file loading
+
+## Test Log Template
+
+Create `temp/user_manual_test/test_log.md` to record:
+
+```markdown
+# Cold-Start Test Log
+
+**Date**: [Date]
+**Tester**: [Name]
+**Agent**: [Claude/GPT/etc.]
+
+## Timeline
+
+| Time | Step | Status | Notes |
+|------|------|--------|-------|
+| 0:00 | Start | - | Provided USER_MANUAL.md |
+| 0:30 | Identity loaded | ✅ | - |
+| 1:00 | Master graph loaded | ✅ | - |
+| ... | ... | ... | ... |
+
+## Issues Encountered
+
+1. [Issue description]
+   - Severity: [High/Medium/Low]
+   - Impact: [Description]
+
+## Total Time
+
+**Time to Operational**: [X] minutes [Y] seconds
+
+## Result
+
+[PASS / FAIL]
+```
+
+## Pain Points Document
+
+Create `temp/user_manual_test/pain_points.md` to record:
+
+```markdown
+# Pain Points Identified
+
+## Section: [Section Name]
+
+**Issue**: [Description]
+**Impact**: [How it affected the test]
+**Suggested Fix**: [Proposed improvement]
+
+---
+
+[Repeat for each pain point]
+```
+
+## Improvements Document
+
+Create `temp/user_manual_test/improvements.md` to propose:
+
+```markdown
+# Proposed Improvements
+
+## 1. [Improvement Title]
+
+**Current State**: [What exists now]
+**Proposed Change**: [What should change]
+**Rationale**: [Why this helps]
+**Priority**: [High/Medium/Low]
+
+---
+
+[Repeat for each improvement]
+```

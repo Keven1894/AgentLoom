@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Graph Visualization</title>
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent-builder: #3b82f6;
+            --accent-domain: #10b981;
+            --accent-core: #8b5cf6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: var(--bg-color);
+            color: var(--text-primary);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #334155;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-text h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .header-text p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        .role-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge-builder {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--accent-builder);
+            border: 1px solid var(--accent-builder);
+        }
+
+        .badge-domain {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--accent-domain);
+            border: 1px solid var(--accent-domain);
+        }
+
+        .controls {
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #334155;
+        }
+
+        .graph-selector {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn-group-label {
+            width: 100%;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .graph-selector button {
+            padding: 8px 16px;
+            background: #334155;
+            border: 1px solid #475569;
+            border-radius: 6px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .graph-selector button:hover {
+            background: #475569;
+            color: var(--text-primary);
+        }
+
+        .graph-selector button.active {
+            background: var(--accent-core);
+            color: white;
+            border-color: var(--accent-core);
+        }
+
+        .graph-selector button.builder.active {
+            background: var(--accent-builder);
+            border-color: var(--accent-builder);
+        }
+
+        .graph-selector button.domain.active {
+            background: var(--accent-domain);
+            border-color: var(--accent-domain);
+        }
+
+        .graph-selector button#btn-unified {
+            background: linear-gradient(90deg, var(--accent-builder), var(--accent-domain));
+            color: white;
+            border: none;
+            font-weight: bold;
+        }
+
+        .graph-selector button#btn-unified.active {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+
+        #network {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            height: 650px;
+            position: relative;
+        }
+
+        .stats-overlay {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(15, 23, 42, 0.9);
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            pointer-events: none;
+            z-index: 10;
+            backdrop-filter: blur(4px);
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            font-size: 0.85rem;
+            margin-bottom: 4px;
+        }
+
+        .stat-item strong {
+            color: var(--text-primary);
+        }
+
+        .stat-item span {
+            color: var(--text-secondary);
+        }
+
+        .legend {
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .error {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid #ef4444;
+            color: #ef4444;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px;
+        }
+
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-text">
+            <h1 id="project-title">🧠 Loading...</h1>
+            <p id="project-subtitle">Knowledge Graph Visualization</p>
+        </div>
+        <div id="role-badges" style="display: flex; gap: 10px;"></div>
+    </div>
+
+    <div class="controls">
+        <div class="graph-selector" id="graph-buttons"></div>
+    </div>
+
+    <div style="position: relative;">
+        <div class="stats-overlay">
+            <div class="stat-item"><strong>Graph:</strong> <span id="stat-name">-</span></div>
+            <div class="stat-item"><strong>Nodes:</strong> <span id="stat-nodes">0</span></div>
+            <div class="stat-item"><strong>Links:</strong> <span id="stat-links">0</span></div>
+        </div>
+        <div id="network">
+            <div class="loading">Loading graphs...</div>
+        </div>
+    </div>
+
+    <div class="legend" id="legend">
+        <div class="legend-item">
+            <div class="dot" style="background: #8b5cf6;"></div> Root
+        </div>
+        <div class="legend-item">
+            <div class="dot" style="background: #3b82f6;"></div> <span id="legend-builder">Builder</span>
+        </div>
+        <div class="legend-item">
+            <div class="dot" style="background: #10b981;"></div> <span id="legend-domain">Domain</span>
+        </div>
+        <div class="legend-item">
+            <div class="dot" style="background: #eab308;"></div> Behavior
+        </div>
+        <div class="legend-item">
+            <div class="dot" style="background: #ec4899;"></div> Skill
+        </div>
+        <div class="legend-item">
+            <div class="dot" style="background: #f97316;"></div> Concept
+        </div>
+        <div class="legend-item">
+            <div class="dot" style="background: #64748b;"></div> File/Doc
+        </div>
+    </div>
+
+    <script>
+        let network = null;
+        const container = document.getElementById('network');
+
+        // Config - populated from master-graph.json
+        let projectName = '';
+        let builderRole = null;
+        let domainRole = null;
+        let allGraphFiles = {};
+        let viewDependencies = {};
+        let graphNames = {};
+
+        // Safe JSON fetch - returns null on any error
+        async function safeFetchJSON(url) {
+            try {
+                const response = await fetch(url);
+
+                // Check HTTP status
+                if (!response.ok) {
+                    console.warn('HTTP ' + response.status + ' for ' + url);
+                    return null;
+                }
+
+                // Get text first to check content
+                const text = await response.text();
+
+                // Check if it's HTML (404 page or error)
+                const trimmed = text.trim();
+                if (trimmed.startsWith('<!') || trimmed.startsWith('<html') || trimmed.startsWith('<HTML')) {
+                    console.warn(url + ' returned HTML instead of JSON');
+                    return null;
+                }
+
+                // Empty response
+                if (!trimmed) {
+                    console.warn(url + ' returned empty response');
+                    return null;
+                }
+
+                // Try to parse JSON
+                return JSON.parse(text);
+
+            } catch (err) {
+                console.warn('Failed to load ' + url + ': ' + err.message);
+                return null;
+            }
+        }
+
+        // Initialize
+        async function initialize() {
+            const masterGraph = await safeFetchJSON('master-graph.json');
+
+            if (!masterGraph) {
+                showError('Could not load master-graph.json. Make sure it exists in the same folder as this HTML file.');
+                return;
+            }
+
+            // Extract project name
+            projectName = masterGraph.project || 'Agentic System';
+            document.getElementById('project-title').textContent = '🧠 ' + projectName;
+            document.getElementById('project-subtitle').textContent = 'Knowledge Graph Visualization';
+            document.title = projectName + ' - Knowledge Graph';
+
+            // Extract roles
+            const roles = masterGraph.roles || [];
+
+            // Find builder role
+            builderRole = roles.find(function (r) {
+                return r.id.toLowerCase().includes('builder') ||
+                    r.name.toLowerCase().includes('builder');
+            });
+
+            // Domain role is the other one
+            domainRole = roles.find(function (r) { return r !== builderRole; });
+
+            // Build mappings
+            buildGraphMappings(masterGraph);
+
+            // Update UI
+            updateUIWithRoles();
+
+            // Load initial graph
+            loadGraph('master');
+        }
+
+        function buildGraphMappings(masterGraph) {
+            allGraphFiles['master'] = 'master-graph.json';
+
+            // Map each graph
+            var graphs = masterGraph.graphs || [];
+            for (var i = 0; i < graphs.length; i++) {
+                var graph = graphs[i];
+                var id = graph.id;
+                var path = graph.path;
+                var filename = path.indexOf('/') >= 0 ? path.split('/').pop() : path;
+
+                if (id.indexOf('builder') >= 0) {
+                    if (id.indexOf('knowledge') >= 0) allGraphFiles['builder-knowledge'] = filename;
+                    else if (id.indexOf('skill') >= 0) allGraphFiles['builder-skills'] = filename;
+                    else if (id.indexOf('behavior') >= 0) allGraphFiles['builder-behaviors'] = filename;
+                } else if (id === 'project-graph' || id.indexOf('registry') >= 0) {
+                    allGraphFiles['project'] = filename;
+                } else {
+                    if (id.indexOf('knowledge') >= 0) allGraphFiles['domain-knowledge'] = filename;
+                    else if (id.indexOf('skill') >= 0) allGraphFiles['domain-skills'] = filename;
+                    else if (id.indexOf('behavior') >= 0) allGraphFiles['domain-behaviors'] = filename;
+                    else allGraphFiles[id] = filename;
+                }
+            }
+
+            // Build view dependencies
+            var masterDeps = ['master'];
+            var domainKnowledgeDeps = ['domain-knowledge'];
+
+            // Only include project if it exists
+            if (allGraphFiles['project']) {
+                masterDeps.push('project');
+                domainKnowledgeDeps.push('project');
+            }
+
+            masterDeps.push('builder-knowledge', 'domain-knowledge');
+
+            viewDependencies = {
+                'master': masterDeps,
+                'project': ['project', 'domain-knowledge'],
+                'builder-knowledge': ['builder-knowledge'],
+                'builder-skills': ['builder-skills', 'builder-behaviors', 'builder-knowledge'],
+                'builder-behaviors': ['builder-behaviors', 'builder-skills', 'builder-knowledge'],
+                'domain-knowledge': domainKnowledgeDeps,
+                'domain-skills': ['domain-skills', 'domain-behaviors', 'domain-knowledge'],
+                'domain-behaviors': ['domain-behaviors', 'domain-skills', 'domain-knowledge']
+            };
+
+            // Build names
+            var builderName = builderRole ? builderRole.name.replace('The ', '') : 'Builder';
+            var domainName = domainRole ? domainRole.name.replace('The ', '') : 'Domain';
+            graphNames = {
+                'unified': 'Unified System Brain',
+                'master': 'Master System Map',
+                'project': 'Project Registry & Domains',
+                'builder-knowledge': builderName + ' Knowledge Base',
+                'builder-skills': builderName + ' Capabilities',
+                'builder-behaviors': builderName + ' Protocols',
+                'domain-knowledge': domainName + ' Knowledge',
+                'domain-skills': domainName + ' Capabilities',
+                'domain-behaviors': domainName + ' Protocols'
+            };
+        }
+
+        function updateUIWithRoles() {
+            var badgesContainer = document.getElementById('role-badges');
+            var buttonsContainer = document.getElementById('graph-buttons');
+
+            var builderName = builderRole ? builderRole.name.replace('The ', '') : 'Builder';
+            var domainName = domainRole ? domainRole.name.replace('The ', '') : 'Domain';
+
+            badgesContainer.innerHTML =
+                '<span class="role-badge badge-builder">' + builderName + '</span>' +
+                '<span class="role-badge badge-domain">' + domainName + '</span>';
+
+            document.getElementById('legend-builder').textContent = builderName;
+            document.getElementById('legend-domain').textContent = domainName;
+
+            var buttonsHTML =
+                '<div class="btn-group-label">System Views</div>' +
+                '<button onclick="loadUnifiedGraph()" id="btn-unified">🧠 Unified Brain (ALL)</button>' +
+                '<button onclick="loadGraph(\'master\')" class="active" id="btn-master">🌐 Master Graph</button>';
+
+            if (allGraphFiles['project']) {
+                buttonsHTML += '<button onclick="loadGraph(\'project\')" id="btn-project">📂 Project Registry</button>';
+            }
+
+            buttonsHTML +=
+                '<div class="btn-group-label" style="margin-top: 10px;">' + builderName + ' Role (System Architecture)</div>' +
+                '<button onclick="loadGraph(\'builder-knowledge\')" class="builder" id="btn-builder-knowledge">🏗️ Knowledge</button>' +
+                '<button onclick="loadGraph(\'builder-skills\')" class="builder" id="btn-builder-skills">🛠️ Skills</button>' +
+                '<button onclick="loadGraph(\'builder-behaviors\')" class="builder" id="btn-builder-behaviors">🛡️ Behaviors</button>' +
+
+                '<div class="btn-group-label" style="margin-top: 10px;">' + domainName + ' Role (Domain Operations)</div>' +
+                '<button onclick="loadGraph(\'domain-knowledge\')" class="domain" id="btn-domain-knowledge">📋 Knowledge</button>' +
+                '<button onclick="loadGraph(\'domain-skills\')" class="domain" id="btn-domain-skills">⚡ Skills</button>' +
+                '<button onclick="loadGraph(\'domain-behaviors\')" class="domain" id="btn-domain-behaviors">🤝 Behaviors</button>';
+
+            buttonsContainer.innerHTML = buttonsHTML;
+        }
+
+        function getNodeColor(node) {
+            var type = node.type || '';
+            var id = node.id || '';
+
+            if (type === 'root' || type === 'master') return '#8b5cf6';
+            if (type === 'project' || type === 'database') return '#f43f5e';
+            if (type.indexOf('behavior') >= 0 || type === 'core' || type === 'role-specific') return '#eab308';
+            if (type.indexOf('skill') >= 0) return '#ec4899';
+            if (type === 'concept') return '#f97316';
+            if (type === 'document' || type === 'component') return '#64748b';
+
+            // Builder role (always uses 'builder' pattern)
+            if (id.indexOf('builder') >= 0 || id.indexOf('sys:') >= 0 || id.indexOf('skill:builder') >= 0) return '#3b82f6';
+
+            // Domain role - dynamically detect from actual role ID
+            var domainPrefix = domainRole ? domainRole.id.replace('role-', '') : '';
+            if (domainPrefix && id.indexOf(domainPrefix) >= 0) return '#10b981';
+
+            // Also check for common domain patterns (proj: for project-related nodes)
+            if (id.indexOf('proj:') >= 0 || id.indexOf('skill:' + domainPrefix) >= 0) return '#10b981';
+
+            return '#94a3b8';
+        }
+
+        function getNodeShape(node) {
+            var type = node.type || '';
+            if (type === 'root' || type === 'master') return 'diamond';
+            if (type === 'project') return 'box';
+            if (type === 'document') return 'ellipse';
+            if (type === 'concept') return 'star';
+            if (type.indexOf('behavior') >= 0) return 'hexagon';
+            if (type.indexOf('skill') >= 0) return 'triangle';
+            return 'dot';
+        }
+
+        function parseGraph(data, filterDeepNodes) {
+            var nodes = [];
+            var edges = [];
+
+            if (!data) return { nodes: nodes, edges: edges };
+
+            var rawNodes = data.nodes || data.skills || data.behaviors || data.graphs || [];
+
+            if (data.graphType === 'master') {
+                nodes.push({ id: 'root', label: 'Master Graph', type: 'master', size: 30 });
+                if (data.roles) {
+                    for (var i = 0; i < data.roles.length; i++) {
+                        var role = data.roles[i];
+                        nodes.push({ id: role.id, label: role.name, type: 'root', size: 25 });
+                        edges.push({ from: 'root', to: role.id });
+                        if (role.graphs) {
+                            for (var j = 0; j < role.graphs.length; j++) {
+                                edges.push({ from: role.id, to: role.graphs[j] });
+                            }
+                        }
+                    }
+                }
+            }
+
+            for (var k = 0; k < rawNodes.length; k++) {
+                var node = rawNodes[k];
+                if (filterDeepNodes && node.type === 'document') continue;
+
+                nodes.push({
+                    id: node.id,
+                    label: node.name || node.title || node.id,
+                    title: '<b>' + node.id + '</b><br>' + (node.description || node.path || node.type),
+                    color: getNodeColor(node),
+                    shape: getNodeShape(node),
+                    size: node.type === 'project' ? 25 : 20,
+                    font: { color: '#f1f5f9' }
+                });
+
+                if (node.parent) {
+                    edges.push({ from: node.parent, to: node.id });
+                }
+
+                if (node.links) {
+                    var linkTypes = Object.keys(node.links);
+                    for (var l = 0; l < linkTypes.length; l++) {
+                        var linkType = linkTypes[l];
+                        var targets = node.links[linkType];
+                        if (Array.isArray(targets)) {
+                            for (var m = 0; m < targets.length; m++) {
+                                edges.push({
+                                    from: node.id,
+                                    to: targets[m],
+                                    label: linkType,
+                                    color: { color: '#fbbf24', opacity: 0.6 },
+                                    dashes: true
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+
+            return { nodes: nodes, edges: edges };
+        }
+
+        async function loadFiles(keys, isMasterView) {
+            var allNodes = {};
+            var allEdges = [];
+
+            for (var i = 0; i < keys.length; i++) {
+                var key = keys[i];
+                var filename = allGraphFiles[key];
+                if (!filename) continue;
+
+                var data = await safeFetchJSON(filename);
+                if (!data) continue;
+
+                var result = parseGraph(data, isMasterView);
+                for (var j = 0; j < result.nodes.length; j++) {
+                    allNodes[result.nodes[j].id] = result.nodes[j];
+                }
+                for (var k = 0; k < result.edges.length; k++) {
+                    allEdges.push(result.edges[k]);
+                }
+            }
+
+            var nodeArray = [];
+            for (var id in allNodes) {
+                nodeArray.push(allNodes[id]);
+            }
+
+            return { nodes: nodeArray, edges: allEdges };
+        }
+
+        async function loadUnifiedGraph() {
+            updateUI('unified');
+            var keys = Object.keys(allGraphFiles);
+            var result = await loadFiles(keys, false);
+            renderNetwork(result.nodes, result.edges);
+        }
+
+        async function loadGraph(key) {
+            updateUI(key);
+
+            var keys = viewDependencies[key] || [key];
+            var result = await loadFiles(keys, key === 'master');
+
+            if (result.nodes.length === 0) {
+                showError('No data found for ' + (graphNames[key] || key));
+                return;
+            }
+
+            renderNetwork(result.nodes, result.edges);
+        }
+
+        function updateUI(key) {
+            var buttons = document.querySelectorAll('.graph-selector button');
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('active');
+            }
+            var btn = document.getElementById('btn-' + key);
+            if (btn) btn.classList.add('active');
+            document.getElementById('stat-name').textContent = graphNames[key] || 'Graph View';
+        }
+
+        function showError(msg) {
+            container.innerHTML = '<div class="error">' + msg + '</div>';
+        }
+
+        function renderNetwork(nodes, edges) {
+            document.getElementById('stat-nodes').textContent = nodes.length;
+            document.getElementById('stat-links').textContent = edges.length;
+
+            var visData = {
+                nodes: new vis.DataSet(nodes),
+                edges: new vis.DataSet(edges)
+            };
+
+            var options = {
+                nodes: {
+                    borderWidth: 2,
+                    borderWidthSelected: 4,
+                    shadow: true,
+                    font: { face: 'Inter', color: '#fff', strokeWidth: 3, strokeColor: '#0f172a' }
+                },
+                edges: {
+                    color: { color: '#475569', highlight: '#94a3b8' },
+                    width: 2,
+                    smooth: { type: 'continuous' }
+                },
+                physics: {
+                    stabilization: false,
+                    barnesHut: {
+                        gravitationalConstant: -3000,
+                        springConstant: 0.02,
+                        springLength: 150
+                    }
+                },
+                layout: { randomSeed: 2 }
+            };
+
+            if (network) network.destroy();
+            network = new vis.Network(container, visData, options);
+        }
+
+        // Start
+        window.addEventListener('load', initialize);
+    </script>
+</body>
+
+</html>

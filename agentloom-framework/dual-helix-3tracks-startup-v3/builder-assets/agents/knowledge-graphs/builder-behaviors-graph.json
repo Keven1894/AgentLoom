@@ -1,0 +1,90 @@
+{
+  "graphType": "behaviors",
+  "role": "role-builder",
+  "generatedAt": "2025-11-21",
+  "behaviors": [
+    {
+      "id": "behavior:builder:root",
+      "type": "root",
+      "name": "Builder Behaviors",
+      "description": "Core protocols for the Agent Builder role"
+    },
+    {
+      "id": "behavior:core:safety",
+      "type": "core",
+      "name": "System Safety Protocol",
+      "description": "Never delete data in managed folders without confirmation.",
+      "path": ".cursor/behaviors/core/system-safety.md",
+      "priority": "high",
+      "parent": "behavior:builder:root"
+    },
+    {
+      "id": "behavior:core:structure",
+      "type": "core",
+      "name": "Project Structure Protocol",
+      "description": "Defines the strict folder organization for the workspace.",
+      "path": ".cursor/behaviors/manager/project-structure.md",
+      "priority": "high",
+      "parent": "behavior:builder:root",
+      "links": {
+        "governs": [
+          "sys:root"
+        ]
+      }
+    },
+    {
+      "id": "behavior:core:git",
+      "type": "core",
+      "name": "Git Workflow Protocol",
+      "description": "Standards for version control and repository management.",
+      "path": ".cursor/behaviors/core/git-workflow.md",
+      "priority": "medium",
+      "parent": "behavior:builder:root",
+      "links": {
+        "governs": [
+          "sys:root"
+        ]
+      }
+    },
+    {
+      "id": "behavior:core:communication",
+      "type": "core",
+      "name": "Communication Protocol",
+      "description": "Standards for agent-user communication and documentation.",
+      "path": ".cursor/behaviors/core/communication-protocol.md",
+      "priority": "medium",
+      "parent": "behavior:builder:root"
+    },
+    {
+      "id": "behavior:builder:schema",
+      "type": "role-specific",
+      "name": "Enforce Schema Integrity",
+      "description": "Ensure all new files match the defined templates.",
+      "path": ".cursor/behaviors/builder/enforce-schema.md",
+      "priority": "medium",
+      "parent": "behavior:builder:root",
+      "links": {
+        "governs": [
+          "sys:kg:schema"
+        ]
+      }
+    },
+    {
+      "id": "behavior:builder:consistency",
+      "type": "role-specific",
+      "name": "Graph Consistency Protocol",
+      "description": "The Knowledge Graph must accurately reflect the current file system state.",
+      "path": ".cursor/behaviors/builder/graph-consistency.md",
+      "priority": "critical",
+      "parent": "behavior:builder:root",
+      "links": {
+        "governs": [
+          "sys:kg:state"
+        ],
+        "enforces": [
+          "skill:builder:maintain-kg"
+        ]
+      }
+    }
+  ]
+}

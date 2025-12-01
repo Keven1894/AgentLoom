@@ -1,0 +1,170 @@
+{
+  "graphType": "knowledge",
+  "role": "role-builder",
+  "generatedAt": "2025-11-21",
+  "nodes": [
+    {
+      "id": "sys:root",
+      "type": "root",
+      "title": "System Architecture"
+    },
+    {
+      "id": "sys:agents",
+      "type": "component",
+      "path": "agents/",
+      "title": "Agent Logic Hub",
+      "parent": "sys:root"
+    },
+    {
+      "id": "sys:config",
+      "type": "component",
+      "path": ".cursor/",
+      "title": "Configuration",
+      "parent": "sys:root"
+    },
+    {
+      "id": "sys:behaviors",
+      "type": "component",
+      "path": ".cursor/behaviors/",
+      "title": "Behavior Library",
+      "parent": "sys:config",
+      "description": "Native rule definitions for the agent."
+    },
+    {
+      "id": "sys:scripts",
+      "type": "component",
+      "path": "scripts/",
+      "title": "Automation Scripts",
+      "parent": "sys:root"
+    },
+    {
+      "id": "sys:docs",
+      "type": "folder",
+      "path": "docs/",
+      "title": "Documentation Repository",
+      "parent": "sys:root",
+      "description": "System documentation organized by role."
+    },
+    {
+      "id": "sys:docs:general",
+      "type": "folder",
+      "path": "docs/general/",
+      "title": "General Documentation",
+      "parent": "sys:docs",
+      "description": "Cross-role guides and references."
+    },
+    {
+      "id": "sys:docs:getting-started",
+      "type": "document",
+      "path": "docs/general/getting-started.md",
+      "title": "Getting Started Guide",
+      "parent": "sys:docs:general"
+    },
+    {
+      "id": "sys:docs:quick-ref",
+      "type": "document",
+      "path": "docs/general/quick-reference.md",
+      "title": "Quick Reference",
+      "parent": "sys:docs:general"
+    },
+    {
+      "id": "sys:docs:template",
+      "type": "document",
+      "path": "docs/general/CONTENT_TEMPLATE.md",
+      "title": "Content Template",
+      "parent": "sys:docs:general"
+    },
+    {
+      "id": "sys:docs:builder",
+      "type": "folder",
+      "path": "docs/builder/",
+      "title": "Builder Documentation",
+      "parent": "sys:docs",
+      "description": "Architecture, implementation, and planning documents for the Builder role."
+    },
+    {
+      "id": "sys:docs:builder:arch",
+      "type": "folder",
+      "path": "docs/builder/architecture/",
+      "title": "Architecture Documents",
+      "parent": "sys:docs:builder"
+    },
+    {
+      "id": "sys:docs:builder:arch:structure",
+      "type": "document",
+      "path": "docs/builder/architecture/STRUCTURE-SIMPLIFICATION-2025-11-10.md",
+      "title": "Structure Simplification",
+      "parent": "sys:docs:builder:arch"
+    },
+    {
+      "id": "sys:docs:builder:arch:understanding",
+      "type": "document",
+      "path": "docs/builder/architecture/WORKING_UNDERSTANDING.md",
+      "title": "Working Understanding",
+      "parent": "sys:docs:builder:arch"
+    },
+    {
+      "id": "sys:docs:builder:impl",
+      "type": "folder",
+      "path": "docs/builder/implementation/",
+      "title": "Implementation Guides",
+      "parent": "sys:docs:builder"
+    },
+    {
+      "id": "sys:docs:builder:impl:a2a",
+      "type": "document",
+      "path": "docs/builder/implementation/A2A-IMPLEMENTATION-ANALYSIS.md",
+      "title": "A2A Implementation Analysis",
+      "parent": "sys:docs:builder:impl"
+    },
+    {
+      "id": "sys:docs:builder:impl:monitoring",
+      "type": "document",
+      "path": "docs/builder/implementation/MONITORING-UPDATE-STRATEGY.md",
+      "title": "Monitoring Update Strategy",
+      "parent": "sys:docs:builder:impl"
+    },
+    {
+      "id": "sys:docs:builder:plan",
+      "type": "folder",
+      "path": "docs/builder/plan/",
+      "title": "Planning Documents",
+      "parent": "sys:docs:builder"
+    },
+    {
+      "id": "sys:docs:builder:plan:migration",
+      "type": "document",
+      "path": "docs/builder/plan/MIGRATION_PLAN.md",
+      "title": "Migration Plan",
+      "parent": "sys:docs:builder:plan"
+    },
+    {
+      "id": "sys:docs:builder:plan:todo",
+      "type": "document",
+      "path": "docs/builder/plan/TODO_USER_MANUAL_AND_SKILLS_ANALYSIS.md",
+      "title": "TODO: User Manual & Skills Analysis",
+      "parent": "sys:docs:builder:plan"
+    },
+    {
+      "id": "sys:kg:architecture",
+      "type": "concept",
+      "title": "Knowledge Graph Architecture",
+      "parent": "sys:root",
+      "description": "The meta-structure defining how the system remembers."
+    },
+    {
+      "id": "sys:kg:schema",
+      "type": "concept",
+      "title": "Graph Schema",
+      "parent": "sys:kg:architecture",
+      "description": "Rules defining valid nodes, types, and relationships."
+    },
+    {
+      "id": "sys:kg:state",
+      "type": "concept",
+      "title": "Graph State",
+      "parent": "sys:kg:architecture",
+      "description": "The current snapshot of the system as stored in JSON files."
+    }
+  ]
+}

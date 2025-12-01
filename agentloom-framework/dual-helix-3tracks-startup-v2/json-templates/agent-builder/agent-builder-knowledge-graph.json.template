@@ -1,0 +1,69 @@
+{
+  "graphType": "knowledge",
+  "role": "agent-builder",
+  "generatedAt": "2025-11-28",
+  "description": "Agent Builder's understanding of system architecture",
+  "nodes": [
+    {
+      "id": "sys:root",
+      "type": "root",
+      "title": "System Architecture"
+    },
+    {
+      "id": "sys:agents",
+      "type": "component",
+      "path": "agents/",
+      "title": "Agent Logic Hub",
+      "parent": "sys:root",
+      "description": "Contains skills, behaviors, and knowledge graphs"
+    },
+    {
+      "id": "sys:config",
+      "type": "component",
+      "path": ".cursor/",
+      "title": "Configuration",
+      "parent": "sys:root",
+      "description": "System identity and behavior definitions"
+    },
+    {
+      "id": "sys:behaviors",
+      "type": "component",
+      "path": ".cursor/behaviors/",
+      "title": "Behavior Library",
+      "parent": "sys:config",
+      "description": "Native rule definitions for the agent"
+    },
+    {
+      "id": "sys:docs",
+      "type": "folder",
+      "path": "docs/",
+      "title": "Documentation Repository",
+      "parent": "sys:root",
+      "description": "System documentation organized by role"
+    },
+    {
+      "id": "sys:docs:general",
+      "type": "folder",
+      "path": "docs/general/",
+      "title": "General Documentation",
+      "parent": "sys:docs",
+      "description": "Cross-role guides and references"
+    },
+    {
+      "id": "sys:docs:builder",
+      "type": "folder",
+      "path": "docs/builder/",
+      "title": "Agent Builder Documentation",
+      "parent": "sys:docs",
+      "description": "System architecture and maintenance guides"
+    },
+    {
+      "id": "sys:kg:architecture",
+      "type": "concept",
+      "title": "Knowledge Graph Architecture",
+      "parent": "sys:root",
+      "description": "The meta-structure defining how the system remembers"
+    }
+  ]
+}
+

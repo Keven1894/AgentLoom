@@ -43,26 +43,31 @@ This document explains how **co-agenticOS** integrates with the **Agentic-AI Eng
 ### Key Features
 
 #### 1. Agent Roles & Rules
+
 - Define agent personas and responsibilities
 - Specify decision-making boundaries
 - Set communication protocols
 
 #### 2. Documentation Standards
+
 - Implements the Documentation Layer from the framework
 - Auto-generates decision logs (ADRs)
 - Maintains daily summaries
 
 #### 3. Context Management
+
 - Implements Context Capture stage
 - Manages session state
 - Handles context switching
 
 #### 4. Knowledge Indexing
+
 - Integrates with vector and SQL databases
 - Implements hybrid indexing strategy
 - Manages knowledge versioning
 
 #### 5. RAG Integration
+
 - Provides RAG pipeline templates
 - Manages retrieval strategies
 - Handles citation and verification
@@ -76,10 +81,10 @@ This document explains how **co-agenticOS** integrates with the **Agentic-AI Eng
 
 **An execution and governance layer for Agentic AI systems**
 
-[![Part of Agentic-AI Ecosystem](https://img.shields.io/badge/Ecosystem-Agentic--AI-blue)](https://github.com/Keven1894/Agentic-AI-Research-Roadmap)
+[![Part of Agentic-AI Ecosystem](https://img.shields.io/badge/Ecosystem-Agentic--AI-blue)](https://github.com/Keven1894/AgentLoom)
 
 This repository implements the runtime and behavioral rule system proposed in the 
-[Agentic-AI Engineering Framework](https://github.com/Keven1894/Agentic-AI-Research-Roadmap) 
+[Agentic-AI Engineering Framework](https://github.com/Keven1894/AgentLoom) 
 (DOI: [10.5281/zenodo.17561541](https://doi.org/10.5281/zenodo.17561541)).
 
 ## What is co-agenticOS?
@@ -101,7 +106,7 @@ Think of it as:
 
 ## Relationship to Agentic-AI Framework
 
-This system implements Stage 2-3 of the [Agentic-AI Research Roadmap](https://github.com/Keven1894/Agentic-AI-Research-Roadmap):
+This system implements Stage 2-3 of the [Agentic-AI Research Roadmap](https://github.com/Keven1894/AgentLoom):
 
 | Framework Stage | co-agenticOS Implementation |
 |----------------|----------------------------|
@@ -133,6 +138,7 @@ If you use co-agenticOS in your research, please cite both:
 ```
 
 **The Implementation (this repository):**
+
 ```bibtex
 @software{guan2025coagenticos,
   author = {Guan, Boyuan (Keven)},
@@ -145,7 +151,7 @@ If you use co-agenticOS in your research, please cite both:
 
 ## Part of the Agentic-AI Ecosystem
 
-- [Agentic-AI Framework](https://github.com/Keven1894/Agentic-AI-Research-Roadmap) - Theory & Methodology
+- [Agentic-AI Framework](https://github.com/Keven1894/AgentLoom) - Theory & Methodology
 - **co-agenticOS** (this repository) - Execution & Governance
 - Case Studies - Domain applications (coming soon)
 
@@ -157,7 +163,8 @@ If you use co-agenticOS in your research, please cite both:
 
 Dr. Boyuan (Keven) Guan  
 FIU Library & GIS Center  
-📧 bguan@fiu.edu
+📧 <bguan@fiu.edu>
+
 ```
 
 ## Integration Checklist

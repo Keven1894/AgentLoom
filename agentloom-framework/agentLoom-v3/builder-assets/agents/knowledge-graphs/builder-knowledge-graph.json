@@ -1,0 +1,426 @@
+{
+  "graphType": "knowledge",
+  "role": "role-builder",
+  "generatedAt": "2025-11-29",
+  "nodes": [
+    {
+      "id": "sys:root",
+      "type": "root",
+      "title": "System Architecture"
+    },
+    {
+      "id": "sys:agents",
+      "type": "component",
+      "path": "agents/",
+      "title": "Agent Logic Hub",
+      "parent": "sys:root"
+    },
+    {
+      "id": "sys:config",
+      "type": "component",
+      "path": ".cursor/",
+      "title": "Configuration",
+      "parent": "sys:root"
+    },
+    {
+      "id": "sys:behaviors",
+      "type": "component",
+      "path": ".cursor/behaviors/",
+      "title": "Behavior Library",
+      "parent": "sys:config",
+      "description": "Native rule definitions for the agent."
+    },
+    {
+      "id": "sys:scripts",
+      "type": "component",
+      "path": "scripts/",
+      "title": "Automation Scripts",
+      "parent": "sys:root"
+    },
+    {
+      "id": "sys:docs",
+      "type": "folder",
+      "path": "docs/",
+      "title": "Documentation Repository",
+      "parent": "sys:root",
+      "description": "System documentation organized by role."
+    },
+    {
+      "id": "sys:docs:general",
+      "type": "folder",
+      "path": "docs/general/",
+      "title": "General Documentation",
+      "parent": "sys:docs",
+      "description": "Cross-role guides and references."
+    },
+    {
+      "id": "sys:docs:getting-started",
+      "type": "document",
+      "path": "docs/general/getting-started.md",
+      "title": "Getting Started Guide",
+      "parent": "sys:docs:general"
+    },
+    {
+      "id": "sys:docs:quick-ref",
+      "type": "document",
+      "path": "docs/general/quick-reference.md",
+      "title": "Quick Reference",
+      "parent": "sys:docs:general"
+    },
+    {
+      "id": "sys:docs:template",
+      "type": "document",
+      "path": "docs/general/CONTENT_TEMPLATE.md",
+      "title": "Content Template",
+      "parent": "sys:docs:general"
+    },
+    {
+      "id": "sys:docs:builder",
+      "type": "folder",
+      "path": "docs/builder/",
+      "title": "Builder Documentation",
+      "parent": "sys:docs",
+      "description": "Architecture, implementation, and planning documents for the Builder role."
+    },
+    {
+      "id": "sys:docs:builder:arch",
+      "type": "folder",
+      "path": "docs/builder/architecture/",
+      "title": "Architecture Documents",
+      "parent": "sys:docs:builder"
+    },
+    {
+      "id": "sys:docs:builder:arch:structure",
+      "type": "document",
+      "path": "docs/builder/architecture/STRUCTURE-SIMPLIFICATION-2025-11-10.md",
+      "title": "Structure Simplification",
+      "parent": "sys:docs:builder:arch"
+    },
+    {
+      "id": "sys:docs:builder:arch:understanding",
+      "type": "document",
+      "path": "docs/builder/architecture/WORKING_UNDERSTANDING.md",
+      "title": "Working Understanding",
+      "parent": "sys:docs:builder:arch"
+    },
+    {
+      "id": "sys:docs:builder:impl",
+      "type": "folder",
+      "path": "docs/builder/implementation/",
+      "title": "Implementation Guides",
+      "parent": "sys:docs:builder"
+    },
+    {
+      "id": "sys:docs:builder:impl:a2a",
+      "type": "document",
+      "path": "docs/builder/implementation/A2A-IMPLEMENTATION-ANALYSIS.md",
+      "title": "A2A Implementation Analysis",
+      "parent": "sys:docs:builder:impl"
+    },
+    {
+      "id": "sys:docs:builder:impl:monitoring",
+      "type": "document",
+      "path": "docs/builder/implementation/monitoring-INDEX.md",
+      "title": "Monitoring Update Strategy",
+      "parent": "sys:docs:builder:impl"
+    },
+    {
+      "id": "sys:docs:builder:plan",
+      "type": "folder",
+      "path": "docs/builder/plan/",
+      "title": "Planning Documents",
+      "parent": "sys:docs:builder"
+    },
+    {
+      "id": "sys:docs:builder:plan:migration",
+      "type": "document",
+      "path": "docs/builder/plan/MIGRATION_PLAN.md",
+      "title": "Migration Plan",
+      "parent": "sys:docs:builder:plan"
+    },
+    {
+      "title": "Knowledge Graph Architecture",
+      "parent": "sys:root",
+      "description": "The meta-structure defining how the system remembers."
+    },
+    {
+      "id": "sys:kg:schema",
+      "type": "concept",
+      "title": "Graph Schema",
+      "parent": "sys:kg:architecture",
+      "description": "Rules defining valid nodes, types, and relationships."
+    },
+    {
+      "id": "sys:kg:state",
+      "type": "concept",
+      "title": "Graph State",
+      "parent": "sys:kg:architecture",
+      "description": "The current snapshot of the system as stored in JSON files."
+    },
+    {
+      "id": "docs:plan",
+      "type": "folder",
+      "path": "docs/plan/",
+      "title": "Planning System",
+      "parent": "docs:root",
+      "description": "Structured planning workflow for non-trivial work",
+      "created": "2025-11-30",
+      "links": {
+        "governed_by": [
+          "behavior:builder:agentloom-development-lifecycle"
+        ]
+      }
+    },
+    {
+      "id": "docs:plan:readme",
+      "type": "document",
+      "path": "docs/plan/README.md",
+      "title": "Planning System Documentation",
+      "parent": "docs:plan",
+      "description": "Complete planning workflow guide"
+    },
+    {
+      "id": "docs:plan:plan-template",
+      "type": "template",
+      "path": "docs/plan/plan-template.md",
+      "title": "Plan Template",
+      "parent": "docs:plan",
+      "description": "Template for creating new plans"
+    },
+    {
+      "id": "docs:plan:sum-log-template",
+      "type": "template",
+      "path": "docs/plan/sum-log-template.md",
+      "title": "Summary Log Template",
+      "parent": "docs:plan",
+      "description": "Template for documenting completed plans"
+    },
+    {
+      "id": "docs:plan:todo",
+      "type": "folder",
+      "path": "docs/plan/todo/",
+      "title": "Active Plans",
+      "parent": "docs:plan",
+      "description": "Plans currently being worked on"
+    },
+    {
+      "id": "docs:plan:complete",
+      "type": "folder",
+      "path": "docs/plan/complete/",
+      "title": "Completed Plans",
+      "parent": "docs:plan",
+      "description": "Finished plans with summary logs"
+    },
+    {
+      "id": "docs:plan:worklog",
+      "type": "folder",
+      "path": "docs/plan/worklog/",
+      "title": "Work Logs",
+      "parent": "docs:plan",
+      "description": "Quick daily work logs"
+    },
+    {
+      "id": "docs:plan:archive",
+      "type": "folder",
+      "path": "docs/plan/archive/",
+      "title": "Archived Plans",
+      "parent": "docs:plan",
+      "description": "Cancelled or deprecated plans"
+    },
+    {
+      "id": "docs:dev/agent-design/3-track-architecture",
+      "type": "document",
+      "title": "3-Track Architecture Pattern",
+      "description": "GOLD! This is the 3-track architecture pattern we use. Path: 'docs/developer/agent-design/3-track-architecture.md'. Referenced by agent-development workflow. This is a universal builder pattern that we already use in Manager Agent. MUST extract.",
+      "source_project": "fiu-teaching-agent",
+      "extracted_date": "2025-11-30",
+      "confidence": 1.0,
+      "path": "docs/builder/agent-design/3-track-architecture.md",
+      "links": {
+        "extracted_from": [
+          "proj:work:fiu-teaching-agent"
+        ]
+      }
+    },
+    {
+      "id": "docs:dev/agent-design/knowledge-graphs",
+      "type": "document",
+      "title": "Knowledge Graph Design Pattern",
+      "description": "GOLD! KG design documentation. Referenced by KG integrity behavior and KG management skills. Universal pattern for how to design and maintain knowledge graphs. MUST extract.",
+      "source_project": "fiu-teaching-agent",
+      "extracted_date": "2025-11-30",
+      "confidence": 1.0,
+      "path": "docs/builder/agent-design/knowledge-graphs.md",
+      "links": {
+        "extracted_from": [
+          "proj:work:fiu-teaching-agent"
+        ]
+      }
+    },
+    {
+      "id": "docs:dev/agent-design/behavior-design",
+      "type": "document",
+      "title": "Behavior Design Pattern",
+      "description": "GOLD! Universal pattern for designing agent behaviors. Path: 'docs/developer/agent-design/behavior-design.md'. Referenced by agent-development workflow. This is exactly what we need for builder patterns.",
+      "source_project": "fiu-teaching-agent",
+      "extracted_date": "2025-11-30",
+      "confidence": 1.0,
+      "path": "docs/builder/agent-design/behavior-design.md",
+      "links": {
+        "extracted_from": [
+          "proj:work:fiu-teaching-agent"
+        ]
+      }
+    },
+    {
+      "id": "docs:dev/agent-design/skill-design",
+      "type": "document",
+      "title": "Skill Design Pattern",
+      "description": "GOLD! Universal pattern for designing agent skills. Referenced by skill-creation workflow. Essential builder pattern documentation.",
+      "source_project": "fiu-teaching-agent",
+      "extracted_date": "2025-11-30",
+      "confidence": 1.0,
+      "path": "docs/builder/agent-design/skill-design.md",
+      "links": {
+        "extracted_from": [
+          "proj:work:fiu-teaching-agent"
+        ]
+      }
+    },
+    {
+      "id": "docs:dev/implementation/markdown-conventions",
+      "type": "document",
+      "title": "Markdown Conventions",
+      "description": "GOLD! Universal markdown conventions for documentation. Referenced by documentation-first behavior. We use markdown extensively in Manager Agent - this is highly relevant.",
+      "source_project": "fiu-teaching-agent",
+      "extracted_date": "2025-11-30",
+      "confidence": 1.0,
+      "path": "docs/builder/implementation/markdown-conventions.md",
+      "links": {
+        "extracted_from": [
+          "proj:work:fiu-teaching-agent"
+        ]
+      }
+    },
+    {
+      "id": "docs:dev/implementation/json-schemas",
+      "type": "document",
+      "title": "JSON Schema Patterns",
+      "description": "GOLD! Universal JSON schema patterns. Related to KG design. Referenced by JSON validation and KG integrity skills. We use JSON extensively for KGs - highly relevant.",
+      "source_project": "fiu-teaching-agent",
+      "extracted_date": "2025-11-30",
+      "confidence": 1.0,
+      "path": "docs/builder/implementation/json-schemas.md",
+      "links": {
+        "extracted_from": [
+          "proj:work:fiu-teaching-agent"
+        ]
+      }
+    },
+    {
+      "id": "docs:dev/patterns",
+      "type": "document",
+      "title": "Developer Patterns Folder",
+      "description": "GOLD! Universal patterns folder containing: content-extraction, graph-construction, cross-linking, validation. All universal builder patterns.",
+      "source_project": "fiu-teaching-agent",
+      "extracted_date": "2025-11-30",
+      "confidence": 1.0,
+      "path": "docs/builder/patterns",
+      "links": {
+        "extracted_from": [
+          "proj:work:fiu-teaching-agent"
+        ]
+      }
+    },
+    {
+      "id": "docs:dev/patterns/graph-construction",
+      "type": "document",
+      "title": "Graph Construction Pattern",
+      "description": "GOLD! Universal pattern for constructing knowledge graphs. Related to KG design. Referenced by auto-integrate skill. This is exactly what we're doing with Manager Agent KGs!",
+      "source_project": "fiu-teaching-agent",
+      "extracted_date": "2025-11-30",
+      "confidence": 1.0,
+      "path": "docs/builder/patterns/graph-construction.md",
+      "links": {
+        "extracted_from": [
+          "proj:work:fiu-teaching-agent"
+        ]
+      }
+    },
+    {
+      "id": "docs:dev/patterns/cross-linking",
+      "type": "document",
+      "title": "Cross-Linking Pattern",
+      "description": "GOLD! Universal pattern for cross-linking between KG tracks. Referenced by intelligent-linking and validate-cross-track skills. We use this in Manager Agent!",
+      "source_project": "fiu-teaching-agent",
+      "extracted_date": "2025-11-30",
+      "confidence": 1.0,
+      "path": "docs/builder/patterns/cross-linking.md",
+      "links": {
+        "extracted_from": [
+          "proj:work:fiu-teaching-agent"
+        ]
+      }
+    },
+    {
+      "id": "docs:dev/patterns/validation",
+      "type": "document",
+      "title": "Validation Pattern",
+      "description": "GOLD! Universal validation patterns. Referenced by testing-validation workflow. We just built KG validation - highly relevant!",
+      "source_project": "fiu-teaching-agent",
+      "extracted_date": "2025-11-30",
+      "confidence": 1.0,
+      "path": "docs/builder/patterns/validation.md",
+      "links": {
+        "extracted_from": [
+          "proj:work:fiu-teaching-agent"
+        ]
+      }
+    },
+    {
+      "id": "docs:dev/agent-design",
+      "type": "document",
+      "title": "Agent Design Documentation",
+      "description": "Universal agent design documentation. Contains: 3-track-architecture, knowledge-graphs, behavior-design, skill-design. All universal builder patterns applicable to any agent project.",
+      "source_project": "fiu-teaching-agent",
+      "extracted_date": "2025-11-30",
+      "confidence": 0.95,
+      "path": "docs/builder/agent-design",
+      "links": {
+        "extracted_from": [
+          "proj:work:fiu-teaching-agent"
+        ]
+      }
+    },
+    {
+      "id": "docs:dev/implementation/file-processing",
+      "type": "document",
+      "title": "File Processing Patterns",
+      "description": "Universal pattern for processing different file types (PDF, Word, HTML). Referenced by knowledge-extraction workflow and processing skills. Applicable to any agent that processes documents.",
+      "source_project": "fiu-teaching-agent",
+      "extracted_date": "2025-11-30",
+      "confidence": 0.95,
+      "path": "docs/builder/implementation/file-processing.md",
+      "links": {
+        "extracted_from": [
+          "proj:work:fiu-teaching-agent"
+        ]
+      }
+    },
+    {
+      "id": "docs:dev/patterns/content-extraction",
+      "type": "document",
+      "title": "Content Extraction Pattern",
+      "description": "Universal pattern for extracting content from documents. Referenced by knowledge-extraction workflow. Applicable to any agent that processes knowledge sources.",
+      "source_project": "fiu-teaching-agent",
+      "extracted_date": "2025-11-30",
+      "confidence": 0.95,
+      "path": "docs/builder/patterns/content-extraction.md",
+      "links": {
+        "extracted_from": [
+          "proj:work:fiu-teaching-agent"
+        ]
+      }
+    }
+  ]
+}

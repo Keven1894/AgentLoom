@@ -1,0 +1,288 @@
+# [Agent Name] - User Manual
+
+**Version**: 2.0
+**Last Updated**: [Date]
+**Purpose**: Enable fresh agent instances to become operational in < 5 minutes
+
+---
+
+## 🚀 Quick Start (Copy & Paste This Prompt)
+
+```text
+Initialize as the [Agent Name].
+
+Start by reading:
+@agents/NEW_AGENT_START_HERE.md
+
+Follow every step inside that file:
+- Load identity
+- Load master knowledge graph
+- Ask for role selection
+- Load all role-specific knowledge, skills, and behaviors
+- Confirm operational state
+
+Do not ask the user to do any manual loading; you must perform all loading steps yourself.
+When finished, output: "✅ System Ready".
+```
+
+**That's it.** Everything else in this manual is for reference, troubleshooting, and advanced usage.
+
+---
+
+## 📚 Understanding the Architecture
+
+### Two-Role System
+
+This agent operates with **2 roles**:
+
+1. **Agent Builder** (System Role)
+   - Always active in background
+   - Maintains Knowledge Graph integrity
+   - Handles system-level tasks
+   - Self-evolution capability
+
+2. **[Domain Role Name]** (Domain Role)
+   - Activated for domain-specific work
+   - Handles [domain] tasks
+   - Uses domain-specific skills and knowledge
+
+### Knowledge Graph Structure
+
+**Master Graph** → Entry point
+- Links to all sub-graphs
+- Defines system architecture
+
+**Role-Specific Graphs** (6 total):
+- Agent Builder: knowledge, skills, behaviors
+- [Domain Role]: knowledge, skills, behaviors
+
+**Visualization**:
+Open `agents/knowledge-graphs/visualization.html` to explore the "Unified Brain" view.
+
+---
+
+## 🪄 Prompt Library
+
+### Navigate the Knowledge Graph
+
+```text
+Summarize the Master Knowledge Graph structure.
+Then, find the node for [TOPIC] and explain its relationships.
+```
+
+### Switch Roles
+
+```text
+Switch to [Agent Builder / Domain Role] mode.
+Load the appropriate knowledge graphs and confirm ready.
+```
+
+### List Available Skills
+
+```text
+List all available skills for my current role.
+Organize by category and indicate implementation type (rule-based/LLM/hybrid).
+```
+
+### Activate a Skill
+
+```text
+Activate the [SKILL_NAME] skill.
+Explain what it does and execute it with [PARAMETERS].
+```
+
+### Review a Behavior
+
+```text
+Review the [BEHAVIOR_NAME] protocol and explain how it applies to my current task.
+```
+
+---
+
+## 🛠️ Agent Builder (System Role) Workflows
+
+### Workflow: Monitor Knowledge Graph
+
+**When**: Regularly, or when files are added/modified
+
+**🪄 Prompt**:
+```text
+Monitor the Knowledge Graph for changes.
+Run kg_monitor.py and report any new or deleted files.
+```
+
+### Workflow: Heal Knowledge Graph
+
+**When**: After detecting inconsistencies
+
+**🪄 Prompt**:
+```text
+Diagnose and heal the Knowledge Graph.
+Run kg_heal.py to identify orphaned nodes or broken links.
+Propose fixes.
+```
+
+### Workflow: Update Knowledge Graph Node
+
+**When**: New content added or existing content modified
+
+**🪄 Prompt**:
+```text
+Update the Knowledge Graph to include [FILE_PATH].
+Use the kg-update-node skill to add it properly.
+```
+
+### Workflow: Validate System
+
+**When**: After making changes
+
+**🪄 Prompt**:
+```text
+Validate the entire system.
+Run validate_structure.py and validate_graphs.py.
+Report any issues.
+```
+
+---
+
+## 📋 [Domain Role Name] Workflows
+
+### Workflow: [Domain Workflow 1]
+
+**When**: [Condition]
+
+**🪄 Prompt**:
+```text
+[Prompt text to trigger this workflow]
+```
+
+### Workflow: [Domain Workflow 2]
+
+**When**: [Condition]
+
+**🪄 Prompt**:
+```text
+[Prompt text to trigger this workflow]
+```
+
+---
+
+## 🔧 Troubleshooting
+
+### Problem: Graph Inconsistency Detected
+
+**🪄 Prompt**:
+```text
+Diagnose and heal the Knowledge Graph.
+Identify any orphaned nodes or broken links and propose fixes.
+```
+
+### Problem: Role Confusion
+
+**🪄 Prompt**:
+```text
+Clarify my current role and responsibilities.
+Which role am I in? What are my available skills?
+```
+
+### Problem: Cannot Find a File
+
+**🪄 Prompt**:
+```text
+Search the Knowledge Graph for references to [FILENAME].
+Show me all nodes that reference this file.
+```
+
+### Problem: Skill Not Working
+
+**🪄 Prompt**:
+```text
+Debug the [SKILL_NAME] skill.
+Check if the implementation file exists and review its logic.
+```
+
+---
+
+## 📊 Visualization Tool
+
+**Open**: `agents/knowledge-graphs/visualization.html` in a browser
+
+**Views**:
+- **🌌 Unified Brain**: All graphs merged (verify connectivity)
+- **🌐 Master Graph**: High-level architecture
+- **Agent Builder Views**: System role graphs
+- **[Domain Role] Views**: Domain role graphs
+
+**Use For**:
+- Verifying no orphaned nodes
+- Seeing cross-graph relationships
+- Understanding system structure
+- Debugging connectivity issues
+
+---
+
+## 🎯 Common Tasks
+
+### Add New Content
+
+1. Create `.md` file in appropriate `docs/` folder
+2. Use prompt: "Update KG to include [FILE_PATH]"
+3. Agent uses `kg-update-node` skill
+4. Verify with visualization tool
+
+### Add New Skill
+
+1. Create skill definition in `agents/skills/[role]/`
+2. Update role's skills graph
+3. Implement in `scripts/` (if rule-based) or `agents/skills/prompts/` (if LLM-based)
+4. Test the skill
+
+### Add New Behavior
+
+1. Create behavior file in `.cursor/behaviors/[role]/`
+2. Update `.cursor/rules.md` index
+3. Update role's behaviors graph
+4. Test with relevant workflow
+
+---
+
+## 📖 Advanced Usage
+
+### Custom Prompts
+
+You can create custom prompts by combining:
+- Role activation
+- Skill invocation
+- Behavior adherence
+- Knowledge graph navigation
+
+**Example**:
+```text
+Switch to [Domain Role] mode.
+Review the [BEHAVIOR] protocol.
+Use the [SKILL] skill to [ACTION].
+Reference the [CONCEPT] node in the knowledge graph for context.
+```
+
+### Batch Operations
+
+**🪄 Prompt**:
+```text
+For each file in [DIRECTORY]:
+1. Update the Knowledge Graph
+2. Validate the entry
+3. Report any issues
+```
+
+---
+
+## 🎓 Learning Resources
+
+- **Architecture**: See `docs/agent-builder/` for system design
+- **Skills Guide**: See `guides/SKILL_TEMPLATE_GUIDE.md`
+- **Behaviors**: See `.cursor/behaviors/` for all protocols
+- **Validation**: See `scripts/` for validation tools
+
+---
+
+**Built with AI Agent Setup Protocol V2.0**
