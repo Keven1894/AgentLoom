@@ -11,7 +11,7 @@
 
 Given a behavior MD that declares an enforcement tier, scaffold its companion validator script using the Tier-A template, and link the two via the behavior node's `links.validator` field.
 
-This skill closes the loop between *declaring* a rule (`behavior-*.md`) and *enforcing* a rule (`scripts/validators/*.py`). It exists because manual wiring is error-prone and `every-non-soft-behavior-has-validator` will fail CI if the wiring is incomplete.
+This skill closes the loop between *declaring* a rule (`behavior-*.md`) and *enforcing* a rule (`src/agentloom/validators/*.py`). It exists because manual wiring is error-prone and `every-non-soft-behavior-has-validator` will fail CI if the wiring is incomplete.
 
 ---
 
@@ -29,14 +29,14 @@ This skill closes the loop between *declaring* a rule (`behavior-*.md`) and *enf
 ## How to run
 
 ```bash
-python scripts/kg/wire_validator.py \
+python src/agentloom/kg/wire_validator.py \
     --behavior-id <behavior:role:slug> \
     --tier {A|B|C}
 ```
 
 The script:
 1. Locates the behavior MD by id
-2. Scaffolds `scripts/validators/<slug_with_underscores>.py` from the appropriate tier template (Tier A is the default; B/C templates added in Phase 5)
+2. Scaffolds `src/agentloom/validators/<slug_with_underscores>.py` from the appropriate tier template (Tier A is the default; B/C templates added in Phase 5)
 3. Updates the behavior node's `links.validator` field via `kg_editor`
 4. Runs `make kg-validate` to confirm wiring is consistent
 5. Prints next steps: "fill in the `check_one()` function body, run the script, commit"

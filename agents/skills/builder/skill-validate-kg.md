@@ -11,7 +11,7 @@
 
 Run both KG validators (schema + integrity) over all 6 active graphs in one command. This is the gate every KG mutation must pass.
 
-The skill is a thin wrapper over `scripts/kg/validate_all.py`, which itself orchestrates `validate_kg_schemas.py` and `validate_kg_integrity.py`.
+The skill is a thin wrapper over `src/agentloom/kg/validate_all.py`, which itself orchestrates `validate_kg_schemas.py` and `validate_kg_integrity.py`.
 
 ---
 
@@ -32,7 +32,7 @@ The skill is a thin wrapper over `scripts/kg/validate_all.py`, which itself orch
 
 ```bash
 # Repo root
-python scripts/kg/validate_all.py
+python src/agentloom/kg/validate_all.py
 # or
 make kg-validate
 ```
@@ -64,7 +64,7 @@ The two validators **do not** check taxonomic correctness (id-prefix conventions
 
 ## Implementation status
 
-**Functional**. `scripts/kg/validate_all.py` is in place from Phase 1 Day 1. Confirmed clean against the 6 empty/seeded graphs. Will continue to be the gate as the KG grows.
+**Functional**. `src/agentloom/kg/validate_all.py` is in place from Phase 1 Day 1. Confirmed clean against the 6 empty/seeded graphs. Will continue to be the gate as the KG grows.
 
 ---
 

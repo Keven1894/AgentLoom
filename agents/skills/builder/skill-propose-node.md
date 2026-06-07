@@ -39,7 +39,7 @@ See: `docs/builder/protocols/propose-review-protocol.md`
 ## How to run
 
 ```bash
-python scripts/kg/propose_node.py \
+python src/agentloom/kg/propose_node.py \
     --type {skill|knowledge|behavior} \
     --slug <kebab-case-id> \
     --justification "<2-4 sentence rationale>" \
@@ -62,7 +62,7 @@ The script:
 
 **Stub** as of Phase 1 Day 2. Functional implementation is Phase 2 Day 1 (see `PLAN.md`). The MD here is the contract; the script will be authored to match.
 
-When implemented, the script lives at `scripts/kg/propose_node.py` and shells out to `kg_editor.py` for node generation but keeps writes restricted to `proposals/`.
+When implemented, the script lives at `src/agentloom/kg/propose_node.py` and shells out to `kg_editor.py` for node generation but keeps writes restricted to `proposals/`.
 
 ---
 

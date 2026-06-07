@@ -1,6 +1,6 @@
 {
-  "version": "2025-12-01",
-  "description": "Search manifest for AgentLoom repository - defines document collections for RAG and search indexing",
+  "version": "2026-06-07",
+  "description": "Search manifest for AgentLoom flagship repository — v3 executable framework layout",
   "collections": [
     {
       "name": "core",
@@ -10,75 +10,78 @@
         "CONTRIBUTING.md",
         "CONTRIBUTORS.md",
         "LICENSE",
+        "LICENSE-DOCS.md",
         "CITATION.cff",
-        "docs/Agentic-AI-Research-Roadmap.md",
-        "docs/Research-Timeline-2025-2027.md",
-        "docs/framework-foundations.md",
-        "docs/research-problems-and-positioning.md",
-        "docs/dual-helix-clarification.md",
-        "docs/START_HERE.md",
-        "docs/agentic-collaboration-guide.md",
-        "docs/cursor-quickstart-for-contributors.md",
-        "docs/ZENODO_INTEGRATION.md",
-        "docs/getting-started.md",
-        "docs/co-agenticOS-integration-guide.md",
+        "pyproject.toml",
+        "Makefile",
+        "docs/guides/START_HERE.md",
+        "docs/guides/getting-started.md",
+        "docs/guides/agentic-collaboration-guide.md",
+        "docs/guides/cursor-quickstart-for-contributors.md",
+        "docs/guides/co-agenticOS-integration-guide.md",
         "docs/releases/README.md",
-        "docs/releases/v1.0.2.md"
+        "docs/releases/v1.0.2.md",
+        "docs/releases/v1.1.0.md"
       ]
     },
     {
-      "name": "agentloom-framework",
-      "description": "AgentLoom framework v3 - production-ready framework for building AI agents.",
+      "name": "framework",
+      "description": "Runnable v3 framework — installable Python package under src/agentloom/.",
       "paths": [
-        "agentloom-framework/agentLoom-v3/README.md",
-        "agentloom-framework/agentLoom-v3/AGENTLOOM_DESIGN.md",
-        "agentloom-framework/agentLoom-v3/USER_MANUAL_NEW_PROJECT.md",
-        "agentloom-framework/agentLoom-v3/USER_MANUAL_EXISTING_PROJECT.md",
-        "agentloom-framework/agentLoom-v3/REBRANDING_SUMMARY.md"
+        "src/agentloom/",
+        "agents/knowledge-graphs/",
+        "agents/skills/builder/",
+        "docs/builder/"
       ]
     },
     {
-      "name": "framework-versions",
-      "description": "Historical framework versions (v1, v2, v3) for reference and evolution tracking.",
+      "name": "governance",
+      "description": "KG maintenance, propose-review protocol, and Tier-A validator wiring.",
       "paths": [
-        "agentloom-framework/dual-helix-3tracks-startup-v1/",
-        "agentloom-framework/dual-helix-3tracks-startup-v2/",
-        "agentloom-framework/dual-helix-3tracks-startup-v3/"
+        "agents/knowledge-graphs/README.md",
+        "agents/knowledge-graphs/MAINTENANCE.md",
+        "agents/knowledge-graphs/SCHEMA.md",
+        "docs/builder/protocols/propose-review-protocol.md",
+        "docs/builder/governance/governance-tiers.md",
+        "docs/builder/concepts/validator-authoring-guide.md",
+        "agents/skills/builder/skill-validate-kg.md",
+        "agents/skills/builder/skill-propose-node.md",
+        "agents/skills/builder/skill-wire-validator.md"
       ]
     },
     {
-      "name": "research",
-      "description": "Research materials including drafts, experiments, and figures.",
+      "name": "archive",
+      "description": "Historical protocol packages (v1/v2/v3 prototypes) — reference only, not runnable.",
       "paths": [
-        "research/drafts/README.md",
-        "research/drafts/PRIVACY_VERIFICATION.md",
-        "research/drafts/QUICK_REFERENCE.md",
-        "research/figures/dual-helix-diagram-spec.md",
-        "research/figures/memory-hierarchy-analogy-diagram.md"
+        "archive/README.md",
+        "archive/protocol/agentLoom-v3/README.md",
+        "archive/protocol/agentLoom-v3/AGENTLOOM_DESIGN.md",
+        "archive/protocol/agentLoom-v3/USER_MANUAL_NEW_PROJECT.md",
+        "archive/protocol/agentLoom-v3/USER_MANUAL_EXISTING_PROJECT.md",
+        "archive/protocol/dual-helix-3tracks-startup-v1/",
+        "archive/protocol/dual-helix-3tracks-startup-v2/",
+        "archive/protocol/dual-helix-3tracks-startup-v3/"
       ]
     },
     {
       "name": "collaboration",
       "description": "Contribution guides, templates, and case study documentation.",
       "paths": [
-        "docs/START_HERE.md",
+        "docs/guides/START_HERE.md",
         "CONTRIBUTING.md",
         "CONTRIBUTORS.md",
-        "docs/agentic-collaboration-guide.md",
-        "docs/cursor-quickstart-for-contributors.md",
+        "docs/guides/agentic-collaboration-guide.md",
+        "docs/guides/cursor-quickstart-for-contributors.md",
         "docs/case-studies/README.md",
+        "docs/case-studies/dataverse-diva.md",
         ".github/PULL_REQUEST_TEMPLATE.md"
       ]
     },
     {
-      "name": "archives",
-      "description": "Historical transcripts and editorial summaries for provenance.",
+      "name": "clinerules",
+      "description": "Generated Cline host configuration synced from builder KG.",
       "paths": [
-        "archives/EDITORIAL_REVIEW_SUMMARY.md",
-        "archives/inputRAW/dataverse-diva/INDEX.md",
-        "archives/inputRAW/dataverse-diva/00-PROJECT-OVERVIEW.md",
-        "archives/inputRAW/dataverse-diva/02-AGENT-DESIGN-PATTERNS.md",
-        "archives/inputRAW/dataverse-diva/07-LESSONS-LEARNED.md"
+        ".clinerules/"
       ]
     },
     {
@@ -90,18 +93,11 @@
         "meta/search-manifest.json",
         ".cursor/rules.md"
       ]
-    },
-    {
-      "name": "case-studies",
-      "description": "Production case studies validating framework stages.",
-      "paths": [
-        "docs/case-studies/dataverse-diva.md"
-      ]
     }
   ],
   "notes": {
-    "structure": "Repository reorganized Dec 2025 - AgentLoom framework in agentloom-framework/, research materials in research/",
-    "framework": "AgentLoom v3 is the current production version",
-    "search_priority": "Core docs and agentloom-framework/agentLoom-v3/ should be prioritized for RAG indexing"
+    "structure": "Reorganized Jun 2026 — runnable framework in src/agentloom/, historical protocol in archive/protocol/, research layer removed from flagship.",
+    "framework": "AgentLoom v3.0.0 is the current production version (pip install -e .[dev])",
+    "search_priority": "Prioritize src/agentloom/, agents/knowledge-graphs/, and docs/builder/ for RAG indexing"
   }
 }

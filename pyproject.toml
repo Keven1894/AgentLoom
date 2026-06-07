@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentloom"
+version = "3.0.0"
+description = "Executable governance framework for builder agents: knowledge graphs, propose-review-accept, Tier-A validators, and a human review dashboard."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+    { name = "Boyuan (Keven) Guan", email = "bguan@fiu.edu" },
+]
+keywords = [
+    "agentic-ai",
+    "knowledge-graphs",
+    "ai-governance",
+    "propose-review-accept",
+    "builder-agent",
+]
+dependencies = [
+    "jsonschema>=4.20.0,<5",
+    "jsonpatch>=1.33,<2",
+    "fastapi>=0.110,<1",
+    "uvicorn[standard]>=0.27,<1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8,<9",
+]
+
+[project.urls]
+Homepage = "https://github.com/Keven1894/AgentLoom"
+Repository = "https://github.com/Keven1894/AgentLoom"
+
+[project.scripts]
+agentloom-validate = "agentloom.validators.run_all:main"
+agentloom-kg-validate = "agentloom.kg.validate_all:main"
+agentloom-sync-clinerules = "agentloom.sync_clinerules:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+agentloom = [
+    "kg/lib/schemas/*.json",
+    "dashboard/static/*",
+    "viz/*",
+]

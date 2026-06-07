@@ -16,9 +16,10 @@ Tier-A validators, and a human review dashboard.
 
 | Layer | Path | Role |
 |-------|------|------|
-| **Runnable framework (v3)** | `scripts/`, `server/`, `agents/knowledge-graphs/` | KG governance, validators, dashboard, propose-review |
-| **Protocol docs (historical v3 package)** | `agentloom-framework/agentLoom-v3/` | 9-phase setup manuals, specs, design docs |
-| **Research & positioning** | `docs/`, `research/` | Dual-helix narrative, case studies, publication roadmap |
+| **Runnable framework (v3)** | `src/agentloom/` | KG governance, validators, dashboard, propose-review (installable package) |
+| **Governed data** | `agents/knowledge-graphs/`, `agents/skills/` | Knowledge graphs, skills, and behaviors the framework enforces |
+| **Docs** | `docs/` | Guides, builder concepts, release notes |
+| **Historical protocol** | `archive/protocol/` | Earlier v1/v2/v3 design docs and 9-phase manuals (reference only) |
 
 **License split:** Python/scripts = [MIT](LICENSE). Markdown docs and KG content = [CC BY-NC 4.0](LICENSE-DOCS.md).
 

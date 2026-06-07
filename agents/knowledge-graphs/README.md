@@ -28,11 +28,11 @@ Two complementary validators (both ported from `envistor-data`):
 
 ```bash
 # Cross-platform unified runner — exit 0 iff both pass
-python scripts/kg/validate_all.py
+python src/agentloom/kg/validate_all.py
 
 # Or individually
-python scripts/kg/validate_schemas.py            # JSON Schema for all 6 graphs
-python scripts/kg/validate_kg_integrity.py --all # relational integrity (parent/child, orphans, cycles) on knowledge graphs
+python src/agentloom/kg/validate_schemas.py            # JSON Schema for all 6 graphs
+python src/agentloom/kg/validate_kg_integrity.py --all # relational integrity (parent/child, orphans, cycles) on knowledge graphs
 
 # With make, if available
 make kg-validate
@@ -55,7 +55,7 @@ editor.add_skill(id="skill:builder:propose-node", name="Propose KG node",
 editor.save()  # auto-validates; auto-rolls-back on failure
 ```
 
-For agent-driven edits during Phase 2, use `scripts/kg/propose_node.py` (Day 3 deliverable) — it writes a candidate node to `agents/knowledge-graphs/proposals/` for human review via PR, **never** editing the canonical KG directly.
+For agent-driven edits during Phase 2, use `src/agentloom/kg/propose_node.py` (Day 3 deliverable) — it writes a candidate node to `agents/knowledge-graphs/proposals/` for human review via PR, **never** editing the canonical KG directly.
 
 ## Proposals (Day 3+ workflow)
 
@@ -64,7 +64,7 @@ The directory `agents/knowledge-graphs/proposals/` holds candidate nodes the bui
 1. Agent encounters a pattern not in domain-KG → calls `propose_node.py`
 2. Tool writes `<timestamp>-<slug>.json` (the proposed node) + `UPDATE_LOG_<date>_proposal_<slug>.md` (justification + source-context) to `proposals/`
 3. Agent opens a PR with label `kg-proposal`
-4. Human reviews the diff; on accept: `python scripts/kg/accept_proposal.py <slug>` (which delegates to `kg_editor.py` with auto-backup)
+4. Human reviews the diff; on accept: `python src/agentloom/kg/accept_proposal.py <slug>` (which delegates to `kg_editor.py` with auto-backup)
 5. Accepted proposal is removed from `proposals/`; the `UPDATE_LOG` is committed to git as the audit trail
 
 The `proposals/` directory + `UPDATE_LOG_*` files are the workshop's **provenance trail** — what makes the dual-helix "governance" strand visible and reviewable. See [`docs/plan/todo/2026-05-18-builder-first-envita-reuse-decision.md`](https://github.com/Keven1894/envistor-data/blob/main/docs/plan/todo/2026-05-18-builder-first-envita-reuse-decision.md) (in the planning repo) for the design rationale.

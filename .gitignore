@@ -14,3 +14,6 @@ dist/
 build/
 *.egg-info/
 data/snapshots/*.tmp
+
+# private dual-repo sync config (local only)
+.repo-config.yaml

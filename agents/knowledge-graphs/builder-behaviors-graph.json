@@ -25,7 +25,7 @@
       "parent": "behavior:builder:root",
       "links": {
         "validator": [
-          "scripts/validators/every_skill_must_have_script.py"
+          "src/agentloom/validators/every_skill_must_have_script.py"
         ],
         "related": [
           "behavior:builder:every-non-soft-behavior-has-validator"
@@ -48,7 +48,7 @@
       "parent": "behavior:builder:root",
       "links": {
         "validator": [
-          "scripts/validators/every_behavior_declares_tier.py"
+          "src/agentloom/validators/every_behavior_declares_tier.py"
         ],
         "related": [
           "behavior:builder:every-non-soft-behavior-has-validator"
@@ -70,7 +70,7 @@
       "parent": "behavior:builder:root",
       "links": {
         "validator": [
-          "scripts/validators/every_non_soft_behavior_has_validator.py"
+          "src/agentloom/validators/every_non_soft_behavior_has_validator.py"
         ],
         "related": [
           "behavior:builder:every-behavior-declares-tier",
@@ -94,7 +94,7 @@
       "parent": "behavior:builder:root",
       "links": {
         "validator": [
-          "scripts/validators/kg_node_ids_are_unique.py"
+          "src/agentloom/validators/kg_node_ids_are_unique.py"
         ],
         "uses": [
           "knowledge:builder:kg-node-schema"
@@ -113,7 +113,7 @@
       "parent": "behavior:builder:root",
       "links": {
         "validator": [
-          "scripts/validators/catalog_ui_must_tell_the_story.py"
+          "src/agentloom/validators/catalog_ui_must_tell_the_story.py"
         ],
         "uses": [
           "knowledge:builder:data-catalog-ui-storytelling",
@@ -133,7 +133,7 @@
       "parent": "behavior:builder:root",
       "links": {
         "validator": [
-          "scripts/validators/catalog_must_embed_dataset_jsonld.py"
+          "src/agentloom/validators/catalog_must_embed_dataset_jsonld.py"
         ],
         "uses": [
           "knowledge:builder:dataset-jsonld-discovery",
@@ -153,7 +153,7 @@
       "parent": "behavior:builder:root",
       "links": {
         "validator": [
-          "scripts/validators/clinerules_must_match_system_prompt_kg_node.py"
+          "src/agentloom/validators/clinerules_must_match_system_prompt_kg_node.py"
         ]
       }
     }

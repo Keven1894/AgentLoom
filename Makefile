@@ -1,8 +1,9 @@
-.PHONY: help install kg-validate kg-validate-schemas kg-validate-integrity validate-behaviors validate-all kg-bootstrap dashboard sync-clinerules clean
+.PHONY: help install test kg-validate kg-validate-schemas kg-validate-integrity validate-behaviors validate-all kg-bootstrap dashboard sync-clinerules clean
 
 help:
 	@echo "AgentLoom v3 — executable framework targets:"
-	@echo "  install              - pip install -r requirements.txt"
+	@echo "  install              - pip install -e .[dev] (editable, src layout)"
+	@echo "  test                 - run the pytest suite (wraps the governance gate)"
 	@echo "  kg-validate          - JSON-schema + relational integrity for all KG files"
 	@echo "  kg-validate-schemas  - JSON-schema validation only"
 	@echo "  kg-validate-integrity - relational integrity for knowledge graphs"
@@ -13,30 +14,33 @@ help:
 	@echo "  dashboard            - read-only KG dashboard at http://127.0.0.1:8000"
 
 install:
-	pip install -r requirements.txt
+	pip install -e .[dev]
+
+test:
+	python -m pytest
 
 kg-validate:
-	python scripts/kg/validate_all.py
+	python -m agentloom.kg.validate_all
 
 kg-validate-schemas:
-	python scripts/kg/validate_schemas.py
+	python -m agentloom.kg.validate_schemas
 
 kg-validate-integrity:
-	python scripts/kg/validate_kg_integrity.py --all
+	python -m agentloom.kg.validate_kg_integrity --all
 
 validate-behaviors:
-	python scripts/validators/run_all.py
+	python -m agentloom.validators.run_all
 
 validate-all: kg-validate validate-behaviors
 
 kg-bootstrap:
-	python scripts/kg/bootstrap_builder_kg.py
+	python -m agentloom.kg.bootstrap_builder_kg
 
 sync-clinerules:
-	python scripts/sync_clinerules.py
+	python -m agentloom.sync_clinerules
 
 dashboard:
-	python -m uvicorn server.dashboard.app:app --reload --port 8000 --host 127.0.0.1
+	python -m uvicorn agentloom.dashboard.app:app --reload --port 8000 --host 127.0.0.1
 
 clean:
-	rm -rf __pycache__ */__pycache__ .pytest_cache
+	rm -rf src/**/__pycache__ .pytest_cache *.egg-info src/*.egg-info

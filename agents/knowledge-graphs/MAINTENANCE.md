@@ -19,8 +19,8 @@ make kg-validate-integrity  # taxonomy + relations on knowledge graphs
 
 Three editing channels, ranked by safety:
 
-1. **For agents during Phase 2**: `python scripts/kg/propose_node.py` → human reviews via PR → `python scripts/kg/accept_proposal.py`
-2. **For humans authoring meta-content**: `scripts/kg/lib/kg_editor.py` Python API (auto-backup + auto-validate)
+1. **For agents during Phase 2**: `python src/agentloom/kg/propose_node.py` → human reviews via PR → `python src/agentloom/kg/accept_proposal.py`
+2. **For humans authoring meta-content**: `src/agentloom/kg/lib/kg_editor.py` Python API (auto-backup + auto-validate)
 3. **For emergencies only**: hand-edit JSON, then `make kg-validate` (and pray)
 
 ---
@@ -36,7 +36,7 @@ Three editing channels, ranked by safety:
 | `domain-knowledge-graph.json` | Workshop content knowledge (source schemas, gotchas) | knowledge | `nodes` |
 | `domain-behaviors-graph.json` | Workshop content rules + validators | behaviors | `behaviors` |
 
-Schemas in `scripts/kg/lib/schemas/`. The **schemas validate STRUCTURE, not TAXONOMY** — they check required fields, types, and the `const graphType`, but do NOT enforce id patterns, exhaustive type enums, or path patterns. Taxonomy is the integrity validator's job, with reviewer judgement as the third rail. (Full rationale in [`KG_VALIDATION_ARCHITECTURE.md`](https://github.com/Keven1894/envistor-data/blob/keven/docs/knowledge-graphs/KG_VALIDATION_ARCHITECTURE.md) upstream.)
+Schemas in `src/agentloom/kg/lib/schemas/`. The **schemas validate STRUCTURE, not TAXONOMY** — they check required fields, types, and the `const graphType`, but do NOT enforce id patterns, exhaustive type enums, or path patterns. Taxonomy is the integrity validator's job, with reviewer judgement as the third rail. (Full rationale in [`KG_VALIDATION_ARCHITECTURE.md`](https://github.com/Keven1894/envistor-data/blob/keven/docs/knowledge-graphs/KG_VALIDATION_ARCHITECTURE.md) upstream.)
 
 ---
 
@@ -45,13 +45,13 @@ Schemas in `scripts/kg/lib/schemas/`. The **schemas validate STRUCTURE, not TAXO
 The builder agent is the primary KG author during Phase 2. The workflow is:
 
 1. Agent walks the D-N pipeline (ingest → process → publish → visualize)
-2. Agent hits a pattern not in domain-KG → calls `python scripts/kg/propose_node.py`
+2. Agent hits a pattern not in domain-KG → calls `python src/agentloom/kg/propose_node.py`
 3. Tool writes:
    - `agents/knowledge-graphs/proposals/<timestamp>-<slug>.json` — proposed node payload
    - `agents/knowledge-graphs/UPDATE_LOG_<date>_proposal_<slug>.md` — justification + source-context
 4. Agent opens a PR with label `kg-proposal`
 5. Reviewer (Keven) reviews diff in PR
-6. **On accept** → `python scripts/kg/accept_proposal.py <slug>` → `kg_editor.add_<type>(...)` → both validators run → both PASS or auto-rollback → proposal file deleted, UPDATE_LOG kept as audit trail
+6. **On accept** → `python src/agentloom/kg/accept_proposal.py <slug>` → `kg_editor.add_<type>(...)` → both validators run → both PASS or auto-rollback → proposal file deleted, UPDATE_LOG kept as audit trail
 7. **On reject** → close PR with reason; UPDATE_LOG kept anyway as "considered and rejected" record
 
 The accepted-and-rejected UPDATE_LOG history IS the workshop's provenance trail. By Phase 3 demo, the dashboard `/timeline` page replays this history one row per accept/reject, with link to source PR.
@@ -115,7 +115,7 @@ Diagnosis order:
 3. **Decide schema-fix vs KG-fix**:
    - If the schema is wrong (the field is legitimately not a string here, or `null` should be allowed) → relax the schema
    - If the KG is wrong (typo, wrong type, missed required field) → fix the KG
-4. **If you backed up before the edit**: `python scripts/kg/rollback_kg.py <kg-file>` restores from the most recent `.bak_*`
+4. **If you backed up before the edit**: `python src/agentloom/kg/rollback_kg.py <kg-file>` restores from the most recent `.bak_*`
 5. **Re-run validator** until PASS
 
 > Full reconciliation methodology: [`docs/plan/completed/2026-05-18-kg-schema-drift-reconciliation-COMPLETE.md`](https://github.com/Keven1894/envistor-data/blob/keven/docs/plan/completed/2026-05-18-kg-schema-drift-reconciliation-COMPLETE.md) (real-world case from upstream).

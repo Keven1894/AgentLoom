@@ -6,100 +6,111 @@ directories:
       - CONTRIBUTING.md
       - CONTRIBUTORS.md
       - LICENSE
+      - LICENSE-DOCS.md
       - CITATION.cff
+      - pyproject.toml
+      - Makefile
+      - requirements.txt
+      - .env.example
     notes: >
-      These files must remain accessible at the repository root to preserve DOI
-      integration, contribution policy, and licensing clarity.
-      CONTRIBUTING.md updated for agentic collaboration (v2.0).
-      CONTRIBUTORS.md tracks all project contributors.
-  docs:
-    purpose: Authoritative documentation, research roadmap, guides.
+      Root metadata must stay at the repository root for DOI integration,
+      contribution policy, and licensing clarity. Python package is MIT;
+      markdown docs and KG content are CC BY-NC 4.0 (LICENSE-DOCS.md).
+
+  src/agentloom:
+    purpose: Runnable v3 framework (installable Python package).
     key_files:
-      - docs/Agentic-AI-Research-Roadmap.md
-      - docs/Research-Timeline-2025-2027.md
-      - docs/framework-foundations.md
-      - docs/research-problems-and-positioning.md
-      - docs/dual-helix-clarification.md
-      - docs/START_HERE.md
-      - docs/agentic-collaboration-guide.md
-      - docs/cursor-quickstart-for-contributors.md
-      - docs/getting-started.md
-      - docs/co-agenticOS-integration-guide.md
-      - docs/DISCUSSION_TEMPLATE.md
-      - docs/ZENODO_INTEGRATION.md
+      - src/agentloom/__init__.py
+      - src/agentloom/kg/validate_all.py
+      - src/agentloom/kg/propose_node.py
+      - src/agentloom/kg/accept_proposal.py
+      - src/agentloom/validators/run_all.py
+      - src/agentloom/sync_clinerules.py
+      - src/agentloom/dashboard/app.py
+    notes: >
+      Install with `pip install -e .[dev]`. Governance gate: `make validate-all`
+      or `make test`. Dashboard: `make dashboard`.
+
+  agents:
+    purpose: Governed knowledge graphs, skills, and behaviors (data the framework enforces).
+    key_files:
+      - agents/knowledge-graphs/master-graph.json
+      - agents/knowledge-graphs/builder-behaviors-graph.json
+      - agents/knowledge-graphs/builder-knowledge-graph.json
+      - agents/knowledge-graphs/builder-skills-graph.json
+      - agents/knowledge-graphs/README.md
+      - agents/knowledge-graphs/MAINTENANCE.md
+      - agents/skills/builder/skill-validate-kg.md
+      - agents/skills/builder/skill-propose-node.md
+      - agents/skills/builder/skill-wire-validator.md
+    notes: >
+      KG JSON files are canonical; edits go through propose-review-accept
+      (see docs/builder/protocols/propose-review-protocol.md).
+
+  docs:
+    purpose: Framework documentation — guides, builder concepts, release notes.
+    key_files:
+      - docs/guides/START_HERE.md
+      - docs/guides/getting-started.md
+      - docs/guides/agentic-collaboration-guide.md
+      - docs/guides/cursor-quickstart-for-contributors.md
+      - docs/guides/co-agenticOS-integration-guide.md
+      - docs/builder/concepts/builder-agent-system-prompt.md
+      - docs/builder/protocols/propose-review-protocol.md
+      - docs/builder/governance/governance-tiers.md
       - docs/case-studies/README.md
       - docs/releases/README.md
-      - docs/releases/v1.0.2.md
+      - docs/DISCUSSION_TEMPLATE.md
     notes: >
-      All published documents should be referenced from README and .cursor rules.
-      Framework foundations establish theoretical underpinnings.
-      Research problems document positions framework in academic landscape.
-      Dual-helix clarification explains relationship with co-agenticOS.
-      Agentic collaboration guide teaches high-velocity AI-augmented methodology.
-      Cursor quickstart provides ready-to-use prompts for contributor onboarding.
-      Case studies README provides template and contribution process.
-      Releases folder contains detailed release notes for all major versions.
-  drafts:
-    purpose: In-progress manuscripts and outlines.
+      Research positioning docs removed from flagship (live in private dev repo).
+      Builder docs under docs/builder/ are the authoritative v3 governance narrative.
+
+  archive:
+    purpose: Historical protocol packages and earlier framework prototypes (reference only).
     key_files:
-      - drafts/workshop-paper-outline.md
-      - drafts/REVIEW_FEEDBACK_ACTION_PLAN.md
-      - drafts/USER_INPUT_NEEDED.md
+      - archive/README.md
+      - archive/protocol/agentLoom-v3/README.md
+      - archive/protocol/agentLoom-v3/AGENTLOOM_DESIGN.md
+      - archive/protocol/agentLoom-v3/USER_MANUAL_NEW_PROJECT.md
     notes: >
-      Content here is pre-publication; do not cite externally without review.
-  experiments:
-    purpose: Experimental code, validation artifacts, and research materials.
+      Nothing here is part of the runnable framework. Superseded by src/agentloom/.
+      Retained for design-lineage provenance.
+
+  examples:
+    purpose: Runnable examples (placeholder until v4.0).
     key_files:
-      - experiments/dataverse-diva/README.md
-      - experiments/dataverse-diva/local-llm-study/
-      - experiments/dataverse-diva/institutional-memory/
-    notes: >
-      DIVA case study artifacts include LLM evaluation, rules-as-memory system, and production metrics.
-  figures:
-    purpose: Diagram specifications and design assets.
+      - examples/README.md
+    notes: Examples will land in v4.0 alongside MCP server integration.
+
+  tests:
+    purpose: Pytest suite wrapping the governance gate.
     key_files:
-      - figures/dual-helix-diagram-spec.md
-      - figures/memory-hierarchy-analogy-diagram.md
-      - figures/dataverse-diva/README.md
-      - figures/dataverse-diva/llm-accuracy-comparison.md
-      - figures/dataverse-diva/schema-impact-chart.md
-      - figures/dataverse-diva/framework-validation-stages.md
-      - figures/dataverse-diva/skills-matrix-progression.md
-    notes: >
-      Diagram specifications for framework visualizations.
-      Memory hierarchy analogy (computer architecture → framework stages).
-      DIVA figure specs include LLM performance, schema impact, framework validation, and learning progression visualizations. 
-      Final renderings pending.
-  archives:
-    purpose: Historical transcripts, review summaries, and superseded artifacts.
+      - tests/test_validators.py
+    notes: Runs KG validators + Tier-A behavior validators via `make test`.
+
+  clinerules:
+    purpose: Generated Cline host configuration (synced from builder KG).
     key_files:
-      - archives/EDITORIAL_REVIEW_SUMMARY.md
-      - archives/inputRAW/dataverse-diva/INDEX.md
-      - archives/inputRAW/dataverse-diva/00-PROJECT-OVERVIEW.md
-      - archives/inputRAW/dataverse-diva/02-AGENT-DESIGN-PATTERNS.md
-      - archives/inputRAW/dataverse-diva/07-LESSONS-LEARNED.md
+      - .clinerules/00-README.md
+      - .clinerules/01-builder-agent-prompt.md
+      - .clinerules/02-cline-host-adaptation.md
+      - .clinerules/03-workshop-discipline.md
     notes: >
-      Material here informs historical decisions; avoid modifying content except
-      to append archival metadata.
-      inputRAW/dataverse-diva/ contains comprehensive DIVA project extraction (9 documents)
-      for research use and methodology reference.
-  governance:
-    purpose: Reserved for governance assets (rule templates, compliance logs).
-    key_files: []
-    notes: >
-      Placeholder for upcoming co-agenticOS governance artifacts.
+      Do not hand-edit 01-builder-agent-prompt.md; regenerate with
+      `make sync-clinerules`.
+
   cursor:
     purpose: AI assistant configuration and collaboration policies.
     key_files:
       - .cursor/rules.md
-    notes: >
-      Update after any structural change so automation follows current guidelines.
+    notes: Update after structural changes so automation follows current guidelines.
+
   github:
     purpose: GitHub configuration templates and workflows.
     key_files:
       - .github/PULL_REQUEST_TEMPLATE.md
-    notes: >
-      PR template ensures case study submissions are complete and follow standards.
+    notes: PR template ensures submissions follow project standards.
+
 metadata:
   maintainers:
     - name: Dr. Boyuan (Keven) Guan
@@ -109,5 +120,3 @@ metadata:
     doi: 10.5281/zenodo.17561541
     file: CITATION.cff
     notes: Update after new Zenodo releases.
-
-
