@@ -1,0 +1,86 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://agentic-ai.dev/schemas/behaviors-graph.json",
+    "title": "Behaviors Knowledge Graph",
+    "description": "JSON Schema for validating behaviors knowledge graph structure",
+    "type": "object",
+    "required": [
+        "graphType",
+        "role",
+        "generatedAt",
+        "behaviors"
+    ],
+    "properties": {
+        "graphType": {
+            "type": "string",
+            "const": "behaviors"
+        },
+        "role": {
+            "type": "string",
+            "pattern": "^role-"
+        },
+        "generatedAt": {
+            "type": "string",
+            "format": "date"
+        },
+        "behaviors": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/behavior"
+            }
+        }
+    },
+    "definitions": {
+        "behavior": {
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Unique behavior identifier. Common conventions: 'behavior:scope:slug' (builder-style), 'behavior-NNN' (numeric, domain-style), 'cursor-*' (Cursor IDE rules), 'cat-*' for categories, '*-root' for roots. Pattern intentionally not enforced."
+                },
+                "type": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Behavior node type. Common values: 'root', 'core', 'workflow', 'protocol', 'role-specific', 'rule', 'category', 'identity', 'context', 'core_rule'. Not enum-locked."
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "path": {
+                    "type": "string"
+                },
+                "priority": {
+                    "type": "string",
+                    "enum": [
+                        "low",
+                        "medium",
+                        "high",
+                        "critical"
+                    ],
+                    "description": "Priority tier. 'critical' is the top tier; for override semantics use links.overrides instead of inventing higher tiers."
+                },
+                "parent": {
+                    "type": ["string", "null"],
+                    "description": "Parent behavior ID. null for root nodes."
+                },
+                "links": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "additionalProperties": true
+        }
+    }
+}

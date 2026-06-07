@@ -1,0 +1,62 @@
+{
+  "graphType": "master",
+  "project": "ucgis-agentloom-2026",
+  "version": "0.1.0",
+  "generatedAt": "2026-05-18",
+  "description": "Master registry for the UCGIS 2026 workshop reference: two roles (builder + domain), each carrying its own 3-track KG (skills + knowledge + behaviors). The dashboard treats this file's roles[] as the structural backbone that connects role roots into a single weakly-connected graph.",
+  "rootNodeId": "agentloom:ucgis-2026:root",
+  "rootNodeLabel": "AgentLoom UCGIS 2026",
+  "roles": [
+    {
+      "id": "role-builder",
+      "name": "Builder (Platform / Meta)",
+      "description": "Knows what AgentLoom is and how to author skills / knowledge / behaviors. Stable; changes only when the framework itself evolves.",
+      "graphs": [
+        {
+          "id": "builder-knowledge",
+          "path": "agents/knowledge-graphs/builder-knowledge-graph.json",
+          "rootNodeId": "knowledge:builder:root",
+          "description": "Meta-knowledge about AgentLoom (architecture, schemas, propose-protocol, governance, validator-authoring)."
+        },
+        {
+          "id": "builder-skills",
+          "path": "agents/knowledge-graphs/builder-skills-graph.json",
+          "rootNodeId": "skill:builder:root",
+          "description": "Builder-side skills: propose-node, validate-kg, wire-validator, emit-cline, emit-claude-code."
+        },
+        {
+          "id": "builder-behaviors",
+          "path": "agents/knowledge-graphs/builder-behaviors-graph.json",
+          "rootNodeId": "behavior:builder:root",
+          "description": "Builder-side behaviors: KG-integrity rules, each shipping a Tier-A Python validator."
+        }
+      ]
+    },
+    {
+      "id": "role-domain",
+      "name": "Domain (Geospatial Catalog App)",
+      "description": "Domain-specific knowledge for the WebGIS catalog over D1-D4 public data sources. Grows bottom-up via propose-review during Phase 2.",
+      "graphs": [
+        {
+          "id": "domain-knowledge",
+          "path": "agents/knowledge-graphs/domain-knowledge-graph.json",
+          "rootNodeId": "knowledge:domain:root",
+          "description": "Geospatial / data-source knowledge accreted via propose-review."
+        },
+        {
+          "id": "domain-skills",
+          "path": "agents/knowledge-graphs/domain-skills-graph.json",
+          "rootNodeId": "skill:domain:root",
+          "description": "Domain-side reusable skills (ingest, normalize, render, publish)."
+        },
+        {
+          "id": "domain-behaviors",
+          "path": "agents/knowledge-graphs/domain-behaviors-graph.json",
+          "rootNodeId": "behavior:domain:root",
+          "description": "Domain-side behaviors (data quality, FAIR metadata, etc.)."
+        }
+      ]
+    }
+  ],
+  "cross_role_connections": []
+}

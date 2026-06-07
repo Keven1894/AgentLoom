@@ -1,0 +1,112 @@
+{
+  "graphType": "skills",
+  "role": "role-builder",
+  "project": "ucgis-agentloom-2026",
+  "version": "0.1.0",
+  "generatedAt": "2026-05-18",
+  "description": "UCGIS 2026 workshop reference KG — Authoring skills for building AgentLoom agents",
+  "skills": [
+    {
+      "id": "skill:builder:root",
+      "type": "root",
+      "name": "Builder Skills Root",
+      "category": "builder-meta",
+      "description": "Root of the builder-role skills tree."
+    },
+    {
+      "id": "skill:builder:propose-node",
+      "type": "skill",
+      "name": "Propose KG Node",
+      "category": "kg-tools",
+      "description": "Agent-callable; writes candidate node JSON + UPDATE_LOG to proposals/.",
+      "path": "agents/skills/builder/skill-propose-node.md",
+      "parent": "skill:builder:root",
+      "links": {
+        "uses": [
+          "knowledge:builder:propose-review-protocol",
+          "knowledge:builder:kg-update-log-template",
+          "knowledge:builder:kg-node-schema"
+        ]
+      }
+    },
+    {
+      "id": "skill:builder:validate-kg",
+      "type": "skill",
+      "name": "Validate KG",
+      "category": "kg-tools",
+      "description": "Run schema + integrity validators over all 6 active KGs.",
+      "path": "agents/skills/builder/skill-validate-kg.md",
+      "parent": "skill:builder:root",
+      "links": {
+        "uses": [
+          "knowledge:builder:kg-node-schema",
+          "knowledge:builder:governance-tiers"
+        ]
+      }
+    },
+    {
+      "id": "skill:builder:wire-validator",
+      "type": "skill",
+      "name": "Wire Validator",
+      "category": "kg-tools",
+      "description": "Scaffold a Tier-A validator script and link it into a behavior node.",
+      "path": "agents/skills/builder/skill-wire-validator.md",
+      "parent": "skill:builder:root",
+      "links": {
+        "uses": [
+          "knowledge:builder:validator-authoring-guide",
+          "knowledge:builder:governance-tiers"
+        ]
+      }
+    },
+    {
+      "id": "skill:builder:emit-cline",
+      "type": "skill",
+      "name": "Emit Cline Format",
+      "category": "transpiler",
+      "description": "Compile canonical KG into Cline platform-native rules + settings.",
+      "path": "agents/skills/builder/skill-emit-cline.md",
+      "parent": "skill:builder:root",
+      "links": {
+        "uses": [
+          "knowledge:builder:agentloom-architecture",
+          "knowledge:builder:kg-node-schema"
+        ]
+      }
+    },
+    {
+      "id": "skill:builder:emit-claude-code",
+      "type": "skill",
+      "name": "Emit Claude Code Format",
+      "category": "transpiler",
+      "description": "Compile canonical KG into Claude Code .claude/skills/ + AGENTS.md + CLAUDE.md.",
+      "path": "agents/skills/builder/skill-emit-claude-code.md",
+      "parent": "skill:builder:root",
+      "links": {
+        "uses": [
+          "knowledge:builder:agentloom-architecture",
+          "knowledge:builder:kg-node-schema"
+        ]
+      }
+    },
+    {
+      "id": "skill:builder:audit-catalog-ui",
+      "type": "skill",
+      "name": "Audit catalog UI against storytelling + JSON-LD rules",
+      "category": "catalog-tools",
+      "description": "User-facing audit tool that walks starter/*/index.html, runs both the visible-section check and the JSON-LD check, prints grouped violations with hints. Complements (does not replace) the two CI-facing Tier-A validators by giving developers actionable feedback in one command.",
+      "path": "agents/skills/builder/skill-audit-catalog-ui.md",
+      "parent": "skill:builder:root",
+      "links": {
+        "uses": [
+          "knowledge:builder:data-catalog-ui-storytelling",
+          "knowledge:builder:dataset-jsonld-discovery"
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "last_updated": "2026-05-18",
+    "total_nodes": 7
+  }
+}

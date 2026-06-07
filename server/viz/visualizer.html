@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-Track Knowledge Graph Visualizer</title>
+    <link rel="icon" type="image/png" href="assets/images/envita.png">
+    <!-- Toggle between themes: kg-viewer.css (dark) or kg-viewer-academic.css (light) -->
+    <link rel="stylesheet" href="assets/css/kg-viewer-academic.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+</head>
+<body>
+    <div class="vis-container">
+        <div class="sidebar">
+            <div class="header">
+                <a href="index.html" class="back-link">← Dashboard</a>
+                <h1>Knowledge Graph Visualizer</h1>
+                <div class="subtitle"><a href="https://github.com/Keven1894/AgentLoom">AgentLoom Dual-Helix v3.0</a></div>
+            </div>
+
+            <div class="controls">
+                <div class="control-group">
+                    <label>Role Filter</label>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-role="all">All</button>
+                        <button class="filter-btn" data-role="builder" style="background: #9333ea;">Builder</button>
+                        <button class="filter-btn" data-role="domain" style="background: #10b981;">Domain</button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Graph View</label>
+                    <select id="graphSelect">
+                        <option value="master">Master Graph (Dual-Role)</option>
+                        <option value="builder-overview">Builder Overview (Knowledge + Skills + Behaviors)</option>
+                        <option value="builder-skills">Builder Skills</option>
+                        <option value="builder-behaviors">Builder Behaviors</option>
+                        <option value="builder-knowledge">Builder Knowledge</option>
+                        <option value="domain-overview">Envistor Curator Overview (Knowledge + Skills + Behaviors + Cursor)</option>
+                        <option value="domain-skills">Domain Skills</option>
+                        <option value="domain-behaviors">Domain Behaviors</option>
+                        <option value="domain-knowledge">Domain Knowledge (Docs)</option>
+                        <option value="domain-cursor">Domain Cursor Rules</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label>Search</label>
+                    <input type="text" id="searchBox" placeholder="Search nodes...">
+                </div>
+
+                <div class="control-group">
+                    <label>Circular Layout Strength</label>
+                    <input type="range" id="circularStrength" min="0" max="1" step="0.1" value="0.3" style="width: 100%;">
+                    <div style="display: flex; justify-content: space-between; font-size: 10px; margin-top: 4px; color: var(--kg-text-secondary);">
+                        <span>Off</span>
+                        <span>Moderate</span>
+                        <span>Strong</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-panel" id="infoPanel">
+                <div class="info-section">
+                    <h3>System Overview</h3>
+                    <div class="stat-grid" id="statsGrid">
+                        <div class="stat-box">
+                            <div class="value" id="totalNodes">0</div>
+                            <div class="label">Total Nodes</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="value" id="totalLinks">0</div>
+                            <div class="label">Connections</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="value" id="track1Count">0</div>
+                            <div class="label">Behaviors</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="value" id="track2Count">0</div>
+                            <div class="label">Docs</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="value" id="track3Count">0</div>
+                            <div class="label">Skills</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="value" id="crossTrackCount">0</div>
+                            <div class="label">Cross-Track</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-section" id="nodeInfo" style="display: none;">
+                    <h3>Selected Node</h3>
+                    <div id="nodeDetails"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div id="loading" class="loading">
+                <div class="loading-spinner"></div>
+                <div>Loading knowledge graphs...</div>
+            </div>
+
+            <svg id="graph"></svg>
+
+            <div class="legend">
+                <h4>Roles</h4>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #9b59b6; border-color: #8e44ad;"></div>
+                    <span>Builder (Platform)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #27ae60; border-color: #229954;"></div>
+                    <span>Domain (Application)</span>
+                </div>
+                <h4 style="margin-top: 1rem;">Types</h4>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #e74c3c; border-color: #c0392b;"></div>
+                    <span>Track 1: Behaviors (Governance Layer)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #e67e22; border-color: #d35400;"></div>
+                    <span>Track 2: Knowledge (Semantic Layer)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #27ae60; border-color: #229954;"></div>
+                    <span>Track 3: Skills (Procedural Layer)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #95a5a6; border-color: #7f8c8d;"></div>
+                    <span>Categories / Folders</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/kg-visualizer.js"></script>
+</body>
+</html>

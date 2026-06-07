@@ -1,0 +1,130 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://agentic-ai.dev/schemas/master-graph.json",
+    "title": "Master Knowledge Graph",
+    "description": "JSON Schema for the master graph: registry of agent roles, each carrying its own list of role-scoped graph entries. Refactored 2026-05-18 to match the in-use nested structure (was a flat top-level graphs registry; that flat structure was retired ~2025).",
+    "type": "object",
+    "required": [
+        "graphType",
+        "project",
+        "version",
+        "generatedAt",
+        "roles"
+    ],
+    "properties": {
+        "graphType": {
+            "type": "string",
+            "const": "master",
+            "description": "Must be 'master' for master graph"
+        },
+        "project": {
+            "type": "string",
+            "description": "Project name"
+        },
+        "version": {
+            "type": "string",
+            "description": "Master graph version"
+        },
+        "generatedAt": {
+            "type": "string",
+            "format": "date",
+            "description": "Date when graph was generated"
+        },
+        "roles": {
+            "type": "array",
+            "description": "Agent roles, each with the graphs they consume",
+            "items": {
+                "$ref": "#/definitions/role"
+            }
+        },
+        "cross_role_connections": {
+            "type": "array",
+            "description": "Optional list of relationships that span roles",
+            "items": {
+                "type": "object"
+            }
+        }
+    },
+    "definitions": {
+        "graphEntry": {
+            "type": "object",
+            "required": [
+                "id",
+                "path"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Graph identifier"
+                },
+                "path": {
+                    "type": "string",
+                    "pattern": "^agents/knowledge-graphs/",
+                    "description": "Path to graph file"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Graph description"
+                }
+            },
+            "additionalProperties": true
+        },
+        "role": {
+            "type": "object",
+            "required": [
+                "id",
+                "name",
+                "graphs"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "pattern": "^role-",
+                    "description": "Role identifier"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Human-readable role name"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "personality": {
+                    "type": "string"
+                },
+                "responsibilities": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "boundaries": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "graphs": {
+                    "type": "array",
+                    "description": "Role-scoped graph registry — each entry points at a specific KG file this role uses",
+                    "items": {
+                        "$ref": "#/definitions/graphEntry"
+                    }
+                },
+                "primary_skills": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "primary_behaviors": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "additionalProperties": true
+        }
+    }
+}

@@ -1,0 +1,165 @@
+{
+  "graphType": "behaviors",
+  "role": "role-builder",
+  "project": "ucgis-agentloom-2026",
+  "version": "0.1.0",
+  "generatedAt": "2026-05-18",
+  "description": "UCGIS 2026 workshop reference KG — Builder-level rules with executable validators",
+  "behaviors": [
+    {
+      "id": "behavior:builder:root",
+      "type": "root",
+      "name": "Builder Behaviors Root",
+      "category": "builder-meta",
+      "description": "Root of the builder-role behaviors tree."
+    },
+    {
+      "id": "behavior:builder:every-skill-must-have-script",
+      "type": "rule",
+      "name": "Every Skill Must Have a Script",
+      "description": "Every type=skill node has a non-empty path that resolves on disk.",
+      "path": "agents/behaviors/builder/behavior-every-skill-must-have-script.md",
+      "category": "kg-integrity",
+      "priority": "high",
+      "enforcement": "hard",
+      "parent": "behavior:builder:root",
+      "links": {
+        "validator": [
+          "scripts/validators/every_skill_must_have_script.py"
+        ],
+        "related": [
+          "behavior:builder:every-non-soft-behavior-has-validator"
+        ],
+        "uses": [
+          "knowledge:builder:kg-node-schema",
+          "knowledge:builder:governance-tiers"
+        ]
+      }
+    },
+    {
+      "id": "behavior:builder:every-behavior-declares-tier",
+      "type": "rule",
+      "name": "Every Behavior Declares an Enforcement Tier",
+      "description": "Every type=rule node has 'enforcement' in {hard,test,process,soft}.",
+      "path": "agents/behaviors/builder/behavior-every-behavior-declares-tier.md",
+      "category": "kg-integrity",
+      "priority": "high",
+      "enforcement": "hard",
+      "parent": "behavior:builder:root",
+      "links": {
+        "validator": [
+          "scripts/validators/every_behavior_declares_tier.py"
+        ],
+        "related": [
+          "behavior:builder:every-non-soft-behavior-has-validator"
+        ],
+        "uses": [
+          "knowledge:builder:governance-tiers"
+        ]
+      }
+    },
+    {
+      "id": "behavior:builder:every-non-soft-behavior-has-validator",
+      "type": "rule",
+      "name": "Every Non-Soft Behavior Has a Validator",
+      "description": "Every behavior with enforcement != 'soft' has links.validator pointing to a real Python file.",
+      "path": "agents/behaviors/builder/behavior-every-non-soft-behavior-has-validator.md",
+      "category": "kg-integrity",
+      "priority": "critical",
+      "enforcement": "hard",
+      "parent": "behavior:builder:root",
+      "links": {
+        "validator": [
+          "scripts/validators/every_non_soft_behavior_has_validator.py"
+        ],
+        "related": [
+          "behavior:builder:every-behavior-declares-tier",
+          "behavior:builder:every-skill-must-have-script"
+        ],
+        "uses": [
+          "knowledge:builder:validator-authoring-guide",
+          "knowledge:builder:governance-tiers"
+        ]
+      }
+    },
+    {
+      "id": "behavior:builder:kg-node-ids-are-unique",
+      "type": "rule",
+      "name": "KG Node IDs Are Unique",
+      "description": "Globally across all 6 active KGs, no two nodes share an id.",
+      "path": "agents/behaviors/builder/behavior-kg-node-ids-are-unique.md",
+      "category": "kg-integrity",
+      "priority": "critical",
+      "enforcement": "hard",
+      "parent": "behavior:builder:root",
+      "links": {
+        "validator": [
+          "scripts/validators/kg_node_ids_are_unique.py"
+        ],
+        "uses": [
+          "knowledge:builder:kg-node-schema"
+        ]
+      }
+    },
+    {
+      "id": "behavior:builder:catalog-ui-must-tell-the-story",
+      "type": "rule",
+      "name": "Catalog UI must tell the full story (8 visible sections)",
+      "description": "Every starter/<app>/index.html must contain all 8 sections marked with data-catalog-role attribute (title, provenance, acquisition, data-shape, processing, kg-link, reuse, data-view). A catalog missing any of these is a missing story; CI must fail until they are present.",
+      "path": "agents/behaviors/builder/behavior-catalog-ui-must-tell-the-story.md",
+      "category": "catalog-discipline",
+      "priority": "high",
+      "enforcement": "hard",
+      "parent": "behavior:builder:root",
+      "links": {
+        "validator": [
+          "scripts/validators/catalog_ui_must_tell_the_story.py"
+        ],
+        "uses": [
+          "knowledge:builder:data-catalog-ui-storytelling",
+          "knowledge:builder:governance-tiers"
+        ]
+      }
+    },
+    {
+      "id": "behavior:builder:catalog-must-embed-dataset-jsonld",
+      "type": "rule",
+      "name": "Catalog must embed Schema.org Dataset JSON-LD",
+      "description": "Every starter/<app>/index.html must contain a <script type=application/ld+json> block whose JSON parses, has @context=schema.org and @type=Dataset, and includes minimum required fields (name, description, url, license, creator, distribution, dateModified). This makes every workshop catalog automatically discoverable by Google Dataset Search and FAIR registries.",
+      "path": "agents/behaviors/builder/behavior-catalog-must-embed-dataset-jsonld.md",
+      "category": "catalog-discipline",
+      "priority": "high",
+      "enforcement": "hard",
+      "parent": "behavior:builder:root",
+      "links": {
+        "validator": [
+          "scripts/validators/catalog_must_embed_dataset_jsonld.py"
+        ],
+        "uses": [
+          "knowledge:builder:dataset-jsonld-discovery",
+          "knowledge:builder:governance-tiers"
+        ]
+      }
+    },
+    {
+      "id": "behavior:builder:clinerules-must-match-canonical-prompt",
+      "type": "rule",
+      "name": "Cline rules must match canonical system-prompt KG node",
+      "description": "Cline (.clinerules/01-builder-agent-prompt.md) is a generated mirror of the canonical system-prompt KG node at docs/builder/concepts/builder-agent-system-prompt.md. If the two drift apart, Cline operates on a different system prompt than the standalone agentloom.builder_agent (Layer-3 host #1) and Cursor (host #2), and the framework's host-agnostic claim collapses. The new Tier-A validator clinerules_must_match_system_prompt_kg_node.py delegates to sync_clinerules.py --check; this behavior node wires it into the canonical rule set.",
+      "path": "agents/behaviors/builder/behavior-clinerules-must-match-canonical-prompt.md",
+      "category": "kg-integrity",
+      "priority": "critical",
+      "enforcement": "hard",
+      "parent": "behavior:builder:root",
+      "links": {
+        "validator": [
+          "scripts/validators/clinerules_must_match_system_prompt_kg_node.py"
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "last_updated": "2026-05-24",
+    "total_nodes": 8
+  }
+}

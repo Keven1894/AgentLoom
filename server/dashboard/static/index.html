@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AgentLoom KG Dashboard — UCGIS 2026</title>
+<style>
+  :root { --bg:#fafafa; --fg:#222; --mut:#666; --bd:#ddd; --accent:#9333ea; --accent2:#10b981; --warn:#f59e0b; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--fg); }
+  header { padding: 12px 20px; border-bottom: 1px solid var(--bd); background:#fff; display:flex; align-items:center; gap:18px; }
+  header h1 { margin:0; font-size: 16px; font-weight: 600; }
+  header .stats { color: var(--mut); font-size: 13px; }
+  header .stats b { color: var(--fg); }
+  .tabs { display:flex; gap: 4px; margin-left: auto; }
+  .tab { padding: 6px 14px; border: 1px solid var(--bd); border-radius: 4px; background:#fff; cursor:pointer; font-size: 13px; }
+  .tab.active { background: var(--fg); color:#fff; border-color: var(--fg); }
+  .panel { display: none; height: calc(100vh - 50px); }
+  .panel.active { display: block; }
+
+  /* Graph panel */
+  #cy { width: 100%; height: 100%; background: #fff; }
+  #legend { position: absolute; top: 70px; right: 20px; background: rgba(255,255,255,0.95); border: 1px solid var(--bd); padding: 10px 14px; border-radius: 6px; font-size: 12px; }
+  #legend h4 { margin: 0 0 6px; font-size: 11px; text-transform: uppercase; color: var(--mut); }
+  .legend-row { display:flex; align-items:center; gap:8px; margin: 3px 0; }
+  .legend-dot { width: 12px; height: 12px; border-radius: 50%; }
+  #node-info { position: absolute; bottom: 0; left: 0; right: 0; max-height: 35vh; overflow-y: auto; background: #fff; border-top: 1px solid var(--bd); padding: 14px 20px; display:none; }
+  #node-info.show { display:block; }
+  #node-info h3 { margin: 0 0 6px; font-size: 14px; }
+  #node-info dt { font-weight: 600; color: var(--mut); font-size: 11px; text-transform: uppercase; margin-top: 8px; }
+  #node-info dd { margin: 2px 0 0; font-size: 13px; }
+
+  /* Lists panel (proposals + timeline) */
+  .list-wrap { padding: 16px 24px; height: 100%; overflow-y: auto; }
+  .list-wrap h2 { font-size: 14px; margin: 0 0 12px; color: var(--mut); text-transform: uppercase; letter-spacing: 0.5px; }
+  .empty { color: var(--mut); font-style: italic; padding: 12px 0; }
+  .card { background:#fff; border:1px solid var(--bd); border-radius: 6px; padding: 12px 16px; margin-bottom: 10px; }
+  .card .title { font-weight: 600; font-size: 14px; }
+  .card .meta { color: var(--mut); font-size: 12px; margin-top: 2px; }
+  .card .body { margin-top: 8px; font-size: 13px; line-height: 1.5; }
+  .card pre { background: #f4f4f4; padding: 8px; border-radius: 4px; overflow-x: auto; font-size: 11px; max-height: 200px; }
+  .pill { display: inline-block; padding: 2px 8px; border-radius: 10px; background: #eee; color: var(--fg); font-size: 11px; margin-right: 4px; }
+  .pill.knowledge { background: #fef3c7; color: #92400e; }
+  .pill.skill { background: #d1fae5; color: #065f46; }
+  .pill.behavior { background: #fee2e2; color: #991b1b; }
+  .pill.builder { background: #ede9fe; color: #5b21b6; }
+  .pill.domain { background: #d1fae5; color: #065f46; }
+  .pill.kind-proposal { background: #fef3c7; color: #92400e; }
+  .pill.kind-accept { background: #d1fae5; color: #065f46; }
+  .pill.kind-reject { background: #fee2e2; color: #991b1b; }
+  .pill.kind-migration { background: #dbeafe; color: #1e40af; }
+  details { margin-top: 8px; }
+  summary { cursor: pointer; color: var(--accent); font-size: 12px; }
+  .accept-cmd { display:block; background: #1f2937; color: #d1fae5; padding: 8px 12px; border-radius: 4px; font-family: ui-monospace, monospace; font-size: 11px; margin-top: 8px; user-select: all; }
+</style>
+</head>
+<body>
+<header>
+  <h1>AgentLoom KG Dashboard</h1>
+  <div class="stats" id="stats">loading…</div>
+  <div class="tabs">
+    <button class="tab active" data-panel="graph">Graph</button>
+    <button class="tab" data-panel="proposals">Proposals <span id="proposals-count"></span></button>
+    <button class="tab" data-panel="timeline">Timeline</button>
+  </div>
+</header>
+
+<div id="panel-graph" class="panel active">
+  <div id="cy"></div>
+  <div id="legend">
+    <h4>Role</h4>
+    <div class="legend-row"><div class="legend-dot" style="background:#1f2937"></div>Master</div>
+    <div class="legend-row"><div class="legend-dot" style="background:#9333ea"></div>Builder</div>
+    <div class="legend-row"><div class="legend-dot" style="background:#10b981"></div>Domain</div>
+    <h4 style="margin-top:8px">Track</h4>
+    <div class="legend-row"><div class="legend-dot" style="background:#f59e0b"></div>Knowledge</div>
+    <div class="legend-row"><div class="legend-dot" style="background:#3b82f6"></div>Skills</div>
+    <div class="legend-row"><div class="legend-dot" style="background:#ef4444"></div>Behaviors</div>
+  </div>
+  <div id="node-info"></div>
+</div>
+
+<div id="panel-proposals" class="panel">
+  <div class="list-wrap">
+    <h2>Pending Proposals</h2>
+    <div id="proposals-list"></div>
+  </div>
+</div>
+
+<div id="panel-timeline" class="panel">
+  <div class="list-wrap">
+    <h2>KG Mutation Timeline</h2>
+    <div id="timeline-list"></div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+<script>
+const TRACK_COLORS = { knowledge: '#f59e0b', skills: '#3b82f6', behaviors: '#ef4444', master: '#1f2937' };
+const ROLE_BORDER = { builder: '#9333ea', domain: '#10b981', master: '#1f2937' };
+
+document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
+  document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+  t.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-' + t.dataset.panel).classList.add('active');
+}));
+
+async function loadStats() {
+  const r = await fetch('/api/kg-stats');
+  const d = await r.json();
+  const t = d.totals;
+  document.getElementById('stats').innerHTML =
+    `<b>${t.nodes}</b> nodes &nbsp; · &nbsp; <b>${t.pending_proposals}</b> pending`;
+  if (t.pending_proposals > 0) {
+    document.getElementById('proposals-count').textContent = ' (' + t.pending_proposals + ')';
+  }
+}
+
+async function loadGraph() {
+  const r = await fetch('/api/kg-data');
+  const data = await r.json();
+  const elements = [];
+  for (const n of data.nodes) {
+    elements.push({
+      data: { id: n.id, label: n.label, role: n.role, track: n.track, type: n.type,
+              source: n.source, category: n.category, path: n.path, description: n.description },
+    });
+  }
+  for (const e of data.edges) {
+    elements.push({ data: { id: `${e.source}__${e.target}__${e.label}`,
+                            source: e.source, target: e.target, label: e.label } });
+  }
+
+  const cy = cytoscape({
+    container: document.getElementById('cy'),
+    elements,
+    style: [
+      { selector: 'node', style: {
+        'label': 'data(label)',
+        'background-color': ele => TRACK_COLORS[ele.data('track')] || '#999',
+        'border-width': 3,
+        'border-color': ele => ROLE_BORDER[ele.data('role')] || '#666',
+        'color': '#222',
+        'font-size': '10px',
+        'text-valign': 'bottom',
+        'text-margin-y': 6,
+        'text-max-width': '120px',
+        'text-wrap': 'wrap',
+        'width': 32, 'height': 32,
+      }},
+      { selector: 'node[type="root"]', style: { width: 50, height: 50, 'font-size':'12px', 'font-weight':'bold' } },
+      { selector: 'node[role="master"]', style: { width: 70, height: 70, 'font-size':'14px', 'font-weight':'bold', color:'#fff', 'text-valign':'center', 'text-margin-y': 0 } },
+      { selector: 'edge', style: {
+        'curve-style': 'bezier',
+        'line-color': '#bbb',
+        'target-arrow-color': '#bbb',
+        'target-arrow-shape': 'triangle',
+        'width': 1.5,
+        'label': 'data(label)',
+        'font-size': '8px',
+        'color': '#888',
+        'text-background-color': '#fff',
+        'text-background-opacity': 0.9,
+        'text-background-padding': '1px',
+      }},
+      { selector: 'node:selected', style: { 'border-width': 5, 'border-color': '#000' } },
+    ],
+    layout: { name: 'cose', animate: false, idealEdgeLength: 90, nodeRepulsion: 8000, padding: 30 },
+  });
+
+  cy.on('tap', 'node', evt => {
+    const d = evt.target.data();
+    document.getElementById('node-info').classList.add('show');
+    document.getElementById('node-info').innerHTML = `
+      <h3>${escapeHtml(d.label)} <span class="pill ${d.track}">${d.track}</span><span class="pill ${d.role}">${d.role}</span></h3>
+      <dl>
+        <dt>id</dt><dd><code>${escapeHtml(d.id)}</code></dd>
+        <dt>type</dt><dd>${escapeHtml(d.type || '?')}</dd>
+        <dt>category</dt><dd>${escapeHtml(d.category || '—')}</dd>
+        <dt>path</dt><dd><code>${escapeHtml(d.path || '—')}</code></dd>
+        <dt>description</dt><dd>${escapeHtml(d.description || '—')}</dd>
+      </dl>
+    `;
+  });
+  cy.on('tap', evt => {
+    if (evt.target === cy) {
+      document.getElementById('node-info').classList.remove('show');
+    }
+  });
+}
+
+async function loadProposals() {
+  const r = await fetch('/api/proposals');
+  const items = await r.json();
+  const el = document.getElementById('proposals-list');
+  if (items.length === 0) {
+    el.innerHTML = '<div class="empty">No pending proposals. The KG is in steady state — propose new nodes via <code>scripts/kg/propose_node.py</code>.</div>';
+    return;
+  }
+  el.innerHTML = items.map(p => `
+    <div class="card">
+      <div class="title">${escapeHtml(p.node_id || p.slug)}
+        <span class="pill ${classifyType(p.node_id)}">${escapeHtml(p.node_type || '?')}</span>
+      </div>
+      <div class="meta">${escapeHtml(p.filename)}</div>
+      <div class="body">${escapeHtml(extractJustification(p.update_log_text))}</div>
+      <details>
+        <summary>JSON payload</summary>
+        <pre>${escapeHtml(JSON.stringify(p.node, null, 2))}</pre>
+      </details>
+      ${p.update_log_text ? `<details><summary>Full UPDATE_LOG</summary><pre>${escapeHtml(p.update_log_text)}</pre></details>` : ''}
+      <code class="accept-cmd">python scripts/kg/accept_proposal.py --proposal ${escapeHtml(p.filename)}</code>
+    </div>
+  `).join('');
+}
+
+async function loadTimeline() {
+  const r = await fetch('/api/timeline');
+  const items = await r.json();
+  const el = document.getElementById('timeline-list');
+  if (items.length === 0) {
+    el.innerHTML = '<div class="empty">No mutations recorded yet. Once proposals are filed and accepted/rejected, their UPDATE_LOG entries appear here.</div>';
+    return;
+  }
+  el.innerHTML = items.map(e => `
+    <div class="card">
+      <div class="title">${escapeHtml(e.title)}
+        <span class="pill kind-${e.kind}">${escapeHtml(e.kind)}</span>
+      </div>
+      <div class="meta">${escapeHtml(e.date)} · ${escapeHtml(e.filename)}</div>
+    </div>
+  `).join('');
+}
+
+function classifyType(id) {
+  if (!id) return '';
+  if (id.startsWith('skill:')) return 'skill';
+  if (id.startsWith('behavior:')) return 'behavior';
+  if (id.startsWith('knowledge:')) return 'knowledge';
+  return '';
+}
+
+function extractJustification(log) {
+  if (!log) return '_(no UPDATE_LOG yet)_';
+  const m = log.match(/## Justification[^\n]*\n+([\s\S]+?)\n##/);
+  return m ? m[1].trim() : log.slice(0, 300);
+}
+
+function escapeHtml(s) {
+  return String(s ?? '').replace(/[&<>"']/g, c => ({
+    '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'
+  }[c]));
+}
+
+(async function main() {
+  await loadStats();
+  await loadGraph();
+  await loadProposals();
+  await loadTimeline();
+})();
+</script>
+</body>
+</html>

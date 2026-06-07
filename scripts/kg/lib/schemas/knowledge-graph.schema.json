@@ -1,0 +1,82 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://agentic-ai.dev/schemas/knowledge-graph.json",
+    "title": "Knowledge Graph",
+    "description": "JSON Schema for validating knowledge graph structure",
+    "type": "object",
+    "required": [
+        "graphType",
+        "role",
+        "generatedAt"
+    ],
+    "oneOf": [
+        { "required": ["nodes"] },
+        { "required": ["documents"] }
+    ],
+    "properties": {
+        "graphType": {
+            "type": "string",
+            "const": "knowledge"
+        },
+        "role": {
+            "type": "string",
+            "pattern": "^role-"
+        },
+        "generatedAt": {
+            "type": "string",
+            "format": "date"
+        },
+        "nodes": {
+            "type": "array",
+            "description": "Array of knowledge nodes (canonical key for builder-style knowledge graphs).",
+            "items": {
+                "$ref": "#/definitions/knowledgeNode"
+            }
+        },
+        "documents": {
+            "type": "array",
+            "description": "Array of document nodes (alternate key used by domain-docs-graph; semantically a knowledge graph of documents). Schema accepts either 'nodes' or 'documents'.",
+            "items": {
+                "$ref": "#/definitions/knowledgeNode"
+            }
+        }
+    },
+    "definitions": {
+        "knowledgeNode": {
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Knowledge node type. Common values: 'root', 'category', 'subcategory', 'document', 'concept', 'pattern', 'reference', 'guide', 'runbook', 'standard', 'procedure', 'architecture', 'diagram', 'configuration', 'index'. Not enum-locked — domains evolve their own taxonomies."
+                },
+                "title": {
+                    "type": "string"
+                },
+                "path": {
+                    "type": "string"
+                },
+                "parent": {
+                    "type": ["string", "null"],
+                    "description": "Parent node ID. null for root nodes."
+                },
+                "links": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "additionalProperties": true
+        }
+    }
+}

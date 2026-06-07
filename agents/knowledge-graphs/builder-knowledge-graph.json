@@ -1,0 +1,199 @@
+{
+  "graphType": "knowledge",
+  "role": "role-builder",
+  "project": "ucgis-agentloom-2026",
+  "version": "0.1.0",
+  "generatedAt": "2026-05-18",
+  "description": "UCGIS 2026 workshop reference KG — Meta-knowledge: AgentLoom architecture, schemas, propose-protocol",
+  "nodes": [
+    {
+      "id": "knowledge:builder:root",
+      "type": "root",
+      "data": {
+        "title": "Builder Knowledge Root",
+        "description": "Root of the builder-role meta-knowledge tree.",
+        "category": "builder-meta"
+      },
+      "relationships": {
+        "parent": null,
+        "children": [
+          "knowledge:builder:agentloom-architecture",
+          "knowledge:builder:kg-node-schema",
+          "knowledge:builder:propose-review-protocol",
+          "knowledge:builder:validator-authoring-guide",
+          "knowledge:builder:kg-update-log-template",
+          "knowledge:builder:governance-tiers",
+          "knowledge:builder:data-catalog-ui-storytelling",
+          "knowledge:builder:dataset-jsonld-discovery",
+          "knowledge:builder:builder-agent-system-prompt"
+        ]
+      }
+    },
+    {
+      "id": "knowledge:builder:agentloom-architecture",
+      "type": "architecture",
+      "data": {
+        "title": "AgentLoom Architecture",
+        "description": "3-track / 2-role / dual-helix overview of the framework.",
+        "category": "builder-meta",
+        "path": "docs/builder/architecture/agentloom-architecture.md",
+        "tags": [
+          "builder",
+          "meta"
+        ]
+      },
+      "relationships": {
+        "parent": "knowledge:builder:root",
+        "children": []
+      }
+    },
+    {
+      "id": "knowledge:builder:kg-node-schema",
+      "type": "reference",
+      "data": {
+        "title": "KG Node Schema Reference",
+        "description": "Field-by-field shape of skill / knowledge / behavior nodes.",
+        "category": "builder-meta",
+        "path": "docs/builder/architecture/kg-node-schema.md",
+        "tags": [
+          "builder",
+          "meta"
+        ]
+      },
+      "relationships": {
+        "parent": "knowledge:builder:root",
+        "children": []
+      }
+    },
+    {
+      "id": "knowledge:builder:propose-review-protocol",
+      "type": "protocol",
+      "data": {
+        "title": "Propose-Review Protocol",
+        "description": "How the agent proposes new KG nodes and how humans review them.",
+        "category": "builder-meta",
+        "path": "docs/builder/protocols/propose-review-protocol.md",
+        "tags": [
+          "builder",
+          "meta"
+        ]
+      },
+      "relationships": {
+        "parent": "knowledge:builder:root",
+        "children": []
+      }
+    },
+    {
+      "id": "knowledge:builder:validator-authoring-guide",
+      "type": "guide",
+      "data": {
+        "title": "Validator Authoring Guide",
+        "description": "How to author a Tier-A validator in <50 LOC, with a copy-paste template.",
+        "category": "builder-meta",
+        "path": "docs/builder/concepts/validator-authoring-guide.md",
+        "tags": [
+          "builder",
+          "meta"
+        ]
+      },
+      "relationships": {
+        "parent": "knowledge:builder:root",
+        "children": []
+      }
+    },
+    {
+      "id": "knowledge:builder:kg-update-log-template",
+      "type": "template",
+      "data": {
+        "title": "UPDATE_LOG Template",
+        "description": "File-naming + content templates for proposal/accept/reject/migration logs.",
+        "category": "builder-meta",
+        "path": "docs/builder/protocols/kg-update-log-template.md",
+        "tags": [
+          "builder",
+          "meta"
+        ]
+      },
+      "relationships": {
+        "parent": "knowledge:builder:root",
+        "children": []
+      }
+    },
+    {
+      "id": "knowledge:builder:governance-tiers",
+      "type": "concept",
+      "data": {
+        "title": "Governance Tiers",
+        "description": "Tier A (hard/AST/regex) vs Tier B (test-time) vs Tier C (process); when to use each.",
+        "category": "builder-meta",
+        "path": "docs/builder/governance/governance-tiers.md",
+        "tags": [
+          "builder",
+          "meta"
+        ]
+      },
+      "relationships": {
+        "parent": "knowledge:builder:root",
+        "children": []
+      }
+    },
+    {
+      "id": "knowledge:builder:data-catalog-ui-storytelling",
+      "type": "concept",
+      "data": {
+        "title": "Data-Catalog UI Storytelling (8-section taxonomy)",
+        "description": "Workshop attendees building catalog apps via propose-review need a shared template for what a catalog UI must communicate: provenance, acquisition, processing chain, KG-link, reuse — not just the data view. Without a documented + enforceable taxonomy, every catalog ships as 'pretty map, no story'. This knowledge node documents the 8 visible sections and design principles that all catalog UIs must follow.",
+        "category": "builder-proposed",
+        "path": "docs/builder/concepts/data-catalog-ui-storytelling.md",
+        "tags": [
+          "builder",
+          "proposed"
+        ]
+      },
+      "relationships": {
+        "parent": "knowledge:builder:root",
+        "children": []
+      }
+    },
+    {
+      "id": "knowledge:builder:dataset-jsonld-discovery",
+      "type": "reference",
+      "data": {
+        "title": "Schema.org Dataset JSON-LD for catalog discoverability",
+        "description": "The visible storytelling sections answer human questions; Schema.org Dataset JSON-LD answers machine questions (Google Dataset Search, federated catalogs, FAIR registries). Embedding a valid Dataset JSON-LD block in catalog HTML is the canonical way to make data findable on the open web. Standalone from the visible-section discipline so future catalogs can adopt JSON-LD without forcing the full UI taxonomy.",
+        "category": "builder-proposed",
+        "path": "docs/builder/concepts/dataset-jsonld-discovery.md",
+        "tags": [
+          "builder",
+          "proposed"
+        ]
+      },
+      "relationships": {
+        "parent": "knowledge:builder:root",
+        "children": []
+      }
+    },
+    {
+      "id": "knowledge:builder:builder-agent-system-prompt",
+      "type": "concept",
+      "data": {
+        "title": "Canonical system prompt for the AgentLoom builder agent",
+        "description": "First-class KG node containing the verbatim system prompt loaded by agentloom.builder_agent at startup. Making the prompt a versioned KG node — rather than a string literal in code — is what allows multiple host integrations (the standalone Python agent, Cline, Cursor, CI batches, future MCP-based hosts) to share one canonical specification of agent behavior; conformance becomes structural rather than aspirational. Also provides a stable reference point for paper-grade reproducibility (run logs pin a prompt_version, so any reported result can be re-derived against the exact prompt that produced it). Authoring this node is the LAST hand-driven propose; from this point forward the agent itself drives propose actions.",
+        "category": "builder-proposed",
+        "path": "docs/builder/concepts/builder-agent-system-prompt.md",
+        "tags": [
+          "builder",
+          "proposed"
+        ]
+      },
+      "relationships": {
+        "parent": "knowledge:builder:root",
+        "children": []
+      }
+    }
+  ],
+  "metadata": {
+    "last_updated": "2026-05-20",
+    "total_nodes": 10
+  }
+}

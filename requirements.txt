@@ -1,0 +1,7 @@
+# AgentLoom v3 runtime — KG validation, propose-review, dashboard
+
+jsonschema>=4.20.0,<5
+jsonpatch>=1.33,<2
+
+fastapi>=0.110,<1
+uvicorn[standard]>=0.27,<1

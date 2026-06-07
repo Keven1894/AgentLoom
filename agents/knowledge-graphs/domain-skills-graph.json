@@ -1,0 +1,21 @@
+{
+  "graphType": "skills",
+  "role": "role-domain",
+  "project": "ucgis-agentloom-2026",
+  "version": "0.1.0",
+  "generatedAt": "2026-05-19",
+  "description": "UCGIS 2026 workshop reference KG — Geospatial / catalog-app domain skills (emerges via propose-review). Root-only on main; per-source nodes live on dN branches.",
+  "skills": [
+    {
+      "id": "skill:domain:root",
+      "type": "root",
+      "name": "Domain Skills Root",
+      "category": "domain-meta",
+      "description": "Root of the domain skills tree."
+    }
+  ],
+  "metadata": {
+    "last_updated": "2026-05-19",
+    "total_nodes": 1
+  }
+}
