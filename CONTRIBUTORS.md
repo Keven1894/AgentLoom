@@ -21,7 +21,7 @@ This project exists thanks to all the people who contribute to advancing product
   - Framework foundations and theoretical grounding
   - Memory hierarchy analogy and adaptive framework concept
 - **Publications:**
-  - Guan, B. (2025). AgentLoom: Building Trustworthy AI Agents Through Dual-Helix Architecture. DOI: 10.5281/zenodo.17561541
+  - Guan, B. (2026). AgentLoom v3.0.0: Executable Governance Framework for Builder Agents. DOI: [10.5281/zenodo.20650518](https://doi.org/10.5281/zenodo.20650518)
 
 ### UCGIS 2026 Workshop Co-Organizers
 
@@ -30,6 +30,7 @@ This project exists thanks to all the people who contribute to advancing product
 - **Affiliation:** University of Florida — Geospatial Analytics, Technology and Open Research (GATOR) Lab
 - **Role:** Assistant Professor of Geospatial Analytics | Director of GATOR Lab
 - **Email:** <levente.juhasz@ufl.edu>
+- **GitHub:** [@jlevente](https://github.com/jlevente)
 - **Contributions:**
   - UCGIS 2026 workshop co-organization (*From Prompts to Protocols*)
   - Geospatial governance validation and workshop pedagogy

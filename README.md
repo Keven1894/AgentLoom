@@ -3,7 +3,7 @@
 **Executable governance framework for builder agents** — knowledge graphs, propose→review→accept,
 Tier-A validators, and a human review dashboard.
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17561541.svg)](https://doi.org/10.5281/zenodo.17561541)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17561540.svg)](https://doi.org/10.5281/zenodo.20650518)
 ![Code: MIT](https://img.shields.io/badge/Code-MIT-blue.svg)
 ![Docs: CC BY-NC 4.0](https://img.shields.io/badge/Docs-CC%20BY--NC%204.0-lightgrey.svg)
 
@@ -69,6 +69,28 @@ Two consumption modes:
 
 For a worked, forkable instance built this way, see the
 [UCGIS 2026 workshop repo](https://github.com/Keven1894/ucgis-agentloom-2026-workshop).
+
+### Workshop vs flagship (intentional drift)
+
+The public workshop repo is a **frozen teaching snapshot** from the private dev
+source (`ucgis-agentloom-2026`). It intentionally differs from this flagship in
+two ways:
+
+| Topic | Workshop snapshot | AgentLoom flagship (v3) |
+|-------|-------------------|-------------------------|
+| **Layout** | Flat `scripts/` + `server/` (workshop-day stability) | Installable `src/agentloom/` package |
+| **MCP** | Ships read-only KG MCP tools for Cline | Governance core only; **MCP GA in v4.0** |
+
+**Sync boundaries:** only `ucgis-agentloom-2026` → AgentLoom (via
+`sync_agentloom_flagship_from_ucgis.py`) and → workshop (via
+`build_workshop_snapshot.py`) are automated.
+[agentloom-runtime](https://github.com/Keven1894/agentloom-runtime) and
+[co-agenticOS](https://github.com/Keven1894/co-agenticOS) are updated **manually**
+and do not track the dev repo automatically.
+
+After the June 2026 workshop, the next snapshot rebuild will decide whether the
+workshop migrates to the `src/agentloom/` layout; until then, treat the layout
+difference as **intentional**, not accidental drift.
 
 ---
 
@@ -156,12 +178,12 @@ Full narrative: [co-agenticOS](https://github.com/Keven1894/co-agenticOS) (gover
 
 ```bibtex
 @software{guan2026agentloom,
-  author = {Guan, Boyuan (Keven)},
-  title = {AgentLoom: Building Trustworthy AI Agents Through Dual-Helix Architecture},
+  author = {Guan, Boyuan (Keven) and Juh{\'a}sz, Levente and Cui, Wencong},
+  title = {AgentLoom: Executable Governance Framework for Builder Agents},
   year = {2026},
   version = {3.0.0},
   url = {https://github.com/Keven1894/AgentLoom},
-  doi = {10.5281/zenodo.17561541}
+  doi = {10.5281/zenodo.20650518}
 }
 ```
 

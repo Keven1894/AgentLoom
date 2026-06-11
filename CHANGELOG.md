@@ -34,6 +34,9 @@ ecosystem split (co-agenticOS → AgentLoom → agentloom-runtime → workshop).
 - Makefile targets: `validate-all`, `kg-validate`, `sync-clinerules`, `dashboard`.
 - Pytest wrappers for the governance gate (`tests/test_validators.py`).
 - GitHub Actions CI: `make validate-all` + pytest on push/PR.
+- GitHub Release `v3.0.0` + Zenodo archive
+  [10.5281/zenodo.20650518](https://doi.org/10.5281/zenodo.20650518) (concept DOI
+  [10.5281/zenodo.17561540](https://doi.org/10.5281/zenodo.17561540) for latest).
 - `SECURITY.md` vulnerability reporting policy.
 - Four-quadrant ecosystem positioning in README (co-agenticOS, AgentLoom,
   agentloom-runtime, workshop).
