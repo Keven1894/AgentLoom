@@ -40,6 +40,7 @@ This project exists thanks to all the people who contribute to advancing product
 
 - **Affiliation:** Florida International University, GIS Center
 - **Email:** <wecui@fiu.edu>
+- **GitHub:** [@Vincent-Cui](https://github.com/Vincent-Cui)
 - **Contributions:**
   - UCGIS 2026 workshop co-organization
   - Geospatial library integration within agentic workflows
