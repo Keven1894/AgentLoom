@@ -124,7 +124,7 @@ Four repos, four roles — split by *what they are* and by *agent lifecycle phas
 |------|------|-----------------|
 | [**co-agenticOS**](https://github.com/Keven1894/co-agenticOS) | Governance **spec** — rules, coordination, memory boundaries, verification | sets the rules |
 | **AgentLoom** (this repo) | Build **framework** — KG governance, validators, propose-review-accept | **authoring time** (build & govern the agent) |
-| **AgentLoom Runtime** | Runtime **library** — layered memory, graph-first retrieval, file→DB sync | **run time** (the deployed agent remembers & retrieves) |
+| [**AgentLoom Runtime**](https://github.com/Keven1894/agentloom-runtime) | Runtime **library** — layered memory, graph-first retrieval, file→DB sync | **run time** (the deployed agent remembers & retrieves) |
 | [**ucgis-agentloom-2026-workshop**](https://github.com/Keven1894/ucgis-agentloom-2026-workshop) | A concrete **instance** — a worked, forkable example | a use of all of the above |
 
 > co-agenticOS sets the rules → AgentLoom is the framework you build and govern
