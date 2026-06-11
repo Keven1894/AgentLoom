@@ -23,6 +23,27 @@ This project exists thanks to all the people who contribute to advancing product
 - **Publications:**
   - Guan, B. (2025). AgentLoom: Building Trustworthy AI Agents Through Dual-Helix Architecture. DOI: 10.5281/zenodo.17561541
 
+### UCGIS 2026 Workshop Co-Organizers
+
+**Dr. Levente Juhász**
+
+- **Affiliation:** University of Florida — Geospatial Analytics, Technology and Open Research (GATOR) Lab
+- **Role:** Assistant Professor of Geospatial Analytics | Director of GATOR Lab
+- **Email:** <levente.juhasz@ufl.edu>
+- **Contributions:**
+  - UCGIS 2026 workshop co-organization (*From Prompts to Protocols*)
+  - Geospatial governance validation and workshop pedagogy
+  - Coastal WebGIS refactoring case study (FutureShorelines / governed agentic refactoring evidence)
+
+**Dr. Wencong Cui**
+
+- **Affiliation:** Florida International University, GIS Center
+- **Email:** <wecui@fiu.edu>
+- **Contributions:**
+  - UCGIS 2026 workshop co-organization
+  - Geospatial library integration within agentic workflows
+  - Hands-on workshop materials and starter-instance validation
+
 ---
 
 ## 📚 Case Study Contributors
@@ -326,7 +347,7 @@ Your work helps establish the engineering discipline for the next generation of 
 
 ---
 
-**Last Updated:** November 11, 2025  
+**Last Updated:** June 11, 2026  
 **Status:** Living document (updates with each contribution)  
 **Maintained by:** Core team
 

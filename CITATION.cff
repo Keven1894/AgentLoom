@@ -5,6 +5,15 @@ authors:
     given-names: Boyuan (Keven)
     affiliation: Florida International University, Library & GIS Center
     orcid: https://orcid.org/0000-0002-4244-5011
+contributors:
+  - family-names: Juhász
+    given-names: Levente
+    affiliation: University of Florida, GATOR Lab
+    email: levente.juhasz@ufl.edu
+  - family-names: Cui
+    given-names: Wencong
+    affiliation: Florida International University, GIS Center
+    email: wecui@fiu.edu
 title: "AgentLoom: Executable Governance Framework for Builder Agents"
 abstract: >
   AgentLoom v3 is a runnable framework for knowledge-graph-grounded agent governance:
@@ -14,7 +23,7 @@ abstract: >
   rather than ad-hoc prompt edits. Dual-helix architecture (learning + governance)
   positions the framework for trustworthy agentic AI in production settings.
 version: "3.0.0"
-date-released: 2026-06-07
+date-released: 2026-06-11
 doi: 10.5281/zenodo.17561541
 license: MIT
 repository-code: "https://github.com/Keven1894/AgentLoom"

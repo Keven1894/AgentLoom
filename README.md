@@ -171,4 +171,5 @@ See also [`CITATION.cff`](CITATION.cff).
 
 ## Contributing
 
-See [`CONTRIBUTING.md`](CONTRIBUTING.md). Framework changes should pass `make validate-all` before PR.
+See [`CONTRIBUTING.md`](CONTRIBUTING.md). Framework changes should pass `make validate-all` before PR.  
+Contributors are listed in [`CONTRIBUTORS.md`](CONTRIBUTORS.md). Use [GitHub Issues](https://github.com/Keven1894/AgentLoom/issues/new/choose) for bugs and feature requests.

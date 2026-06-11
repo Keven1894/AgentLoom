@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Contributing guide
+    url: https://github.com/Keven1894/AgentLoom/blob/main/CONTRIBUTING.md
+    about: Read how to propose KG changes and pass the governance gate before opening a PR.
+  - name: Contributors
+    url: https://github.com/Keven1894/AgentLoom/blob/main/CONTRIBUTORS.md
+    about: Project contributors and recognition.
