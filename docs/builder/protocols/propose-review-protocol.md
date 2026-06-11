@@ -34,7 +34,7 @@ The agent does **not** propose:
 ## How to propose
 
 ```bash
-python scripts/kg/propose_node.py \
+python -m agentloom.kg.propose_node \
   --type knowledge \
   --slug time-format-conventions \
   --justification "USGS GeoJSON uses epoch milliseconds while most JSON-LD/EML expects ISO-8601; need a knowledge node so future ingest skills know to convert." \
@@ -57,7 +57,7 @@ The reviewer (Keven during the workshop sprint, attendees during the workshop it
 1. Opens the PR with label `kg-proposal`
 2. Reads the `UPDATE_LOG_*` for context (10-30 seconds)
 3. Inspects the proposed JSON for shape (5-10 seconds)
-4. **On accept**: comments `/accept` (or merges the PR) → CI runs `python scripts/kg/accept_proposal.py <slug>` → `kg_editor.add_<type>(...)` → both validators run → both PASS or auto-rollback → proposal file deleted, UPDATE_LOG kept
+4. **On accept**: comments `/accept` (or merges the PR) → CI runs `python -m agentloom.kg.accept_proposal <slug>` → `kg_editor.add_<type>(...)` → both validators run → both PASS or auto-rollback → proposal file deleted, UPDATE_LOG kept
 5. **On reject**: closes the PR with reason → UPDATE_LOG kept anyway as "considered and rejected" record (this is itself audit-worthy)
 6. **On request-changes**: comments inline → agent revises proposal → re-pushes
 

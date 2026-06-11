@@ -101,4 +101,4 @@ These are real and worth documenting. But pretending to enforce them with a rege
 
 - `validator-authoring-guide.md` — concrete template for a Tier-A validator
 - `propose-review-protocol.md` — Tier-C-style governance for KG mutations
-- Workshop reference: the four behaviors in `agents/behaviors/builder/` are all Tier A and ship with their validator scripts in `scripts/validators/`
+- Workshop reference: the four behaviors in `agents/behaviors/builder/` are all Tier A and ship with their validator scripts in `src/agentloom/validators/`

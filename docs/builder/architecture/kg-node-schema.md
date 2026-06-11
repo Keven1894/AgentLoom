@@ -17,7 +17,7 @@ The integrity validator + reviewer judgement enforce the rest.
 
 ## Schema files
 
-Located at `scripts/kg/lib/schemas/`:
+Located at `src/agentloom/kg/lib/schemas/`:
 
 | File | Validates `graphType` | Top-level required | Array key |
 | --- | --- | --- | --- |
@@ -38,7 +38,7 @@ Located at `scripts/kg/lib/schemas/`:
   "category": "kg-tools",
   "description": "Agent-callable; writes a candidate node JSON + UPDATE_LOG to proposals/",
   "path": "agents/skills/builder/skill-propose-node.md",
-  "script": "scripts/kg/propose_node.py",
+  "script": "src/agentloom/kg/propose_node.py",
   "parent": "skill:builder:root",
   "links": {
     "implements": ["behavior:builder:every-skill-must-have-script"],
@@ -89,7 +89,7 @@ Located at `scripts/kg/lib/schemas/`:
   "enforcement": "hard",
   "parent": "behavior:builder:root",
   "links": {
-    "validator": "scripts/validators/every_skill_must_have_script.py",
+    "validator": "src/agentloom/validators/every_skill_must_have_script.py",
     "related": ["behavior:builder:every-non-soft-behavior-has-validator"]
   }
 }

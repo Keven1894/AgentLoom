@@ -8,17 +8,17 @@ Operational notes specific to running the AgentLoom builder agent inside Cline. 
 - `agents/knowledge-graphs/proposals/` — pending proposal JSON files plus `UPDATE_LOG_*` audit artifacts from accepted/rejected past proposals.
 - `docs/{builder,domain}/concepts/`, `docs/{builder,domain}/proposed/` — markdown bodies for KG nodes (one file per node).
 - `data/snapshots/` — vendored data snapshots for the four workshop sources (D1 quakes, D2 OpenAQ air, D3 NWIS streamflow, D4 Natural Earth admin0).
-- `scripts/kg/propose_node.py` — the **only** way to file a proposal. Do not edit graph json directly.
-- `scripts/kg/accept_proposal.py` — human-only. **Do not call this yourself.**
-- `scripts/validators/run_all.py` — runs all Tier-A validators. Run after any change.
+- `python -m agentloom.kg.propose_node` — the **only** way to file a proposal. Do not edit graph json directly.
+- `python -m agentloom.kg.accept_proposal` — human-only. **Do not call this yourself.**
+- `python -m agentloom.validators.run_all` — runs all Tier-A validators. Run after any change.
 - `runs/agent/` — JSONL run logs. Files matching `*.kept.jsonl` are paper-grade evidence and not auto-cleaned.
 - **Dashboard** (`make dashboard` → `http://127.0.0.1:8000`) — **human review surface**. Proposals tab shows pending queue in plain language; Graph/Timeline show accepted history. Read-only — accept stays CLI.
 
 ## How humans review proposals (not json)
 
-1. Cline files proposals via `propose_node.py`.
+1. Cline files proposals via `python -m agentloom.kg.propose_node`.
 2. Human opens dashboard → **Proposals** tab — reads title + justification.
-3. If satisfied: `python scripts/kg/accept_proposal.py --proposal agents/knowledge-graphs/proposals/<file>.json`
+3. If satisfied: `python -m agentloom.kg.accept_proposal --proposal agents/knowledge-graphs/proposals/<file>.json`
 4. Refresh dashboard — node appears on Graph tab; Timeline updates.
 
 W2 adds a welcome HTML page linking Cline + this dashboard. See `docs/workshop/kg-access-and-human-review.md`.
@@ -31,7 +31,7 @@ W2 adds a welcome HTML page linking Cline + this dashboard. See `docs/workshop/k
 4. For each proposal, run the equivalent of:
 
    ```bash
-   python scripts/kg/propose_node.py \
+   python -m agentloom.kg.propose_node \
      --type knowledge \
      --target-role domain \
      --slug <kebab-case-slug> \
@@ -70,7 +70,7 @@ When MCP is unavailable, use the fallback above. Do not load all six `*-graph.js
 
 ## Permission to run shell commands
 
-The first time you propose a node in Cline, the user will be prompted to allow `python scripts/kg/propose_node.py`. Approve once; subsequent invocations are seamless.
+The first time you propose a node in Cline, the user will be prompted to allow `python -m agentloom.kg.propose_node`. Approve once; subsequent invocations are seamless.
 
 ## Reproducibility note for paper-grade runs
 

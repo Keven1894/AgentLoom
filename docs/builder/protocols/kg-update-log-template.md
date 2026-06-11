@@ -107,7 +107,7 @@ ACCEPTED with <no changes | minor edits | one substantive edit>.
 ## Validators run
 
 - `make kg-validate` → PASS
-- `python scripts/validators/...` → PASS
+- `python -m agentloom.validators.run_all` → PASS
 
 ## Visual confirmation
 
@@ -180,7 +180,7 @@ For changes that affect many nodes at once (schema reconciliation, axis-confusio
 
 ## Rollback
 
-`python scripts/kg/rollback_kg.py <file>` restores from `.bak_drift_<date>`.
+`python -m agentloom.kg.rollback_kg <file>` restores from `.bak_drift_<date>`.
 ```
 
 ---

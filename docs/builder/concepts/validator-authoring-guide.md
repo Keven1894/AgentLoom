@@ -97,9 +97,9 @@ if __name__ == "__main__":
 
 ## Naming + placement
 
-- Script: `scripts/validators/<slug_with_underscores>.py` — the slug matches the behavior MD's `links.validator` field
+- Script: `src/agentloom/validators/<slug_with_underscores>.py` — the slug matches the behavior MD's `links.validator` field
 - Entry in behavior JSON node: `links.validator` = relative path from repo root
-- Pre-commit hook (Phase 5+): adds `python scripts/validators/<slug>.py` to a per-commit script
+- Pre-commit hook (Phase 5+): adds `python -m agentloom.validators.<slug>` to a per-commit script
 
 ---
 
@@ -109,7 +109,8 @@ if __name__ == "__main__":
 
 ```bash
 # Run all per-behavior Tier-A validators
-for v in scripts/validators/*.py; do python "$v" || exit 1; done
+python -m agentloom.validators.run_all
+# or: make validate-all
 ```
 
 Phase 5 will wire this into a single `make validate-behaviors` target. For now, run them individually or in a loop.
@@ -120,4 +121,4 @@ Phase 5 will wire this into a single `make validate-behaviors` target. For now, 
 
 - `kg-node-schema.md` — the field shapes validators check
 - `governance-tiers.md` — the broader Tier-A/B/C model and when to use which
-- Real examples: `scripts/validators/every_skill_must_have_script.py`, `every_behavior_declares_tier.py`, `every_non_soft_behavior_has_validator.py`, `kg_node_ids_are_unique.py`
+- Real examples: `src/agentloom/validators/every_skill_must_have_script.py`, `every_behavior_declares_tier.py`, `every_non_soft_behavior_has_validator.py`, `kg_node_ids_are_unique.py`
