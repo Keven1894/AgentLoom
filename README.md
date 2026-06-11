@@ -33,14 +33,14 @@ cd AgentLoom
 python -m venv .venv
 
 # Windows
-.venv\Scripts\pip install -r requirements.txt
-.venv\Scripts\python scripts/validators/run_all.py
-.venv\Scripts\python -m uvicorn server.dashboard.app:app --port 8000 --host 127.0.0.1
+.venv\Scripts\pip install -e .[dev]
+.venv\Scripts\python -m agentloom.validators.run_all
+.venv\Scripts\python -m uvicorn agentloom.dashboard.app:app --port 8000 --host 127.0.0.1
 
 # macOS/Linux
-# source .venv/bin/activate && pip install -r requirements.txt
-# python scripts/validators/run_all.py
-# python -m uvicorn server.dashboard.app:app --port 8000 --host 127.0.0.1
+# source .venv/bin/activate && pip install -e .[dev]
+# python -m agentloom.validators.run_all
+# python -m uvicorn agentloom.dashboard.app:app --port 8000 --host 127.0.0.1
 ```
 
 Open **http://127.0.0.1:8000** → Proposals / Graph / Timeline tabs.
@@ -55,11 +55,28 @@ make install && make validate-all && make dashboard
 
 ---
 
+## How to use this repo
+
+Two consumption modes:
+
+1. **As a scaffold (primary).** Clone it as the starting point for your own
+   governed agent. The builder graphs ship populated (governance rules,
+   validators, skills); the **domain graphs ship empty** — you fill them with
+   your project's knowledge through the propose-review workflow below.
+2. **As a tool.** `pip install -e .` gives you the governance CLI anywhere:
+   `agentloom-validate` (Tier-A behavior validators), `agentloom-kg-validate`
+   (KG schema + integrity), and `agentloom-sync-clinerules` (host-rule sync).
+
+For a worked, forkable instance built this way, see the
+[UCGIS 2026 workshop repo](https://github.com/Keven1894/ucgis-agentloom-2026-workshop).
+
+---
+
 ## Core workflow
 
-1. **Agent proposes** a KG node → `scripts/kg/propose_node.py` (or your host agent via `.clinerules/`)
+1. **Agent proposes** a KG node → `python -m agentloom.kg.propose_node` (or your host agent via `.clinerules/`)
 2. **Human reviews** on dashboard `:8000` → Proposals tab
-3. **Human accepts** → `scripts/kg/accept_proposal.py` (CLI only — governance gate)
+3. **Human accepts** → `python -m agentloom.kg.accept_proposal` (CLI only — governance gate)
 4. **Validators enforce** → `make validate-all` (8 Tier-A rules + KG integrity)
 
 Architecture details: [`docs/builder/architecture/agentloom-architecture.md`](docs/builder/architecture/agentloom-architecture.md)  
@@ -72,7 +89,7 @@ Propose-review protocol: [`docs/builder/protocols/propose-review-protocol.md`](d
 Regenerate host rules from the canonical builder prompt in the KG:
 
 ```bash
-python scripts/sync_clinerules.py --check   # expect: in sync
+python -m agentloom.sync_clinerules --check   # expect: in sync
 ```
 
 See `.clinerules/` for the Cline adaptation layer. **MCP server integration** (read-only KG tools for Cline)
@@ -101,9 +118,23 @@ See [`examples/README.md`](examples/README.md).
 
 ## Ecosystem
 
-- **[co-agenticOS](https://github.com/Keven1894/co-agenticOS)** — governance runtime layer
-- **9-phase protocol** — [`agentloom-framework/agentLoom-v3/`](agentloom-framework/agentLoom-v3/) (setup manuals)
-- **Research roadmap** — [`docs/START_HERE.md`](docs/START_HERE.md)
+Four repos, four roles — split by *what they are* and by *agent lifecycle phase*:
+
+| Repo | Role | Lifecycle phase |
+|------|------|-----------------|
+| [**co-agenticOS**](https://github.com/Keven1894/co-agenticOS) | Governance **spec** — rules, coordination, memory boundaries, verification | sets the rules |
+| **AgentLoom** (this repo) | Build **framework** — KG governance, validators, propose-review-accept | **authoring time** (build & govern the agent) |
+| **AgentLoom Runtime** | Runtime **library** — layered memory, graph-first retrieval, file→DB sync | **run time** (the deployed agent remembers & retrieves) |
+| [**ucgis-agentloom-2026-workshop**](https://github.com/Keven1894/ucgis-agentloom-2026-workshop) | A concrete **instance** — a worked, forkable example | a use of all of the above |
+
+> co-agenticOS sets the rules → AgentLoom is the framework you build and govern
+> an agent with (authoring time) → AgentLoom Runtime is the library the deployed
+> agent uses to remember and retrieve (run time) → the workshop repo is one
+> concrete instance that puts all of them to work.
+
+Historical protocol manuals (v1–v3 design docs) live in
+[`archive/protocol/`](archive/protocol/). New readers start at
+[`docs/guides/START_HERE.md`](docs/guides/START_HERE.md).
 
 ---
 
@@ -117,7 +148,7 @@ AgentLoom pairs two complementary loops:
 The v3 executable stack implements the **governance helix** as enforceable Tier-A validators and a
 human-in-the-loop propose-review protocol — not just prompt text.
 
-Full narrative: [`docs/dual-helix-clarification.md`](docs/dual-helix-clarification.md)
+Full narrative: [co-agenticOS](https://github.com/Keven1894/co-agenticOS) (governance spec) and the design docs under [`archive/protocol/agentLoom-v3/`](archive/protocol/agentLoom-v3/).
 
 ---
 
