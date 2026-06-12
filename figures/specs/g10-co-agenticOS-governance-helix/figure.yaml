@@ -1,0 +1,32 @@
+title: co-agenticOS Governance Helix
+figure_type: workflow_diagram
+audience: co-agenticOS readers, governance strand learners
+purpose: >
+  The governance helix loop from co-agenticOS spec - Rules through Adaptation
+  producing bounded autonomy for multi-agent coordination.
+template: workflow.prompt.md
+style:
+  - "2048x1152 landscape circular or horizontal loop diagram."
+  - "Teal governance accent on white background."
+layout:
+  - "Title co-agenticOS Governance Helix."
+  - "Five nodes in loop - Rules Engine, Coordination, Memory Boundaries, Verification, Adaptation."
+  - "Center label Bounded Autonomy."
+  - "Output arrow to Reliable Multi-Agent Workflows."
+  - "Subtitle Sets the rules for AgentLoom and runtime instances."
+required_labels:
+  - co-agenticOS Governance Helix
+  - Rules Engine
+  - Coordination
+  - Memory Boundaries
+  - Verification
+  - Adaptation
+  - Bounded Autonomy
+forbidden_text:
+  - Envita
+  - FIU official product
+output:
+  model: gpt-image-2
+  size: 2048x1152
+  quality: medium
+  format: png

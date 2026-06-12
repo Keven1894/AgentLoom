@@ -1,0 +1,39 @@
+title: AgentLoom KG Mutation Lifecycle
+figure_type: workflow_diagram
+audience: agent builders, reviewers, workshop
+purpose: >
+  How knowledge graphs evolve safely - propose, validate, human accept, commit.
+  Dual-validator gate schema plus integrity both must PASS. Domain-neutral.
+template: workflow.prompt.md
+style:
+  - "2048x1152 landscape pipeline left to right."
+  - "Green PASS amber FAIL loop; gate is centerpiece."
+layout:
+  - "Title KG Mutation Lifecycle."
+  - "Step Agent proposes new KG node."
+  - "Step Human reviews on dashboard."
+  - "Step Dual-Validator Gate - Schema Validator structure AND Integrity Validator taxonomy - Both must PASS."
+  - "Step Human accepts via CLI only."
+  - "Step Commit to canonical KG."
+  - "FAIL arrow loops back to fix and re-run."
+  - "Callout Schemas validate STRUCTURE not TAXONOMY."
+required_labels:
+  - KG Mutation Lifecycle
+  - Agent proposes
+  - Dual-Validator Gate
+  - Schema Validator
+  - Integrity Validator
+  - Both must PASS
+  - Human accepts
+  - CLI only
+  - Commit
+  - STRUCTURE not TAXONOMY
+forbidden_text:
+  - Envita
+  - EnviStor
+  - auto-accept
+output:
+  model: gpt-image-2
+  size: 2048x1152
+  quality: medium
+  format: png

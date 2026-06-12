@@ -1,0 +1,40 @@
+title: AgentLoom v3 Executable Architecture
+figure_type: architecture_diagram
+audience: developers cloning AgentLoom, workshop attendees
+purpose: >
+  Show v3 runnable stack - KG JSON data, agentloom Python package (validators,
+  kg module, dashboard, CLI), human reviewer, and Tier-A enforcement.
+template: architecture.prompt.md
+style:
+  - "2048x1152 landscape enterprise architecture diagram."
+  - "White background, teal #0f766e and indigo #4f46e5 accents."
+  - "Left data column, center services, right human gate."
+layout:
+  - "Title AgentLoom v3 Architecture."
+  - "Left column Data - agents/knowledge-graphs/ with builder graphs populated and domain graphs empty roots."
+  - "Center column Framework src/agentloom/ - KG validate, propose_node, accept_proposal, validators run_all, dashboard app port 8000."
+  - "Right column Human Reviewer at Dashboard Proposals tab and CLI accept only governance gate."
+  - "Bottom enforcement band Tier-A Validators - 8 executable rules plus schema integrity."
+  - "Arrows - agent proposes to dashboard; human accepts via CLI; validators enforce on commit."
+required_labels:
+  - AgentLoom v3 Architecture
+  - agents/knowledge-graphs/
+  - src/agentloom/
+  - propose-review-accept
+  - Dashboard
+  - Tier-A Validators
+  - Human Reviewer
+  - domain graphs empty
+constraints:
+  - Do not show Envita, MCP v4, or workshop flat scripts layout.
+  - Human accept must be CLI-only callout in amber #b45309.
+forbidden_text:
+  - Envita
+  - EnviStor
+  - MCP server
+  - API key
+output:
+  model: gpt-image-2
+  size: 2048x1152
+  quality: medium
+  format: png

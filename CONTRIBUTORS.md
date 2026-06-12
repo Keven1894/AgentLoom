@@ -152,8 +152,9 @@ We're seeking case studies in:
 
 **Current Specifications:**
 
-- figures/dual-helix-diagram-spec.md
-- figures/memory-hierarchy-analogy-diagram.md
+- [figures/specs/README.md](figures/specs/README.md) — figure catalog and regeneration guide
+- [figures/specs/g02-dual-helix-simplified/](figures/specs/g02-dual-helix-simplified/) — dual-helix diagram spec
+- [figures/specs/g06-memory-hierarchy/](figures/specs/g06-memory-hierarchy/) — memory hierarchy analogy spec
 
 **Seeking:**
 

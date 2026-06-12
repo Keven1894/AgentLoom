@@ -1,0 +1,37 @@
+title: Agentic AI Memory Hierarchy Analogy
+figure_type: paper_figure
+audience: framework paper readers, collaborators
+purpose: >
+  Map Agentic-AI memory stages 0-4 to familiar computer memory hierarchy
+  (register, L1 cache, RAM, disk) to explain why layered memory matters.
+template: architecture.prompt.md
+style:
+  - "2048x1152 landscape academic comparison figure."
+  - "Two columns - Computer Memory vs Agentic-AI Memory."
+  - "White background, clean table-like alignment."
+layout:
+  - "Title Memory Hierarchy Analogy for Agentic AI."
+  - "Left column header Computer Memory - rows CPU Register, L1 Cache, RAM, Disk."
+  - "Right column header Agentic-AI Memory - rows Stage 0 Context Window, Stage 1 Rules and Prompts, Stage 2 RAG and Index, Stage 3 Fine-tuning, Stage 4 Operational DB."
+  - "Horizontal arrows connecting analogous rows."
+  - "Footer note - Different layers, different durability and governance."
+required_labels:
+  - Memory Hierarchy Analogy
+  - Context Window
+  - Rules and Prompts
+  - RAG and Index
+  - RAM
+  - Operational DB
+  - Stage 0
+  - Stage 4
+constraints:
+  - Side-by-side rows must align horizontally.
+  - No vendor logos.
+forbidden_text:
+  - Envita
+  - OpenAI logo
+output:
+  model: gpt-image-2
+  size: 2048x1152
+  quality: medium
+  format: png

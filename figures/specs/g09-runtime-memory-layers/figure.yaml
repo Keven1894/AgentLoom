@@ -1,0 +1,36 @@
+title: AgentLoom Runtime Three-Layer Memory
+figure_type: architecture_diagram
+audience: agentloom-runtime users and contributors
+purpose: >
+  Domain-neutral runtime memory - canonical KG files, operational store,
+  vector embeddings for graph-first retrieval. No institutional table names.
+template: architecture.prompt.md
+style:
+  - "2048x1152 landscape layered architecture."
+  - "Three horizontal bands stacked; teal accents."
+layout:
+  - "Title Runtime Memory Layers."
+  - "Top layer Canonical KG - JSON graph files Git-versioned schema validated."
+  - "Middle layer Operational Store - SQLite or Postgres live agent state messages tasks."
+  - "Bottom layer Vector Index - embeddings per node semantic search graph-RAG."
+  - "Right panel Query router - stable facts to KG plus vectors, live state to operational store."
+  - "Governance band spans all layers - validators and human review."
+required_labels:
+  - Runtime Memory Layers
+  - Canonical KG
+  - Operational Store
+  - Vector Index
+  - graph-RAG
+  - Governance
+constraints:
+  - No MySQL envita_prod, no Envita names, no internal hostnames.
+forbidden_text:
+  - Envita
+  - EnviStor
+  - envita_prod
+  - MySQL envita
+output:
+  model: gpt-image-2
+  size: 2048x1152
+  quality: medium
+  format: png

@@ -1,0 +1,36 @@
+title: AgentLoom Propose-Review-Accept Governance Flow
+figure_type: workflow_diagram
+audience: reviewers, workshop, README readers
+purpose: >
+  Publication-quality governance flow - agent proposes KG node, human reviews
+  on dashboard, human accepts via CLI only, validators enforce Tier-A rules.
+template: workflow.prompt.md
+style:
+  - "2048x1152 landscape horizontal pipeline."
+  - "White background; human accept step amber #b45309 border as governance gate."
+layout:
+  - "Title Core Governance Workflow."
+  - "Four boxes left to right - Agent proposes KG node proposal."
+  - "Human reviews dashboard port 8000."
+  - "Human accepts CLI only gate."
+  - "Validators enforce 8 Tier-A rules."
+  - "Arrows between all four steps."
+required_labels:
+  - Core Governance Workflow
+  - Agent proposes
+  - Human reviews
+  - Human accepts
+  - CLI only
+  - Validators enforce
+  - Tier-A
+constraints:
+  - Human accepts step must be visually emphasized as the gate.
+  - Match reference SVG semantics.
+forbidden_text:
+  - Envita
+  - auto-accept
+output:
+  model: gpt-image-2
+  size: 2048x1152
+  quality: medium
+  format: png

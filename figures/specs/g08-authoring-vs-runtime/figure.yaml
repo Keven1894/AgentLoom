@@ -1,0 +1,32 @@
+title: AgentLoom Authoring Time vs Run Time
+figure_type: workflow_diagram
+audience: runtime adopters, ecosystem README readers
+purpose: >
+  Timeline showing AgentLoom for building and governing an agent at authoring
+  time versus agentloom-runtime for deployed agent memory and retrieval at run time.
+template: workflow.prompt.md
+style:
+  - "2048x1152 landscape timeline diagram."
+  - "Two phases left to right separated by vertical dashed line DEPLOY."
+layout:
+  - "Title Authoring Time vs Run Time."
+  - "Phase 1 AUTHORING TIME - AgentLoom repo - KG governance, validators, propose-review, dashboard, build your agent."
+  - "Vertical line labeled DEPLOY."
+  - "Phase 2 RUN TIME - agentloom-runtime - layered memory, graph-first retrieval, file to DB sync, agent remembers and retrieves."
+  - "Footer - co-agenticOS sets rules for both phases."
+required_labels:
+  - Authoring Time vs Run Time
+  - AUTHORING TIME
+  - RUN TIME
+  - AgentLoom
+  - agentloom-runtime
+  - DEPLOY
+  - co-agenticOS
+forbidden_text:
+  - Envita
+  - EnviStor
+output:
+  model: gpt-image-2
+  size: 2048x1152
+  quality: medium
+  format: png

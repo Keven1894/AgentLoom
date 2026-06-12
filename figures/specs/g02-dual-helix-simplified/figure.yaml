@@ -1,0 +1,43 @@
+title: AgentLoom Dual-Helix Architecture (Simplified)
+figure_type: paper_figure
+audience: paper reviewers, README readers, workshop attendees
+purpose: >
+  Explain the dual-helix model - Learning helix and Governance helix interlock
+  to produce reliable production agents. OSS explainer, not the full TGIS figure.
+template: architecture.prompt.md
+style:
+  - "2048x1152 landscape academic methods figure."
+  - "White or light gray background, academic minimal."
+  - "Two vertical loops side by side connected by center INTERLOCK band."
+  - "Learning helix accent indigo #4f46e5; Governance helix accent teal #0f766e."
+  - "No 3D DNA render; clean flat diagram."
+layout:
+  - "Title: The Dual-Helix Architecture."
+  - "Left loop labeled Learning Helix with 5 nodes top to bottom - Context, Documentation, Indexing, RAG, Adaptation."
+  - "Right loop labeled Governance Helix with 5 nodes - Rules, Coordination, Memory Boundaries, Verification, Adaptation."
+  - "Center vertical band labeled INTERLOCK with subtitle Verification at each stage."
+  - "Bottom output box labeled Reliable Agents (Production)."
+  - "Small footer note - Engineering strand auto-extends; governance strand human-reviews."
+required_labels:
+  - The Dual-Helix Architecture
+  - Learning Helix
+  - Governance Helix
+  - Context
+  - Rules
+  - Verification
+  - INTERLOCK
+  - Reliable Agents
+constraints:
+  - Maximum 5 nodes per helix; keep readable at slide scale.
+  - Arrows show clockwise flow within each loop.
+  - No FIU logo; no robot clipart.
+forbidden_text:
+  - FIU official product
+  - Envita
+  - EnviStor
+  - API key
+output:
+  model: gpt-image-2
+  size: 2048x1152
+  quality: medium
+  format: png

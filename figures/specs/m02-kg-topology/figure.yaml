@@ -1,0 +1,41 @@
+title: AgentLoom v3 Knowledge Graph Topology
+figure_type: architecture_diagram
+audience: KG authors, workshop attendees
+purpose: >
+  v3 flagship KG layout - builder role graphs populated, domain role empty roots,
+  master registry, three schema types. Domain-neutral counts for public release.
+template: architecture.prompt.md
+style:
+  - "2048x1152 landscape matrix diagram."
+  - "White background, schema color bands green blue purple."
+layout:
+  - "Title AgentLoom KG Topology v3."
+  - "Top master-graph.json registry maps roles to graphs."
+  - "Row role-builder - builder-skills 7, builder-knowledge 10, builder-behaviors 8."
+  - "Row role-domain EMPTY ROOTS - domain-skills, domain-knowledge, domain-behaviors awaiting your project."
+  - "Right edge three schemas - skills-graph.schema.json, knowledge-graph.schema.json, behaviors-graph.schema.json."
+  - "Footer Domain graphs grow via propose-review-accept."
+required_labels:
+  - AgentLoom KG Topology
+  - master-graph.json
+  - role-builder
+  - role-domain
+  - builder-skills-graph.json
+  - builder-knowledge-graph.json
+  - builder-behaviors-graph.json
+  - EMPTY ROOTS
+  - skills-graph.schema.json
+  - knowledge-graph.schema.json
+  - behaviors-graph.schema.json
+constraints:
+  - Use v3 public counts 7 10 8 for builder graphs only.
+  - Domain row must look empty/minimal.
+forbidden_text:
+  - Envita
+  - role-envistor-curator
+  - envita_prod
+output:
+  model: gpt-image-2
+  size: 2048x1152
+  quality: medium
+  format: png

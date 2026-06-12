@@ -1,0 +1,47 @@
+title: AgentLoom Open Graph Social Card
+figure_type: website_showcase
+audience: link preview readers on Slack, email, Twitter, LinkedIn, and GitHub
+purpose: >
+  Social sharing card for https://keven1894.github.io/AgentLoom/ — communicate
+  that AgentLoom is independent research software for agentic AI governance in
+  the research data lifecycle, with a stable DOI for citation.
+template: architecture.prompt.md
+style:
+  - "1200x630 landscape social card (Open Graph standard)."
+  - "Academic minimal: dark slate background #1a1f2e with subtle grid (geospatial nod)."
+  - "Primary accent teal #0f766e for highlight bar or badge."
+  - "Large serif-style title AgentLoom; clean sans subtitle."
+  - "No 3D effects, no AI robot clipart, no stock photos."
+  - "Professional research-software tone, not startup marketing."
+layout:
+  - Left-aligned title block occupying left two-thirds.
+  - Title "AgentLoom" in large white type.
+  - Subtitle line 1 "Governance framework for agentic AI"
+  - Subtitle line 2 "in the research data lifecycle"
+  - Small footer line "Independent research software"
+  - DOI line "10.5281/zenodo.20650518" in muted gray
+  - Optional thin teal vertical accent bar left of subtitle block
+  - Subtle light grid on dark background suggesting data/geospatial context
+required_labels:
+  - AgentLoom
+  - Governance framework for agentic AI
+  - research data lifecycle
+  - Independent research software
+  - 10.5281/zenodo.20650518
+constraints:
+  - Must read clearly when thumbnail is small (Slack unfurl).
+  - All text horizontally readable.
+  - No FIU logo or FIU blue/gold as primary colors.
+  - Match landing page tone at keven1894.github.io/AgentLoom/
+forbidden_text:
+  - FIU official product
+  - Envita
+  - EnviStor
+  - Florida International University
+  - password
+  - API key
+output:
+  model: gpt-image-2
+  size: 1200x640
+  quality: medium
+  format: png

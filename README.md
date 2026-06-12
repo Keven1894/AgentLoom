@@ -20,6 +20,8 @@ photos, GIS, time series, and real-time sensor data; FAIR publication, dashboard
 GIS cataloging, streaming, and MLOps across 14 active projects). Public repos are
 framework-only — no EnviStor/Envita deployment code or production data.
 
+![AgentLoom ecosystem](docs/assets/figures/g07-ecosystem.png)
+
 ---
 
 ## What this repo contains
@@ -171,6 +173,8 @@ Historical protocol manuals (v1–v3 design docs) live in
 ---
 
 ## Dual-helix architecture (why)
+
+![Dual-helix simplified](docs/assets/figures/g02-dual-helix.png)
 
 AgentLoom pairs two complementary loops:
 

@@ -1,0 +1,39 @@
+title: AgentLoom Workshop Quickstart (5 Minutes)
+figure_type: workflow_diagram
+audience: UCGIS 2026 workshop attendees
+purpose: >
+  Standard operating procedure to clone v3.0.0, install, validate, and open
+  the human review dashboard - matches landing page reproduce block.
+template: workflow.prompt.md
+style:
+  - "2048x1152 landscape internal SOP workflow."
+  - "White background, numbered steps left to right."
+  - "Teal accent for success checkpoints."
+layout:
+  - "Title Reproduce AgentLoom in 5 Minutes."
+  - "Step 1 git clone Keven1894/AgentLoom and checkout v3.0.0."
+  - "Step 2 python venv and pip install -e .[dev]."
+  - "Step 3 python -m agentloom.kg.validate_all - expect schema PASS all 6 KG files."
+  - "Step 4 python -m agentloom.validators.run_all - expect PASS all 8 Tier-A validators."
+  - "Step 5 optional uvicorn dashboard port 8000 - open Proposals tab."
+  - "Success banner at bottom - PASS all 8 Tier-A validator(s) succeeded."
+required_labels:
+  - Reproduce AgentLoom in 5 Minutes
+  - v3.0.0
+  - validate_all
+  - run_all
+  - Proposals tab
+  - PASS
+  - Tier-A
+constraints:
+  - Number steps 1 through 5 clearly.
+  - No Windows vs Linux split in figure; keep universal.
+forbidden_text:
+  - Envita
+  - password
+  - API key
+output:
+  model: gpt-image-2
+  size: 2048x1152
+  quality: medium
+  format: png

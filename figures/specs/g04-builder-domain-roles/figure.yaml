@@ -1,0 +1,36 @@
+title: AgentLoom Builder vs Domain Two-Role Model
+figure_type: architecture_diagram
+audience: UCGIS workshop Day 1, new contributors
+purpose: >
+  Same repo hosts two roles - role-builder meta-knowledge populated out of the box;
+  role-domain project knowledge starts empty and grows via propose-review.
+template: architecture.prompt.md
+style:
+  - "2048x1152 landscape side-by-side comparison."
+  - "White background; builder column indigo; domain column teal."
+layout:
+  - "Title Builder Role vs Domain Role."
+  - "Left panel role-builder - builder-skills, builder-knowledge, builder-behaviors graphs SHIPPED POPULATED."
+  - "Right panel role-domain - domain skills knowledge behaviors graphs EMPTY ROOTS - you fill via propose-review."
+  - "Shared footer Governance Protocol - propose, human review dashboard, CLI accept, validators."
+  - "Center arrow from domain panel labeled Your project knowledge accumulates here."
+required_labels:
+  - Builder Role vs Domain Role
+  - role-builder
+  - role-domain
+  - SHIPPED POPULATED
+  - EMPTY ROOTS
+  - propose-review
+  - Governance Protocol
+constraints:
+  - Side-by-side equal width panels.
+  - Domain side must visually look empty/minimal vs rich builder side.
+forbidden_text:
+  - Envita
+  - EnviStor
+  - FIU
+output:
+  model: gpt-image-2
+  size: 2048x1152
+  quality: medium
+  format: png

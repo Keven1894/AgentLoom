@@ -1,0 +1,37 @@
+title: AgentLoom Agent Memory Stack
+figure_type: architecture_diagram
+audience: agent builders, AI researchers, framework adopters
+purpose: >
+  Domain-neutral memory stack for governed agents - four cooperating layers
+  plus a governance band. Not a single store; each layer has distinct role.
+template: architecture.prompt.md
+style:
+  - "2048x1152 landscape enterprise architecture."
+  - "White background, four horizontal bands, teal governance footer."
+layout:
+  - "Title Agent Memory Stack - Four cooperating layers."
+  - "Band 1 Knowledge Graph Layer - JSON graphs schema validators Git-versioned."
+  - "Band 2 Vector Embedding Layer - per-node embeddings semantic search graph-RAG."
+  - "Band 3 Operational Database Layer - live runtime state tasks messages projects."
+  - "Band 4 Plan Memory Layer - plan history JSON provenance trail."
+  - "Bottom Governance band spans all - dual-helix engineering auto-extends governance human-reviews."
+  - "Right panel Who reads what - agents semantic search, dashboard live state, validators KG, reviewers provenance."
+required_labels:
+  - Agent Memory Stack
+  - Knowledge Graph Layer
+  - Vector Embedding Layer
+  - Operational Database Layer
+  - Plan Memory Layer
+  - Governance
+  - graph-RAG
+  - dual-helix
+forbidden_text:
+  - Envita
+  - EnviStor
+  - envita_prod
+  - MySQL envita
+output:
+  model: gpt-image-2
+  size: 2048x1152
+  quality: medium
+  format: png

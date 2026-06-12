@@ -14,11 +14,11 @@
   <meta property="og:title" content="AgentLoom — Governance for Agentic AI in Research Data Lifecycle">
   <meta property="og:description" content="Executable governance framework for builder agents. v3.0.0 · Zenodo DOI · 5-minute reproduce.">
   <meta property="og:url" content="https://keven1894.github.io/AgentLoom/">
-  <meta property="og:image" content="https://keven1894.github.io/AgentLoom/assets/og-image.svg">
+  <meta property="og:image" content="https://keven1894.github.io/AgentLoom/assets/figures/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="AgentLoom — Agentic AI Governance for RDM">
   <meta name="twitter:description" content="Knowledge graphs, propose-review-accept, Tier-A validators. Open-source research software.">
-  <meta name="twitter:image" content="https://keven1894.github.io/AgentLoom/assets/og-image.svg">
+  <meta name="twitter:image" content="https://keven1894.github.io/AgentLoom/assets/figures/og-image.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,6 +33,7 @@
       <a class="nav-link" href="#status">Status</a>
       <a class="nav-link" href="#reproduce">Reproduce</a>
       <a class="nav-link" href="#ecosystem">Ecosystem</a>
+      <a class="nav-link" href="#dual-helix">Dual-helix</a>
       <a class="nav-link" href="#envistor">EnviStor</a>
       <a class="nav-link" href="#citation">Citation</a>
       <a class="nav-link" href="https://github.com/Keven1894/AgentLoom">GitHub</a>
@@ -99,6 +100,10 @@ python -m agentloom.validators.run_all
           <code>PASS — all 8 Tier-A validator(s) succeeded.</code>
         </div>
 
+        <figure class="figure" style="margin-top:1rem;">
+          <img src="/AgentLoom/assets/figures/g05-workshop-quickstart.png" alt="Workshop quickstart workflow: clone, install, validate, open dashboard" width="960" loading="lazy">
+        </figure>
+
         <p class="prose" style="margin-top:1rem;font-size:0.92rem;">
           Optional: start the review dashboard —
           <code>python -m uvicorn agentloom.dashboard.app:app --port 8000 --host 127.0.0.1</code>
@@ -115,7 +120,7 @@ python -m agentloom.validators.run_all
       </div>
 
       <figure class="figure">
-        <img src="/AgentLoom/assets/ecosystem-quadrants.svg" alt="AgentLoom ecosystem: co-agenticOS sets rules, AgentLoom is authoring-time framework, agentloom-runtime is run time, workshop repo is a concrete instance" width="960" height="420" loading="lazy">
+        <img src="/AgentLoom/assets/figures/g07-ecosystem.png" alt="AgentLoom ecosystem: co-agenticOS sets rules, AgentLoom is authoring-time framework, agentloom-runtime is run time, workshop repo is a concrete instance" width="960" loading="lazy">
         <figcaption class="figure-caption">co-agenticOS sets the rules → AgentLoom is the framework you build and govern an agent with → AgentLoom Runtime is the library the deployed agent uses → the workshop repo is one concrete instance.</figcaption>
       </figure>
 
@@ -154,17 +159,47 @@ python -m agentloom.validators.run_all
       </div>
     </section>
 
-    <section id="workflow" class="wrap">
-      <h2>Core workflow</h2>
+    <section id="architecture" class="wrap-wide">
+      <div class="wrap" style="padding-left:0;padding-right:0;">
+        <h2>v3 architecture</h2>
+        <p class="prose">Runnable stack: governed KG data, executable validators, human review dashboard, CLI accept gate.</p>
+      </div>
       <figure class="figure">
-        <img src="/AgentLoom/assets/propose-review-flow.svg" alt="Governance flow: agent proposes, human reviews on dashboard, human accepts via CLI, validators enforce" width="920" height="120" loading="lazy">
+        <img src="/AgentLoom/assets/figures/g03-v3-architecture.png" alt="AgentLoom v3 architecture: knowledge graphs, framework services, human reviewer, Tier-A validators" width="960" loading="lazy">
       </figure>
+    </section>
+
+    <section id="workflow" class="wrap-wide">
+      <div class="wrap" style="padding-left:0;padding-right:0;">
+        <h2>Core workflow</h2>
+      </div>
+      <figure class="figure">
+        <img src="/AgentLoom/assets/figures/g07b-propose-review.png" alt="Governance flow: agent proposes, human reviews on dashboard, human accepts via CLI, validators enforce" width="960" loading="lazy">
+      </figure>
+      <div class="wrap" style="padding-left:0;padding-right:0;">
       <p class="prose" style="font-size:0.92rem;">
         Protocol details:
         <a href="https://github.com/Keven1894/AgentLoom/blob/main/docs/builder/protocols/propose-review-protocol.md">propose-review-protocol.md</a>
         · Architecture:
         <a href="https://github.com/Keven1894/AgentLoom/blob/main/docs/builder/architecture/agentloom-architecture.md">agentloom-architecture.md</a>
       </p>
+      </div>
+    </section>
+
+    <section id="dual-helix" class="wrap-wide">
+      <div class="wrap" style="padding-left:0;padding-right:0;">
+        <h2>Dual-helix architecture</h2>
+        <p class="prose">Learning and governance strands interlock — engineering auto-extends; governance human-reviews.</p>
+      </div>
+      <figure class="figure">
+        <img src="/AgentLoom/assets/figures/g02-dual-helix.png" alt="Dual-helix architecture: Learning helix and Governance helix interlock to produce reliable agents" width="960" loading="lazy">
+      </figure>
+      <div class="wrap" style="padding-left:0;padding-right:0;">
+        <p class="prose" style="font-size:0.92rem;">Full narrative:
+          <a href="https://github.com/Keven1894/co-agenticOS">co-agenticOS</a> (governance spec).
+          More figures: <a href="https://github.com/Keven1894/AgentLoom/tree/main/figures/specs">figures/specs</a>.
+        </p>
+      </div>
     </section>
 
     <section id="envistor" class="wrap prose">

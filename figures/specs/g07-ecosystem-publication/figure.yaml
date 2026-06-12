@@ -1,0 +1,38 @@
+title: AgentLoom Four-Quadrant Ecosystem
+figure_type: architecture_diagram
+audience: all OSS repos, paper software availability section
+purpose: >
+  Publication-quality four-repo ecosystem map with lifecycle phases -
+  co-agenticOS, AgentLoom, agentloom-runtime, workshop instance.
+template: architecture.prompt.md
+style:
+  - "2048x1152 landscape architecture diagram."
+  - "Academic minimal white background, teal indigo amber gray box accents."
+  - "Publication polish upgrade of hand SVG ecosystem map."
+layout:
+  - "Title AgentLoom Ecosystem - Four Repos, Four Roles."
+  - "Box co-agenticOS - Governance spec sets the rules."
+  - "Box AgentLoom - Build framework AUTHORING TIME."
+  - "Box agentloom-runtime - Runtime library RUN TIME."
+  - "Dashed box ucgis-agentloom-2026-workshop - Concrete instance fork and learn."
+  - "Arrows co-agenticOS to AgentLoom to runtime; all feed workshop instance below."
+  - "Caption co-agenticOS sets rules, AgentLoom builds agent, Runtime remembers, Workshop is one worked example."
+required_labels:
+  - AgentLoom Ecosystem
+  - co-agenticOS
+  - AgentLoom
+  - agentloom-runtime
+  - AUTHORING TIME
+  - RUN TIME
+  - ucgis-agentloom-2026-workshop
+constraints:
+  - Match semantic content of reference SVG; improve visual polish only.
+  - Lifecycle labels must be visible.
+forbidden_text:
+  - Envita
+  - FIU official product
+output:
+  model: gpt-image-2
+  size: 2048x1152
+  quality: medium
+  format: png

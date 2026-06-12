@@ -1,0 +1,36 @@
+title: AgentLoom Memory Retrieval Routing
+figure_type: workflow_diagram
+audience: agent builders and skill authors
+purpose: >
+  Domain-neutral routing - which memory layer answers which question class.
+  Not search everywhere; graph-first for stable knowledge, DB for live state.
+template: workflow.prompt.md
+style:
+  - "2048x1152 landscape decision flow."
+  - "Three color branches blue amber gray."
+layout:
+  - "Start Agent has a query."
+  - "Decision What kind of question?"
+  - "Branch 1 Stable knowledge architecture SOPs KG - graph search - vector embeddings - KG nodes - Curated answer."
+  - "Branch 2 Current operational state tasks messages - Dashboard API - Operational DB - Live snapshot."
+  - "Branch 3 Decision provenance past plans - Plan memory JSON - Reasoning trail."
+  - "Example queries panel on right for each branch."
+  - "Footer Anti-pattern do not search everywhere."
+required_labels:
+  - Agent has a query
+  - Stable knowledge
+  - Operational DB
+  - Plan memory
+  - graph-RAG
+  - Dashboard API
+  - Anti-pattern
+forbidden_text:
+  - Envita
+  - envita_prod
+  - wencong-assistant
+  - MySQL envita
+output:
+  model: gpt-image-2
+  size: 2048x1152
+  quality: medium
+  format: png
