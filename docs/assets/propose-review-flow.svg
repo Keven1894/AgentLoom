@@ -6,22 +6,21 @@
       <path d="M0,0 L7,3 L0,6 Z" fill="#5c6370"/>
     </marker>
     <style>
-      .node { fill: #fff; stroke-width: 2; rx: 8; }
-      .label { font-family: Inter, system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: #1a1f2e; }
-      .sub { font-family: Inter, system-ui, sans-serif; font-size: 11px; fill: #5c6370; }
+      .label { font-family: system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: #1a1f2e; }
+      .sub { font-family: system-ui, sans-serif; font-size: 11px; fill: #5c6370; }
       .arrow { stroke: #5c6370; stroke-width: 1.5; fill: none; marker-end: url(#flowArrow); }
     </style>
   </defs>
-  <rect class="node" x="10" y="30" width="180" height="60" stroke="#4f46e5"/>
+  <rect x="10" y="30" width="180" height="60" rx="8" fill="#fff" stroke="#4f46e5" stroke-width="2"/>
   <text class="label" x="100" y="55" text-anchor="middle">Agent proposes</text>
   <text class="sub" x="100" y="72" text-anchor="middle">KG node proposal</text>
-  <rect class="node" x="240" y="30" width="180" height="60" stroke="#5c6370"/>
+  <rect x="240" y="30" width="180" height="60" rx="8" fill="#fff" stroke="#5c6370" stroke-width="2"/>
   <text class="label" x="330" y="55" text-anchor="middle">Human reviews</text>
   <text class="sub" x="330" y="72" text-anchor="middle">dashboard :8000</text>
-  <rect class="node" x="470" y="30" width="180" height="60" stroke="#b45309"/>
+  <rect x="470" y="30" width="180" height="60" rx="8" fill="#fff" stroke="#b45309" stroke-width="2"/>
   <text class="label" x="560" y="55" text-anchor="middle">Human accepts</text>
-  <text class="sub" x="560" y="72" text-anchor="middle">CLI only  gate</text>
-  <rect class="node" x="700" y="30" width="180" height="60" stroke="#0f766e"/>
+  <text class="sub" x="560" y="72" text-anchor="middle">CLI only - gate</text>
+  <rect x="700" y="30" width="180" height="60" rx="8" fill="#fff" stroke="#0f766e" stroke-width="2"/>
   <text class="label" x="790" y="55" text-anchor="middle">Validators enforce</text>
   <text class="sub" x="790" y="72" text-anchor="middle">8 Tier-A rules</text>
   <path class="arrow" d="M190 60 H240"/>
