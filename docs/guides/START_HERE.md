@@ -32,7 +32,7 @@ This guide gets you oriented in 10 minutes and productive within hours.
 
 1. **[Main README](../README.md)** (10 min) — Dual-helix architecture overview
 2. **[Framework Foundations](framework-foundations.md)** (45 min) — Theoretical underpinnings
-3. **[Dual-Helix Clarification](dual-helix-clarification.md)** (20 min) — Learning + Governance
+3. **[Dual-Helix Clarification](../dual-helix-clarification.md)** (20 min) — Learning + Governance
 4. **[Research Problems & Positioning](research-problems-and-positioning.md)** (30 min) — Academic context
 5. **[DIVA Case Study](case-studies/dataverse-diva.md)** (15 min) — Production validation
 
@@ -162,7 +162,7 @@ Knowledge Growth                        Bounded Autonomy
 ### For Understanding (Researchers)
 
 1. **[Framework Foundations](framework-foundations.md)** — Theoretical underpinnings
-2. **[Dual-Helix Clarification](dual-helix-clarification.md)** — Engineering + Governance
+2. **[Dual-Helix Clarification](../dual-helix-clarification.md)** — Engineering + Governance
 3. **[Research Problems & Positioning](research-problems-and-positioning.md)** — Academic landscape
 
 ### For Contributing (Practitioners)

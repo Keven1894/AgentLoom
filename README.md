@@ -182,7 +182,10 @@ AgentLoom pairs two complementary loops:
 The v3 executable stack implements the **governance helix** as enforceable Tier-A validators and a
 human-in-the-loop propose-review protocol — not just prompt text.
 
-Full narrative: [co-agenticOS](https://github.com/Keven1894/co-agenticOS) (governance spec) and the design docs under [`archive/protocol/agentLoom-v3/`](archive/protocol/agentLoom-v3/).
+Full narrative: [dual-helix-clarification.md](docs/dual-helix-clarification.md) ·
+[Diagram spec](research/figures/dual-helix-diagram-spec.md) ·
+[Memory hierarchy analogy](research/figures/memory-hierarchy-analogy-diagram.md) ·
+[co-agenticOS](https://github.com/Keven1894/co-agenticOS) (governance spec)
 
 ---
 

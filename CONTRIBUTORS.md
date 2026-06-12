@@ -150,9 +150,9 @@ We're seeking case studies in:
 
 **Current Specifications:**
 
-- [figures/specs/README.md](figures/specs/README.md) — figure catalog and regeneration guide
-- [figures/specs/g02-dual-helix-simplified/](figures/specs/g02-dual-helix-simplified/) — dual-helix diagram spec
-- [figures/specs/g06-memory-hierarchy/](figures/specs/g06-memory-hierarchy/) — memory hierarchy analogy spec
+- [figures/specs/README.md](figures/specs/README.md) — figgen catalog (PNG regeneration)
+- [research/figures/dual-helix-diagram-spec.md](research/figures/dual-helix-diagram-spec.md) — Learning + Governance diagram spec
+- [research/figures/memory-hierarchy-analogy-diagram.md](research/figures/memory-hierarchy-analogy-diagram.md) — Stage 0–4 memory analogy
 
 **Seeking:**
 

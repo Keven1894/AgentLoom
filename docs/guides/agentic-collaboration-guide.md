@@ -2910,7 +2910,7 @@ Include in your case study:
 **Framework Documents:**
 1. [Framework Foundations](framework-foundations.md) — Theoretical basis
 2. [Research Problems & Positioning](research-problems-and-positioning.md) — Academic context
-3. [Dual-Helix Clarification](dual-helix-clarification.md) — Engineering + Governance
+3. [Dual-Helix Clarification](../dual-helix-clarification.md) — Engineering + Governance
 4. [DIVA Case Study](case-studies/dataverse-diva.md) — Production validation
 
 **Contribution Guides:**

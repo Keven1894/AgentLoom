@@ -35,4 +35,10 @@ bash examples/agentloom/copy-to-agentloom.sh
 
 Legacy hand SVGs remain in `docs/assets/` for lightweight Pages embed.
 
-See also `Agentic-AI-Research-Roadmap/research/figures/` for dual-helix and memory-hierarchy research specs.
+**Research narrative specs (Context → RAG → Fine-Tune path):**
+
+| Doc | Path |
+|-----|------|
+| Dual-helix clarification | `docs/dual-helix-clarification.md` |
+| Dual-helix diagram spec | `research/figures/dual-helix-diagram-spec.md` |
+| Memory hierarchy analogy | `research/figures/memory-hierarchy-analogy-diagram.md` |
