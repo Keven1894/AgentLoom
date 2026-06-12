@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AgentLoom — Agentic AI Governance for Research Data Lifecycle</title>
+  <meta name="description" content="AgentLoom v3: executable governance framework for builder agents — knowledge graphs, propose-review-accept, Tier-A validators. Research data management, FAIR, reproducible open-source software.">
+  <meta name="author" content="Boyuan (Keven) Guan">
+  <link rel="canonical" href="https://keven1894.github.io/AgentLoom/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AgentLoom — Governance for Agentic AI in Research Data Lifecycle">
+  <meta property="og:description" content="Executable governance framework for builder agents. v3.0.0 · Zenodo DOI · 5-minute reproduce.">
+  <meta property="og:url" content="https://keven1894.github.io/AgentLoom/">
+  <meta property="og:image" content="https://keven1894.github.io/AgentLoom/assets/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AgentLoom — Agentic AI Governance for RDM">
+  <meta name="twitter:description" content="Knowledge graphs, propose-review-accept, Tier-A validators. Open-source research software.">
+  <meta name="twitter:image" content="https://keven1894.github.io/AgentLoom/assets/og-image.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Source+Sans+3:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Primary">
+    <div class="inner">
+      <a class="brand" href="#">AgentLoom</a>
+      <a class="nav-link" href="#status">Status</a>
+      <a class="nav-link" href="#reproduce">Reproduce</a>
+      <a class="nav-link" href="#ecosystem">Ecosystem</a>
+      <a class="nav-link" href="#envistor">EnviStor</a>
+      <a class="nav-link" href="#citation">Citation</a>
+      <a class="nav-link" href="https://github.com/Keven1894/AgentLoom">GitHub</a>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero wrap">
+      <h1>Executable governance for agentic AI in research data lifecycle management</h1>
+      <p class="tagline">Knowledge graphs, propose→review→accept protocol, eight Tier-A validators, and a human review dashboard — not prompt text alone.</p>
+
+      <div class="badges">
+        <a class="badge" href="https://doi.org/10.5281/zenodo.20650518">DOI 10.5281/zenodo.20650518</a>
+        <span class="badge">v3.0.0</span>
+        <span class="badge">MIT (code)</span>
+        <span class="badge">CC BY-NC 4.0 (docs)</span>
+      </div>
+
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://github.com/Keven1894/AgentLoom">GitHub repository</a>
+        <a class="btn btn-secondary" href="https://doi.org/10.5281/zenodo.20650518">Zenodo archive</a>
+        <a class="btn btn-ghost" href="#reproduce">Reproduce in 5 min ↓</a>
+      </div>
+    </header>
+
+    <div class="wrap">
+      <aside id="status" class="callout" aria-labelledby="status-heading">
+        <p id="status-heading"><strong>Project status.</strong> AgentLoom is <strong>independently maintained open-source research software</strong> by Boyuan (Keven) Guan (<a href="https://github.com/Keven1894">@Keven1894</a>).</p>
+        <p><strong>Affiliation:</strong> Florida International University, Library &amp; GIS Center (author affiliation for attribution only).</p>
+        <p><strong>Not an FIU official product.</strong> This site and the public repositories are not endorsed, owned, or operated by Florida International University.</p>
+        <p><strong>License:</strong> MIT (code) · CC BY-NC 4.0 (documentation and KG content).</p>
+      </aside>
+
+      <section id="provenance" class="prose">
+        <h2>Production context</h2>
+        <p>Developed and battle-tested through production <strong>research data lifecycle management</strong> at an academic library: 10+ governed agents, 100+ TB under management, data types spanning historical aerial photos, GIS layers, time series, and real-time sensor streams; pipelines covering FAIR publication, data dashboards, GIS cataloging, real-time streaming, and MLOps across 14 active projects.</p>
+        <p>Patterns were generalized from EnviStor practice. Public repositories are <strong>framework-only</strong> — no production data, no Envita deployment code.</p>
+      </section>
+
+      <section id="reproduce">
+        <h2>Reproduce in 5 minutes</h2>
+        <p class="prose">Pin release <strong>v3.0.0</strong> for paper reproducibility. Requires Python 3.11+.</p>
+
+        <div class="code-block">
+          <button class="copy-btn" type="button" data-copy="reproduce-cmd">Copy</button>
+          <pre id="reproduce-cmd">git clone https://github.com/Keven1894/AgentLoom.git
+cd AgentLoom &amp;&amp; git checkout v3.0.0
+python -m venv .venv
+
+# macOS / Linux
+source .venv/bin/activate
+pip install -e .[dev]
+python -m agentloom.kg.validate_all
+python -m agentloom.validators.run_all
+
+# Windows (PowerShell)
+# .venv\Scripts\pip install -e .[dev]
+# .venv\Scripts\python -m agentloom.kg.validate_all
+# .venv\Scripts\python -m agentloom.validators.run_all</pre>
+        </div>
+
+        <div class="expected">
+          <strong>Expected output:</strong> all schema checks <strong>PASS</strong> for 6 KG files;
+          <code>PASS — all 8 Tier-A validator(s) succeeded.</code>
+        </div>
+
+        <p class="prose" style="margin-top:1rem;font-size:0.92rem;">
+          Optional: start the review dashboard —
+          <code>python -m uvicorn agentloom.dashboard.app:app --port 8000 --host 127.0.0.1</code>
+          → open <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a>.
+          Full guide: <a href="https://github.com/Keven1894/AgentLoom/blob/main/docs/guides/START_HERE.md">docs/guides/START_HERE.md</a>.
+        </p>
+      </section>
+    </div>
+
+    <section id="ecosystem" class="wrap-wide">
+      <div class="wrap" style="padding-left:0;padding-right:0;">
+        <h2>Ecosystem</h2>
+        <p class="prose">Four repositories, four roles — split by what they are and by agent lifecycle phase.</p>
+      </div>
+
+      <figure class="figure">
+        <img src="assets/ecosystem-quadrants.svg" alt="AgentLoom ecosystem: co-agenticOS sets rules, AgentLoom is authoring-time framework, agentloom-runtime is run time, workshop repo is a concrete instance" width="960" height="420">
+        <figcaption class="figure-caption">co-agenticOS sets the rules → AgentLoom is the framework you build and govern an agent with → AgentLoom Runtime is the library the deployed agent uses → the workshop repo is one concrete instance.</figcaption>
+      </figure>
+
+      <div class="wrap" style="padding-left:0;padding-right:0;">
+        <table>
+          <thead>
+            <tr>
+              <th>Repository</th>
+              <th>Role</th>
+              <th>Lifecycle phase</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="https://github.com/Keven1894/co-agenticOS">co-agenticOS</a></td>
+              <td>Governance spec — rules, coordination, memory boundaries</td>
+              <td>sets the rules</td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/Keven1894/AgentLoom">AgentLoom</a></td>
+              <td>Build framework — KG governance, validators, propose-review-accept</td>
+              <td><strong>authoring time</strong></td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/Keven1894/agentloom-runtime">agentloom-runtime</a></td>
+              <td>Runtime library — layered memory, graph-first retrieval</td>
+              <td><strong>run time</strong></td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/Keven1894/ucgis-agentloom-2026-workshop">ucgis-agentloom-2026-workshop</a></td>
+              <td>Concrete instance — worked, forkable example</td>
+              <td>a use of all of the above</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="workflow" class="wrap">
+      <h2>Core workflow</h2>
+      <figure class="figure">
+        <img src="assets/propose-review-flow.svg" alt="Governance flow: agent proposes, human reviews on dashboard, human accepts via CLI, validators enforce" width="920" height="120">
+      </figure>
+      <p class="prose" style="font-size:0.92rem;">
+        Protocol details:
+        <a href="https://github.com/Keven1894/AgentLoom/blob/main/docs/builder/protocols/propose-review-protocol.md">propose-review-protocol.md</a>
+        · Architecture:
+        <a href="https://github.com/Keven1894/AgentLoom/blob/main/docs/builder/architecture/agentloom-architecture.md">agentloom-architecture.md</a>
+      </p>
+    </section>
+
+    <section id="envistor" class="wrap prose">
+      <h2>Relationship to EnviStor</h2>
+      <p>AgentLoom is a <strong>domain-neutral governance framework</strong>. EnviStor and Envita are institutional instances that apply these patterns in production research data management — they are not shipped in the public AgentLoom repository.</p>
+      <p>The agent governance layer in EnviStor-related work follows the AgentLoom framework. Framework source is public and domain-neutral; EnviStor/Envita deployment artifacts and production data are not included.</p>
+      <p>For an institutional case study (DIVA / Dataverse), see the
+        <a href="https://github.com/Keven1894/AgentLoom/blob/main/docs/case-studies/dataverse-diva.md">Dataverse DIVA case study</a> in the repository docs.</p>
+    </section>
+
+    <section id="citation" class="wrap">
+      <h2>Research &amp; citation</h2>
+
+      <h3>Software availability (papers)</h3>
+      <div class="code-block">
+        <button class="copy-btn" type="button" data-copy="availability-text">Copy</button>
+        <pre id="availability-text">AgentLoom v3.0.0 is archived at https://doi.org/10.5281/zenodo.20650518.
+Reproduction steps and ecosystem overview: https://keven1894.github.io/AgentLoom/</pre>
+      </div>
+
+      <h3>BibTeX</h3>
+      <div class="code-block">
+        <button class="copy-btn" type="button" data-copy="bibtex">Copy</button>
+        <pre id="bibtex">@software{guan2026agentloom,
+  author       = {Guan, Boyuan (Keven) and Juh{\'a}sz, Levente and Cui, Wencong},
+  title        = {AgentLoom: Executable Governance Framework for Builder Agents},
+  year         = {2026},
+  version      = {3.0.0},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.20650518},
+  url          = {https://github.com/Keven1894/AgentLoom}
+}</pre>
+      </div>
+
+      <p class="prose" style="font-size:0.92rem;">
+        Version-pinned cite: <a href="https://doi.org/10.5281/zenodo.20650518">10.5281/zenodo.20650518</a> (v3.0.0).
+        Concept DOI (latest): <a href="https://doi.org/10.5281/zenodo.17561540">10.5281/zenodo.17561540</a>.
+        Author ORCID: <a href="https://orcid.org/0000-0002-4244-5011">0000-0002-4244-5011</a>.
+        See also <a href="https://github.com/Keven1894/AgentLoom/blob/main/CITATION.cff">CITATION.cff</a>.
+      </p>
+
+      <h3>Related research</h3>
+      <ul class="research-list">
+        <li>
+          <strong>AgentLoom v3.0.0</strong> — software release
+          <span class="status-tag status-accepted">released</span><br>
+          <a href="https://doi.org/10.5281/zenodo.20650518">doi.org/10.5281/zenodo.20650518</a>
+        </li>
+        <li>
+          <strong>Exploring Robust Multi-Agent Workflows for Environmental Data Management</strong>
+          <span class="status-tag status-accepted">PEARC '26 accepted</span><br>
+          Practice and Experience in Advanced Research Computing 2026, Minneapolis, MN.
+        </li>
+        <li>
+          <strong>A Dual-Helix Governance Approach Towards Reliable Agentic AI for WebGIS Development</strong>
+          <span class="status-tag status-review">under review</span><br>
+          <em>Transactions in GIS</em> — Generative AI special issue.
+        </li>
+        <li>
+          <strong>From Prompts to Protocols</strong>
+          <span class="status-tag status-workshop">UCGIS 2026 workshop</span><br>
+          <a href="https://github.com/Keven1894/ucgis-agentloom-2026-workshop">ucgis-agentloom-2026-workshop</a> · June 15, 2026, University of Maryland.
+        </li>
+      </ul>
+    </section>
+
+    <section id="contributors" class="wrap">
+      <h2>Contributors</h2>
+      <div class="contributor-grid">
+        <article class="contributor-card">
+          <h3>Dr. Boyuan (Keven) Guan</h3>
+          <p class="role">Framework creator &amp; lead developer · FIU Library &amp; GIS Center</p>
+          <p style="margin:0;font-size:0.88rem;">
+            <a href="https://github.com/Keven1894">@Keven1894</a> ·
+            <a href="https://orcid.org/0000-0002-4244-5011">ORCID</a>
+          </p>
+        </article>
+        <article class="contributor-card">
+          <h3>Dr. Levente Juhász</h3>
+          <p class="role">UCGIS 2026 workshop co-organizer · University of Florida, GATOR Lab</p>
+          <p style="margin:0;font-size:0.88rem;"><a href="https://github.com/jlevente">@jlevente</a></p>
+        </article>
+        <article class="contributor-card">
+          <h3>Dr. Wencong Cui</h3>
+          <p class="role">UCGIS 2026 workshop co-organizer · FIU GIS Center</p>
+          <p style="margin:0;font-size:0.88rem;"><a href="https://github.com/Vincent-Cui">@Vincent-Cui</a></p>
+        </article>
+      </div>
+      <p class="prose" style="font-size:0.88rem;">
+        Full list: <a href="https://github.com/Keven1894/AgentLoom/blob/main/CONTRIBUTORS.md">CONTRIBUTORS.md</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer wrap">
+    <p>© 2026 Boyuan (Keven) Guan · <a href="https://github.com/Keven1894/AgentLoom/blob/main/LICENSE">MIT License</a></p>
+    <p>Affiliation: FIU Library &amp; GIS Center (attribution only). Not an FIU official product.</p>
+    <p>
+      <a href="https://github.com/Keven1894/AgentLoom">Source</a> ·
+      <a href="https://doi.org/10.5281/zenodo.20650518">Zenodo</a> ·
+      <a href="https://github.com/Keven1894/AgentLoom/issues">Issues</a>
+    </p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('[data-copy]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var id = btn.getAttribute('data-copy');
+        var el = document.getElementById(id);
+        if (!el) return;
+        var text = el.textContent;
+        navigator.clipboard.writeText(text).then(function () {
+          var orig = btn.textContent;
+          btn.textContent = 'Copied';
+          setTimeout(function () { btn.textContent = orig; }, 1500);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

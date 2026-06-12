@@ -7,6 +7,8 @@ Tier-A validators, and a human review dashboard.
 ![Code: MIT](https://img.shields.io/badge/Code-MIT-blue.svg)
 ![Docs: CC BY-NC 4.0](https://img.shields.io/badge/Docs-CC%20BY--NC%204.0-lightgrey.svg)
 
+**Documentation:** https://keven1894.github.io/AgentLoom/
+
 **Author:** Dr. Boyuan (Keven) Guan · FIU Library & GIS Center (affiliation for attribution only)  
 **Version:** 3.0.0 (executable framework sync, June 2026)
 

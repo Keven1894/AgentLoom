@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="ecoTitle ecoDesc">
+  <title id="ecoTitle">AgentLoom ecosystem  four quadrants</title>
+  <desc id="ecoDesc">co-agenticOS sets rules; AgentLoom is the authoring-time framework; agentloom-runtime is run time; workshop repo is a concrete instance.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#5c6370"/>
+    </marker>
+    <style>
+      .box { fill: #fff; stroke-width: 2; rx: 8; }
+      .label { font-family: Inter, system-ui, sans-serif; font-size: 15px; font-weight: 600; fill: #1a1f2e; }
+      .sub { font-family: Inter, system-ui, sans-serif; font-size: 12px; fill: #5c6370; }
+      .phase { font-family: Inter, system-ui, sans-serif; font-size: 11px; fill: #0f766e; font-weight: 600; }
+      .arrow { stroke: #5c6370; stroke-width: 1.5; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <!-- co-agenticOS -->
+  <rect class="box" x="40" y="40" width="200" height="100" stroke="#9ca3af"/>
+  <text class="label" x="140" y="72" text-anchor="middle">co-agenticOS</text>
+  <text class="sub" x="140" y="94" text-anchor="middle">Governance spec</text>
+  <text class="sub" x="140" y="112" text-anchor="middle">sets the rules</text>
+  <!-- AgentLoom -->
+  <rect class="box" x="360" y="40" width="200" height="100" stroke="#4f46e5"/>
+  <text class="label" x="460" y="72" text-anchor="middle">AgentLoom</text>
+  <text class="sub" x="460" y="94" text-anchor="middle">Build framework</text>
+  <text class="phase" x="460" y="118" text-anchor="middle">authoring time</text>
+  <!-- runtime -->
+  <rect class="box" x="680" y="40" width="200" height="100" stroke="#0f766e"/>
+  <text class="label" x="780" y="72" text-anchor="middle">agentloom-runtime</text>
+  <text class="sub" x="780" y="94" text-anchor="middle">Runtime library</text>
+  <text class="phase" x="780" y="118" text-anchor="middle">run time</text>
+  <!-- workshop -->
+  <rect class="box" x="360" y="260" width="320" height="100" stroke="#b45309" stroke-dasharray="6 4"/>
+  <text class="label" x="520" y="292" text-anchor="middle">ucgis-agentloom-2026-workshop</text>
+  <text class="sub" x="520" y="314" text-anchor="middle">Concrete instance  fork &amp; learn</text>
+  <text class="sub" x="520" y="334" text-anchor="middle">a use of all of the above</text>
+  <!-- arrows -->
+  <path class="arrow" d="M240 90 H360"/>
+  <path class="arrow" d="M560 90 H680"/>
+  <path class="arrow" d="M140 140 V200 H520 V260"/>
+  <path class="arrow" d="M780 140 V200 H520"/>
+  <path class="arrow" d="M460 140 V220"/>
+</svg>
