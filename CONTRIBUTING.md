@@ -17,6 +17,17 @@ Before contributing, understand that this project consists of two complementary 
 
 ---
 
+## Public release hygiene (maintainers)
+
+Before any push to the public GitHub repos (`AgentLoom`, `agentloom-runtime`,
+`co-agenticOS`), run an internal-info scan on changed paths and require **0 BLOCK**
+(e.g. `Scripts/oss_release/scan_internal_info.py` in the envistor-data workspace).
+Do not commit institution-specific deployment code, credentials, or production data.
+Copyright stays under the maintainer's personal name; affiliation belongs in
+`CITATION.cff` / README only.
+
+---
+
 ## 🚀 Contribution Pathways
 
 We offer two distinct contribution paths based on your goals and collaboration level:

@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "agentloom"
 version = "3.0.0"
-description = "Executable governance framework for builder agents: knowledge graphs, propose-review-accept, Tier-A validators, and a human review dashboard."
+description = "Executable governance framework for builder agents: knowledge graphs, propose-review-accept, Tier-A validators, and a human review dashboard. Generalized from production research data lifecycle management practice."
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
@@ -18,6 +18,11 @@ keywords = [
     "ai-governance",
     "propose-review-accept",
     "builder-agent",
+    "research-data-management",
+    "research-data-lifecycle",
+    "data-curation",
+    "FAIR-data",
+    "digital-library",
 ]
 dependencies = [
     "jsonschema>=4.20.0,<5",

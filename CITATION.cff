@@ -22,6 +22,8 @@ abstract: >
   share one governance model; domain knowledge accumulates through audited proposals
   rather than ad-hoc prompt edits. Dual-helix architecture (learning + governance)
   positions the framework for trustworthy agentic AI in production settings.
+  Patterns were generalized from production research data lifecycle management at an
+  academic library (EnviStor); public releases are framework-only and domain-neutral.
 version: "3.0.0"
 date-released: 2026-06-11
 doi: 10.5281/zenodo.20650518
@@ -36,3 +38,8 @@ keywords:
   - Executable Validators
   - Builder Agent
   - Dual-Helix Architecture
+  - Research Data Management
+  - Research Data Lifecycle
+  - Data Curation
+  - FAIR Data
+  - Digital Library

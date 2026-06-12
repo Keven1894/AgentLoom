@@ -16,7 +16,10 @@ This project exists thanks to all the people who contribute to advancing product
 - **Contributions:**
   - Agentic-AI Engineering Framework design
   - Dual-helix architecture (Engineering + Governance)
-  - DIVA case study (production validation)
+  - Production RDM validation: 10+ governed agents, 100+ TB under management at an
+    academic library (historical aerial photos, GIS, time series, real-time sensors;
+    FAIR publication, dashboards, GIS cataloging, streaming, MLOps; 14 active projects)
+  - DIVA / EnviStor case studies (institutional instances — not shipped in this repo)
   - Research roadmap and methodology
   - Framework foundations and theoretical grounding
   - Memory hierarchy analogy and adaptive framework concept

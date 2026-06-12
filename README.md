@@ -7,8 +7,16 @@ Tier-A validators, and a human review dashboard.
 ![Code: MIT](https://img.shields.io/badge/Code-MIT-blue.svg)
 ![Docs: CC BY-NC 4.0](https://img.shields.io/badge/Docs-CC%20BY--NC%204.0-lightgrey.svg)
 
-**Author:** Dr. Boyuan (Keven) Guan · FIU Library & GIS Center  
+**Author:** Dr. Boyuan (Keven) Guan · FIU Library & GIS Center (affiliation for attribution only)  
 **Version:** 3.0.0 (executable framework sync, June 2026)
+
+**Project status:** Independently maintained open-source research software by
+[@Keven1894](https://github.com/Keven1894) — not an FIU official product. Patterns
+were generalized from production **research data lifecycle management** at an
+academic library (10+ governed agents, 100+ TB under management; historical aerial
+photos, GIS, time series, and real-time sensor data; FAIR publication, dashboards,
+GIS cataloging, streaming, and MLOps across 14 active projects). Public repos are
+framework-only — no EnviStor/Envita deployment code or production data.
 
 ---
 
