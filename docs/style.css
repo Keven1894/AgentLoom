@@ -179,6 +179,13 @@ a:hover { color: var(--accent-hover); }
 .callout p:last-child { margin-bottom: 0; }
 .callout strong { color: var(--text); }
 
+.status-line {
+  margin: 1.5rem 0 2rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
 /* Prose sections */
 section { padding-bottom: 0.5rem; }
 
