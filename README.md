@@ -9,12 +9,10 @@ Tier-A validators, and a human review dashboard.
 
 **Documentation:** https://keven1894.github.io/AgentLoom/
 
-**Author:** Dr. Boyuan (Keven) Guan · FIU Library & GIS Center (affiliation for attribution only)  
+**Author:** Dr. Boyuan (Keven) Guan ([@Keven1894](https://github.com/Keven1894))  
 **Version:** 3.0.0 (executable framework sync, June 2026)
 
-**Project status:** Independently maintained open-source research software by
-[@Keven1894](https://github.com/Keven1894) — not an FIU official product. Patterns
-were generalized from production **research data lifecycle management** at an
+**Project status:** Personal open-source research software. Patterns were generalized from production **research data lifecycle management** at an
 academic library (10+ governed agents, 100+ TB under management; historical aerial
 photos, GIS, time series, and real-time sensor data; FAIR publication, dashboards,
 GIS cataloging, streaming, and MLOps across 14 active projects). Public repos are

@@ -8,5 +8,5 @@ as trimmed `examples/d1-quake-catalog/`, `examples/d3-streamflow-catalog/`, etc.
 
 Until then, see:
 
-- [UCGIS dev evidence repo](https://github.com/Keven1894/ucgis-agentloom-2026) branches `d1`–`d4` (private staging on FIU Gitea)
+- [UCGIS dev evidence repo](https://github.com/Keven1894/ucgis-agentloom-2026) branches `d1`–`d4` (private staging)
 - [Workshop attendee fork](https://github.com/Keven1894/ucgis-agentloom-2026-workshop) for hands-on materials

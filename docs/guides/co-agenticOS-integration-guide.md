@@ -162,7 +162,6 @@ If you use co-agenticOS in your research, please cite both:
 ## Author
 
 Dr. Boyuan (Keven) Guan  
-FIU Library & GIS Center  
 📧 <bguan@fiu.edu>
 
 ```

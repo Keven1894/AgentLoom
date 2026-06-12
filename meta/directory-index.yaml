@@ -114,7 +114,7 @@ directories:
 metadata:
   maintainers:
     - name: Dr. Boyuan (Keven) Guan
-      affiliation: FIU Library & GIS Center
+      github: Keven1894
       contact: bguan@fiu.edu
   citation:
     doi: 10.5281/zenodo.17561541

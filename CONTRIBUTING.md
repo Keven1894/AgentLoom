@@ -23,8 +23,8 @@ Before any push to the public GitHub repos (`AgentLoom`, `agentloom-runtime`,
 `co-agenticOS`), run an internal-info scan on changed paths and require **0 BLOCK**
 (e.g. `Scripts/oss_release/scan_internal_info.py` in the envistor-data workspace).
 Do not commit institution-specific deployment code, credentials, or production data.
-Copyright stays under the maintainer's personal name; affiliation belongs in
-`CITATION.cff` / README only.
+Copyright stays under the maintainer's personal name. Optional contributor metadata belongs in
+`CITATION.cff` when needed for papers — not required on the public README or landing page.
 
 ---
 

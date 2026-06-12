@@ -26,7 +26,6 @@ This directory contains **production-validated case studies** demonstrating the 
 **Domain:** Digital Libraries & Institutional Repositories  
 **Framework Stage:** Stage 2 (RAM: Indexing + Metadata + Docs)  
 **Status:** Production (3+ months)  
-**Institution:** FIU Library & GIS Center
 
 **Key Contributions:**
 - First documented AI agent for library/repository systems

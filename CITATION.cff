@@ -3,7 +3,6 @@ message: "If you use this framework, please cite it as below:"
 authors:
   - family-names: Guan
     given-names: Boyuan (Keven)
-    affiliation: Florida International University, Library & GIS Center
     orcid: https://orcid.org/0000-0002-4244-5011
 contributors:
   - family-names: Juhász
@@ -12,7 +11,6 @@ contributors:
     email: levente.juhasz@ufl.edu
   - family-names: Cui
     given-names: Wencong
-    affiliation: Florida International University, GIS Center
     email: wecui@fiu.edu
 title: "AgentLoom: Executable Governance Framework for Builder Agents"
 abstract: >

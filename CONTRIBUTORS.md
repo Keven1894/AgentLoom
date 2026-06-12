@@ -10,7 +10,6 @@ This project exists thanks to all the people who contribute to advancing product
 
 **Dr. Boyuan (Keven) Guan**
 
-- **Affiliation:** Florida International University, Library & GIS Center
 - **Role:** Framework creator, lead developer, research director
 - **Email:** <bguan@fiu.edu>
 - **Contributions:**
@@ -41,7 +40,7 @@ This project exists thanks to all the people who contribute to advancing product
 
 **Dr. Wencong Cui**
 
-- **Affiliation:** Florida International University, GIS Center
+- **Role:** UCGIS 2026 workshop co-organizer
 - **Email:** <wecui@fiu.edu>
 - **GitHub:** [@Vincent-Cui](https://github.com/Vincent-Cui)
 - **Contributions:**
@@ -58,7 +57,6 @@ This project exists thanks to all the people who contribute to advancing product
 #### DIVA: Dataverse Intelligent Virtual Assistant
 
 **Authors:** Dr. Boyuan (Keven) Guan  
-**Affiliation:** FIU Library & GIS Center  
 **Case Study:** [Dataverse DIVA](docs/case-studies/dataverse-diva.md)  
 **Framework Stage:** Stage 2 (RAM: Indexing + Metadata + Docs)  
 **Status:** Production (3+ months)  
@@ -172,9 +170,8 @@ We're seeking case studies in:
 
 **Current:**
 
-- Florida International University — Library & GIS Center (lead)
-- FIU Computer Science Department
-- FIU Division of IT
+- Academic library research data management production context (see case studies)
+- Geospatial and digital-library domain collaborators
 
 **Seeking:**
 
@@ -221,12 +218,7 @@ We're seeking case studies in:
 
 ### Institutions
 
-**Florida International University:**
-
-- Library & GIS Center (lead institution)
-- Knight Foundation School of Computing and Information Sciences
-- Division of IT
-- Digital Collections Center
+Production validation drew on academic library and research computing infrastructure (institutional details in linked case studies — not shipped in this repository).
 
 ### Research Infrastructure
 
@@ -332,11 +324,10 @@ This work builds upon:
 
 **Project Lead:**  
 Dr. Boyuan (Keven) Guan  
-<bguan@fiu.edu>  
-FIU Library & GIS Center
+<bguan@fiu.edu>
 
-**Project Website:**  
-<https://dataversedev.fiu.edu/ai/>
+**Documentation:**  
+<https://keven1894.github.io/AgentLoom/>
 
 **Repository:**  
 <https://github.com/Keven1894/AgentLoom>
